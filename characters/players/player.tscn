@@ -1,0 +1,19 @@
+[gd_scene load_steps=4 format=3 uid="uid://fq6y7f4h3bkp"]
+
+[ext_resource type="Script" path="res://characters/players/player.gd" id="1_el44m"]
+[ext_resource type="Texture2D" uid="uid://g1tghd0yua" path="res://icon.svg" id="1_wos3d"]
+[ext_resource type="Texture2D" uid="uid://d3yjc0i4n55rq" path="res://characters/players/aim_indicator.png" id="2_k5crk"]
+
+[node name="Player" type="CharacterBody2D"]
+scale = Vector2(0.25, 0.25)
+script = ExtResource("1_el44m")
+
+[node name="PlayerSprite" type="Sprite2D" parent="."]
+texture = ExtResource("1_wos3d")
+
+[node name="AimIndicator" type="Node2D" parent="."]
+scale = Vector2(2, 2)
+
+[node name="AimIndicatorSprite" type="Sprite2D" parent="AimIndicator"]
+position = Vector2(0, -74)
+texture = ExtResource("2_k5crk")
