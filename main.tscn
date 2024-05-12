@@ -1,3 +1,42 @@
-[gd_scene format=3 uid="uid://dbhm00x2xidw0"]
+[gd_scene load_steps=6 format=3 uid="uid://dbhm00x2xidw0"]
 
-[node name="Node2D" type="Node2D"]
+[ext_resource type="PackedScene" uid="uid://fq6y7f4h3bkp" path="res://characters/players/player.tscn" id="1_ixtv7"]
+[ext_resource type="Texture2D" uid="uid://bdwk7dgr4r3dv" path="res://environment/far.png" id="2_g6h7d"]
+[ext_resource type="Texture2D" uid="uid://da34nrhp1wuob" path="res://environment/sand.png" id="3_emhfw"]
+[ext_resource type="Texture2D" uid="uid://yw620f85ene7" path="res://environment/foreground-1.png" id="4_0a48p"]
+[ext_resource type="Texture2D" uid="uid://ccqlyw4kdkg8i" path="res://environment/foreground-2.png" id="5_ubxi6"]
+
+[node name="Main" type="Node2D"]
+
+[node name="Player" parent="." instance=ExtResource("1_ixtv7")]
+position = Vector2(319, 343)
+
+[node name="ParallaxLayer" type="ParallaxBackground" parent="."]
+
+[node name="ParallaxLayer" type="ParallaxLayer" parent="ParallaxLayer"]
+
+[node name="Sprite2D" type="Sprite2D" parent="ParallaxLayer/ParallaxLayer"]
+position = Vector2(319.75, 179.548)
+scale = Vector2(2.502, 1.88)
+texture = ExtResource("2_g6h7d")
+
+[node name="ParallaxLayer2" type="ParallaxLayer" parent="ParallaxLayer"]
+
+[node name="Sprite2D" type="Sprite2D" parent="ParallaxLayer/ParallaxLayer2"]
+position = Vector2(319.75, 179.548)
+scale = Vector2(2.502, 1.88)
+texture = ExtResource("3_emhfw")
+
+[node name="ParallaxLayer3" type="ParallaxLayer" parent="ParallaxLayer"]
+
+[node name="Sprite2D" type="Sprite2D" parent="ParallaxLayer/ParallaxLayer3"]
+position = Vector2(319.75, 179.548)
+scale = Vector2(2.502, 1.88)
+texture = ExtResource("4_0a48p")
+
+[node name="ParallaxLayer4" type="ParallaxLayer" parent="ParallaxLayer"]
+
+[node name="Sprite2D" type="Sprite2D" parent="ParallaxLayer/ParallaxLayer4"]
+position = Vector2(319.75, 179.548)
+scale = Vector2(2.50195, 1.87971)
+texture = ExtResource("5_ubxi6")
