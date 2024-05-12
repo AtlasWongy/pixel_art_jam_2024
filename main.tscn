@@ -1,4 +1,4 @@
-[gd_scene load_steps=8 format=3 uid="uid://dbhm00x2xidw0"]
+[gd_scene load_steps=9 format=3 uid="uid://dbhm00x2xidw0"]
 
 [ext_resource type="PackedScene" uid="uid://fq6y7f4h3bkp" path="res://characters/players/player.tscn" id="1_ixtv7"]
 [ext_resource type="Texture2D" uid="uid://bdwk7dgr4r3dv" path="res://environment/far.png" id="2_g6h7d"]
@@ -7,6 +7,7 @@
 [ext_resource type="Texture2D" uid="uid://ccqlyw4kdkg8i" path="res://environment/foreground-2.png" id="5_ubxi6"]
 [ext_resource type="PackedScene" uid="uid://da0sjbuvd10co" path="res://characters/bubble.tscn" id="6_dwj8i"]
 [ext_resource type="PackedScene" uid="uid://cryul1deljc4m" path="res://wall.tscn" id="7_ofmqr"]
+[ext_resource type="PackedScene" uid="uid://ccqd1dd1bk1xg" path="res://Fish.tscn" id="8_h1155"]
 
 [node name="Main" type="Node2D"]
 
@@ -48,3 +49,6 @@ texture = ExtResource("5_ubxi6")
 [node name="Walls" type="Node" parent="."]
 
 [node name="StaticBody2D" parent="Walls" instance=ExtResource("7_ofmqr")]
+
+[node name="Fish" parent="." instance=ExtResource("8_h1155")]
+position = Vector2(323, 77)

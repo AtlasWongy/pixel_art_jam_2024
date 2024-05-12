@@ -16,4 +16,4 @@ func _process(delta):
 func _on_area_2d_body_entered(body):
 	if fish_resource:
 		fish_resource.on_collision()
-	#queue_free() << remove this node
+	queue_free()
