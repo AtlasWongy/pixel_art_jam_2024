@@ -1,5 +1,7 @@
 extends Node
 
+signal shot_completed() #emitted when ball hits lower boundary
+signal fish_collision()
 signal changed_player_rotation
 signal shoot_bubble
 

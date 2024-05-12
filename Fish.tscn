@@ -1,7 +1,8 @@
-[gd_scene load_steps=4 format=3 uid="uid://ccqd1dd1bk1xg"]
+[gd_scene load_steps=5 format=3 uid="uid://ccqd1dd1bk1xg"]
 
 [ext_resource type="Script" path="res://Fish.gd" id="1_6afg3"]
 [ext_resource type="Resource" uid="uid://c42m6pvqetp57" path="res://Resources/Rockfish.tres" id="2_ps5ra"]
+[ext_resource type="Texture2D" uid="uid://g1tghd0yua" path="res://icon.svg" id="3_rijin"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_xi1xh"]
 size = Vector2(32, 32)
@@ -14,3 +15,9 @@ fish_resource = ExtResource("2_ps5ra")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
 shape = SubResource("RectangleShape2D_xi1xh")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+scale = Vector2(0.25, 0.25)
+texture = ExtResource("3_rijin")
+
+[connection signal="body_entered" from="Area2D" to="." method="_on_area_2d_body_entered"]
