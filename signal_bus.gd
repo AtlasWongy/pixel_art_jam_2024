@@ -1,5 +1,8 @@
 extends Node
 
+signal shot_fired() 	#emitted when player shoots something
+signal shot_completed() #emitted when ball hits lower boundary
+signal fish_collision()
 
 # Called when the node enters the scene tree for the first time.
 func _ready():

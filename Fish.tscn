@@ -14,3 +14,5 @@ fish_resource = ExtResource("2_ps5ra")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
 shape = SubResource("RectangleShape2D_xi1xh")
+
+[connection signal="body_entered" from="Area2D" to="." method="_on_area_2d_body_entered"]
