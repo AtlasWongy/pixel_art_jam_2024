@@ -1,15 +1,19 @@
-[gd_scene load_steps=6 format=3 uid="uid://dbhm00x2xidw0"]
+[gd_scene load_steps=8 format=3 uid="uid://dbhm00x2xidw0"]
 
 [ext_resource type="PackedScene" uid="uid://fq6y7f4h3bkp" path="res://characters/players/player.tscn" id="1_ixtv7"]
 [ext_resource type="Texture2D" uid="uid://bdwk7dgr4r3dv" path="res://environment/far.png" id="2_g6h7d"]
 [ext_resource type="Texture2D" uid="uid://da34nrhp1wuob" path="res://environment/sand.png" id="3_emhfw"]
 [ext_resource type="Texture2D" uid="uid://yw620f85ene7" path="res://environment/foreground-1.png" id="4_0a48p"]
 [ext_resource type="Texture2D" uid="uid://ccqlyw4kdkg8i" path="res://environment/foreground-2.png" id="5_ubxi6"]
+[ext_resource type="PackedScene" uid="uid://da0sjbuvd10co" path="res://characters/bubble.tscn" id="6_dwj8i"]
+[ext_resource type="PackedScene" uid="uid://cryul1deljc4m" path="res://wall.tscn" id="7_ofmqr"]
 
 [node name="Main" type="Node2D"]
 
 [node name="Player" parent="." instance=ExtResource("1_ixtv7")]
 position = Vector2(319, 343)
+
+[node name="Bubble" parent="." instance=ExtResource("6_dwj8i")]
 
 [node name="ParallaxLayer" type="ParallaxBackground" parent="."]
 
@@ -40,3 +44,7 @@ texture = ExtResource("4_0a48p")
 position = Vector2(319.75, 179.548)
 scale = Vector2(2.50195, 1.87971)
 texture = ExtResource("5_ubxi6")
+
+[node name="Walls" type="Node" parent="."]
+
+[node name="StaticBody2D" parent="Walls" instance=ExtResource("7_ofmqr")]
