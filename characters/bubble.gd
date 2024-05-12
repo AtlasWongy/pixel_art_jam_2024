@@ -48,3 +48,4 @@ func toggle_starting_state():
 		set_to_starting_state = true
 		linear_velocity.x = 0
 		linear_velocity.y = 0
+		SignalBus.shot_completed.emit()
