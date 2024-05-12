@@ -1,5 +1,7 @@
 extends Node
 
+signal changed_player_rotation
+signal shoot_bubble
 
 # Called when the node enters the scene tree for the first time.
 func _ready():

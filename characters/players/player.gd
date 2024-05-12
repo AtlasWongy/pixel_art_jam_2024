@@ -17,6 +17,9 @@ func _physics_process(delta):
 		return
 	else:
 		rotation += rotation_direction * rotation_speed * delta
+
+	SignalBus.changed_player_rotation.emit(rotation)
+		
 	if Input.is_action_just_pressed("ui_accept"):
-		print("Fire the ball")
+		SignalBus.shoot_bubble.emit()
 	
