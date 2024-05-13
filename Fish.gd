@@ -18,6 +18,7 @@ func _on_area_2d_body_entered(body):
 		fish_resource.on_collision()
 	#make death tween here
 	queue_free()
+	SignalBus.fish_destroyed.emit()
 
 func _on_shot_fired():
 	print("wow")
