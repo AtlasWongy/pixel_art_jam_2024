@@ -35,9 +35,9 @@ func start_bubble_movement():
 		#linear_velocity.x = [-1, 1][randi() % 2] * initial_bubble_speed
 		#linear_velocity.y = [-8, 8][randi() % 2] * initial_bubble_speed
 
-func update_postition(rotation:float):
+func update_postition(rotation_changed:float):
 	if set_to_starting_state:
-		player_rotation = rotation
+		player_rotation = rotation_changed
 		global_position = get_parent().get_node("Player").global_position + Vector2(0, -distance_from_player).rotated(player_rotation)
 		#global_position = get_parent().get_node("Player").global_position + Vector2.RIGHT.rotated(player_rotation*(PI / 180.0))
 		#global_position = get_parent().get_node("Player").global_position + Vector2(cos(player_rotation), sin(player_rotation)).normalized() * distance_from_player
