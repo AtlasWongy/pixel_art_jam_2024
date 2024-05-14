@@ -1,6 +1,6 @@
 [gd_scene load_steps=5 format=3 uid="uid://cryul1deljc4m"]
 
-[ext_resource type="PhysicsMaterial" uid="uid://dm12o6rs7flnd" path="res://characters/bubble_physics_material.tres" id="1_pp4cx"]
+[ext_resource type="PhysicsMaterial" uid="uid://dm12o6rs7flnd" path="res://characters/projectile/bubble_physics_material.tres" id="1_pp4cx"]
 
 [sub_resource type="SegmentShape2D" id="SegmentShape2D_5qljy"]
 b = Vector2(641, 0)

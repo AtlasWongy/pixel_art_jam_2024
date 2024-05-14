@@ -8,24 +8,23 @@ var rotation_direction = 0
 func get_rotation_input(delta):
 	rotation_direction = Input.get_axis("left_arrow", "right_arrow")
 	if rotation >= max_rotation:
-		print("Reached rotation limit")
 		if rotation_direction < 0:
 			rotation -= 0.025
 			return
+		elif rotation_direction > 0:
+			print("Reached right rotation limit")
 	elif rotation <= -max_rotation:
-		print("Reached rotation limit")
 		if rotation_direction > 0:
 			rotation += 0.025
 			return
+		elif rotation_direction < 0:
+			print("Reached left rotation limit")
 	else:
 		rotation += rotation_direction * rotation_speed * delta
-	
 		
 func _physics_process(delta):
 	get_rotation_input(delta)
-	
-	SignalBus.changed_player_rotation.emit(rotation)
+	SignalBus.changed_player_rotation.emit(rotation, global_position)
 		
 	if Input.is_action_just_pressed("ui_accept"):
-		SignalBus.shoot_bubble.emit()
-	
+		SignalBus.shoot_bubble.emit(rotation)
