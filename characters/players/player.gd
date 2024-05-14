@@ -1,18 +1,18 @@
 extends CharacterBody2D
 
-@export var rotation_speed = 1.5
-@export var max_rotation = 1.5
+@export var rotation_speed = 3.0
+@export var max_rotation = 1.309
 
 var rotation_direction = 0
 
 func get_rotation_input(delta):
 	rotation_direction = Input.get_axis("left_arrow", "right_arrow")
-	if rotation > max_rotation:
+	if rotation >= max_rotation:
 		print("Reached rotation limit")
 		if rotation_direction < 0:
 			rotation -= 0.025
 			return
-	elif rotation < -max_rotation:
+	elif rotation <= -max_rotation:
 		print("Reached rotation limit")
 		if rotation_direction > 0:
 			rotation += 0.025
