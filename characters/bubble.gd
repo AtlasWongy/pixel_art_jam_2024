@@ -26,7 +26,6 @@ func _physics_process(delta):
 func start_bubble_movement():
 	if set_to_starting_state:
 		set_to_starting_state = false
-		print("Fire the bubble")
 		 # Calculate the direction vector based on the rotation angle
 		var direction = Vector2(0, -distance_from_player).rotated(player_rotation)
 		# Set the linear velocity of the ball
@@ -44,7 +43,6 @@ func update_postition(rotation_changed:float):
 
 func toggle_starting_state():
 	if position.y > get_viewport_rect().size.y:
-		print("Shot ended")
 		set_to_starting_state = true
 		linear_velocity.x = 0
 		linear_velocity.y = 0
