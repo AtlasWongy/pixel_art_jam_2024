@@ -13,4 +13,4 @@ func _process(delta):
 func _move_fish():
 	get_tree().call_group("Fish","_on_shot_fired")
 	var scene_tree = SceneTree.new()
-	print(get_tree().has_group("Fish"))
+	print("Fish surviving: ", get_tree().has_group("Fish"))
