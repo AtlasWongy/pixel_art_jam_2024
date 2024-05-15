@@ -4,8 +4,8 @@ extends Node2D
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
-	if fish_resource:
-		print("fish resource loaded.")
+	if fish_resource.fish_sprite:
+		$Sprite2D.texture = fish_resource.fish_sprite
 		#fish_resource.on_collision() #this is just for testing. remove later.
 
 
