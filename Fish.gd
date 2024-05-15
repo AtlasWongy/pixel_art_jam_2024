@@ -6,18 +6,11 @@ extends Node2D
 func _ready():
 	if fish_resource.fish_sprite:
 		$Sprite2D.texture = fish_resource.fish_sprite
-		#fish_resource.on_collision() #this is just for testing. remove later.
-
-
-# Called every frame. 'delta' is the elapsed time since the previous frame.
-func _process(delta):
-	pass
-
 
 func _on_area_2d_body_entered(body):
 	
 	if fish_resource:
-		fish_resource.on_collision(body)
+		fish_resource.on_collision(body) #i'm just going to assume that the only bodies moving around are the bubble - DG
 	#make death tween here
 	queue_free()
 	SignalBus.fish_destroyed.emit()
