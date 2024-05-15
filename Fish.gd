@@ -13,12 +13,14 @@ func _on_area_2d_body_entered(body):
 		fish_resource.on_collision(body) #i'm just going to assume that the only bodies moving around are the bubble - DG
 	#make death tween here
 	queue_free()
-	SignalBus.fish_destroyed.emit()
+	SignalBus.fish_destroyed.emit(10)
 
 func _on_shot_fired():
-	print("wow")
 	var tween = get_tree().create_tween()
 	tween.tween_property(self,"position",position+Vector2(0,32),0.5).set_trans(Tween.TRANS_SINE)
 	#tween.tween_property($Sprite2D, "modulate", Color.RED, 1)
 	tween.play()
+	
+func _toggle_visibility(show_flag:bool):
+	self.visible = show_flag
 	
