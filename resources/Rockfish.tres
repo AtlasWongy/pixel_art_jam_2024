@@ -6,3 +6,4 @@
 [resource]
 script = ExtResource("1_tv6sg")
 fish_sprite = ExtResource("1_1mjuw")
+fish_value = 0
