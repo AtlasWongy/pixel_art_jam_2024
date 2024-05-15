@@ -53,7 +53,6 @@ texture = ExtResource("5_ubxi6")
 [node name="Walls" type="Node" parent="."]
 
 [node name="StaticBody2D" parent="Walls" instance=ExtResource("7_ofmqr")]
-collision_layer = 9
 
 [node name="Fish" parent="." instance=ExtResource("8_h1155")]
 position = Vector2(323, 77)
@@ -84,7 +83,6 @@ text = "123"
 script = ExtResource("11_tjt43")
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
-visible = false
-position = Vector2(120.969, 343)
+position = Vector2(-794.829, 1582.4)
 scale = Vector2(0.24, 0.24)
 texture = ExtResource("12_qttld")

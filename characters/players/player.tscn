@@ -6,7 +6,6 @@
 [ext_resource type="Script" path="res://characters/players/RayCastHolder.gd" id="4_vfnbg"]
 
 [node name="Player" type="CharacterBody2D"]
-rotation = -0.523599
 scale = Vector2(0.25, 0.25)
 script = ExtResource("1_el44m")
 
@@ -26,5 +25,6 @@ script = ExtResource("4_vfnbg")
 current_raycast = NodePath("RayCast2D")
 
 [node name="RayCast2D" type="RayCast2D" parent="RayCastHolder"]
+scale = Vector2(10, 10)
 target_position = Vector2(0, -2000)
 collision_mask = 8
