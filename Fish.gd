@@ -24,3 +24,6 @@ func _on_shot_fired():
 	#tween.tween_property($Sprite2D, "modulate", Color.RED, 1)
 	tween.play()
 	
+func _toggle_visibility(show:bool):
+	self.visible = show
+	

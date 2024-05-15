@@ -8,6 +8,11 @@ signal bubble_collide_wall()
 signal update_score
 signal fish_destroyed()
 
+signal start_game(game_started:bool)
+signal game_state(indicator:int)
+signal toggle_menu_visibility(show:bool)
+signal toggle_characters_visibility(show:bool)
+
 # Called when the node enters the scene tree for the first time.
 func _ready():
 	pass # Replace with function body.

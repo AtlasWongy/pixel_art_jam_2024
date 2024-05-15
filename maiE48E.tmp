@@ -1,4 +1,4 @@
-[gd_scene load_steps=15 format=3 uid="uid://dbhm00x2xidw0"]
+[gd_scene load_steps=14 format=3 uid="uid://dbhm00x2xidw0"]
 
 [ext_resource type="PackedScene" uid="uid://fq6y7f4h3bkp" path="res://characters/players/player.tscn" id="1_ixtv7"]
 [ext_resource type="Texture2D" uid="uid://bdwk7dgr4r3dv" path="res://environment/far.png" id="2_g6h7d"]
@@ -13,9 +13,6 @@
 [ext_resource type="Script" path="res://ui/score/HighScore.gd" id="11_tjt43"]
 [ext_resource type="Script" path="res://menu.gd" id="12_godw7"]
 [ext_resource type="Script" path="res://gamemanager.gd" id="13_n48mw"]
-
-[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_0upnv"]
-bg_color = Color(0.301961, 0.662745, 0.690196, 1)
 
 [node name="Main" type="Node2D"]
 
@@ -86,26 +83,16 @@ theme_override_fonts/font = ExtResource("10_cl0sf")
 text = "123"
 script = ExtResource("11_tjt43")
 
-[node name="Menu" type="Node2D" parent="CanvasUI"]
+[node name="menu" type="Node2D" parent="CanvasUI"]
 script = ExtResource("12_godw7")
 
-[node name="GameName" type="RichTextLabel" parent="CanvasUI/Menu"]
-offset_left = 227.0
-offset_top = 115.0
-offset_right = 428.0
-offset_bottom = 157.0
-theme_override_font_sizes/normal_font_size = 30
-text = "ARCHER FISH"
-
-[node name="PlayButton" type="Button" parent="CanvasUI/Menu"]
-offset_left = 260.0
+[node name="Button" type="Button" parent="CanvasUI/menu"]
+offset_left = 259.0
 offset_top = 166.0
-offset_right = 384.0
+offset_right = 383.0
 offset_bottom = 194.0
-theme_override_styles/normal = SubResource("StyleBoxFlat_0upnv")
-text = "Play"
 
 [node name="GameManager" type="Node" parent="."]
 script = ExtResource("13_n48mw")
 
-[connection signal="pressed" from="CanvasUI/Menu/PlayButton" to="CanvasUI/Menu" method="click_play_button"]
+[connection signal="pressed" from="CanvasUI/menu/Button" to="CanvasUI/menu" method="_on_button_pressed"]

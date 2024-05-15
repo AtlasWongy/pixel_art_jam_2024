@@ -4,6 +4,7 @@ extends Node
 # Called when the node enters the scene tree for the first time.
 func _ready():
 	SignalBus.shot_completed.connect(_move_fish)
+	SignalBus.toggle_characters_visibility.connect(toggle_visibility)
 
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
@@ -14,3 +15,7 @@ func _move_fish():
 	get_tree().call_group("Fish","_on_shot_fired")
 	var scene_tree = SceneTree.new()
 	print("Fish surviving: ", get_tree().has_group("Fish"))
+
+func toggle_visibility(show:bool):
+	get_tree().call_group("Fish","_toggle_visibility", show)
+	print("fishes ", show)

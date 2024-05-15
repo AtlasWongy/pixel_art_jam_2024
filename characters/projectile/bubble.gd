@@ -16,7 +16,8 @@ func _ready():
 	#start_bubble()
 	SignalBus.changed_player_rotation.connect(update_postition)
 	SignalBus.shoot_bubble.connect(start_bubble_movement)
-	
+	SignalBus.toggle_characters_visibility.connect(toggle_visibility)
+		
 func _physics_process(delta):
 	toggle_starting_state()
 	var collision = move_and_collide(linear_velocity * bubble_speed * delta)
@@ -58,3 +59,7 @@ func toggle_starting_state():
 		linear_velocity.x = 0
 		linear_velocity.y = 0
 		SignalBus.shot_completed.emit()
+		
+func toggle_visibility(show:bool):
+	print("bubble ", show)
+	self.visible = show
