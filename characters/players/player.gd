@@ -5,6 +5,9 @@ extends CharacterBody2D
 
 var rotation_direction = 0
 
+func _ready():
+	SignalBus.toggle_characters_visibility.connect(toggle_visibility)
+
 func get_rotation_input(delta):
 	rotation_direction = Input.get_axis("left_arrow", "right_arrow")
 	if rotation >= max_rotation:
@@ -28,3 +31,7 @@ func _physics_process(delta):
 		
 	if Input.is_action_just_pressed("ui_accept"):
 		SignalBus.shoot_bubble.emit(rotation)
+		
+func toggle_visibility(show_flag:bool):
+	print("player ", show_flag)
+	self.visible = show_flag

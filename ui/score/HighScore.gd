@@ -7,7 +7,7 @@ func _ready():
 	text = str(score)
 	pass # Replace with function body.
 
-func _process(delta):
+func _process(_delta):
 	pass
 
 func update_text_score(new_score: int):
