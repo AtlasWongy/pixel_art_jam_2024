@@ -29,7 +29,7 @@ func get_fish_nearest_to_bottom() -> float:
 	var min_y = INF 
 	
 	for fish in get_tree().get_nodes_in_group("Fish"):
-		if fish.global_position.y > min_y:
+		if fish.global_position.y < min_y:
 			min_y = fish.global_position.y
 			bottom_fish = fish
 			

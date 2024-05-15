@@ -1,6 +1,7 @@
 extends Node
 
 func _ready():
+	#SignalBus.start_game.connect(game_started)
 	SignalBus.game_state.connect(game_started)
 
 func game_started(indicator:int):
