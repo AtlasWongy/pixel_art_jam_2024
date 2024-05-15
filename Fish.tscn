@@ -1,7 +1,7 @@
 [gd_scene load_steps=5 format=3 uid="uid://ccqd1dd1bk1xg"]
 
 [ext_resource type="Script" path="res://Fish.gd" id="1_6afg3"]
-[ext_resource type="Resource" uid="uid://c42m6pvqetp57" path="res://resources/Rockfish.tres" id="2_ps5ra"]
+[ext_resource type="Resource" uid="uid://3f30j16palc7" path="res://resources/Rockfish.tres" id="2_ps5ra"]
 [ext_resource type="Texture2D" uid="uid://g1tghd0yua" path="res://icon.svg" id="3_rijin"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_xi1xh"]
