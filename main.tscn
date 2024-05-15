@@ -1,4 +1,4 @@
-[gd_scene load_steps=12 format=3 uid="uid://dbhm00x2xidw0"]
+[gd_scene load_steps=13 format=3 uid="uid://dbhm00x2xidw0"]
 
 [ext_resource type="PackedScene" uid="uid://fq6y7f4h3bkp" path="res://characters/players/player.tscn" id="1_ixtv7"]
 [ext_resource type="Texture2D" uid="uid://bdwk7dgr4r3dv" path="res://environment/far.png" id="2_g6h7d"]
@@ -11,6 +11,7 @@
 [ext_resource type="PackedScene" uid="uid://cj1sij6b3r13x" path="res://FishFactory.tscn" id="9_48mwk"]
 [ext_resource type="FontFile" uid="uid://cw5jyvphsyts7" path="res://ui/fonts/VCR_OSD_MONO_1.001.ttf" id="10_cl0sf"]
 [ext_resource type="Script" path="res://ui/score/HighScore.gd" id="11_tjt43"]
+[ext_resource type="Texture2D" uid="uid://g1tghd0yua" path="res://icon.svg" id="12_qttld"]
 
 [node name="Main" type="Node2D"]
 
@@ -52,6 +53,7 @@ texture = ExtResource("5_ubxi6")
 [node name="Walls" type="Node" parent="."]
 
 [node name="StaticBody2D" parent="Walls" instance=ExtResource("7_ofmqr")]
+collision_layer = 9
 
 [node name="Fish" parent="." instance=ExtResource("8_h1155")]
 position = Vector2(323, 77)
@@ -80,3 +82,9 @@ layout_mode = 2
 theme_override_fonts/font = ExtResource("10_cl0sf")
 text = "123"
 script = ExtResource("11_tjt43")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+visible = false
+position = Vector2(120.969, 343)
+scale = Vector2(0.24, 0.24)
+texture = ExtResource("12_qttld")

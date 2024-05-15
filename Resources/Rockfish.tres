@@ -1,6 +1,6 @@
 [gd_resource type="Resource" script_class="Rockfish" load_steps=2 format=3 uid="uid://c42m6pvqetp57"]
 
-[ext_resource type="Script" path="res://Resources/Rockfish.gd" id="1_tv6sg"]
+[ext_resource type="Script" path="res://resources/Rockfish.gd" id="1_tv6sg"]
 
 [resource]
 script = ExtResource("1_tv6sg")

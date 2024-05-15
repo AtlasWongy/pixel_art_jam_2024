@@ -16,7 +16,7 @@ func _on_area_2d_body_entered(body):
 		fish_resource.on_collision()
 	#make death tween here
 	queue_free()
-	SignalBus.fish_destroyed.emit()
+	SignalBus.fish_destroyed.emit(10)
 
 func _on_shot_fired():
 	var tween = get_tree().create_tween()
