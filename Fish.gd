@@ -5,7 +5,8 @@ extends Node2D
 # Called when the node enters the scene tree for the first time.
 func _ready():
 	if fish_resource:
-		fish_resource.on_collision() #this is just for testing. remove later.
+		print("fish resource loaded.")
+		#fish_resource.on_collision() #this is just for testing. remove later.
 
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
@@ -14,8 +15,9 @@ func _process(delta):
 
 
 func _on_area_2d_body_entered(body):
+	
 	if fish_resource:
-		fish_resource.on_collision()
+		fish_resource.on_collision(body)
 	#make death tween here
 	queue_free()
 	SignalBus.fish_destroyed.emit()

@@ -4,7 +4,7 @@
 [ext_resource type="Texture2D" uid="uid://cmmyjw8g65jkl" path="res://ballBlue_10.png" id="2_udbvf"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_yfwy7"]
-size = Vector2(43, 38)
+size = Vector2(22, 22)
 
 [node name="Bubble" type="RigidBody2D"]
 position = Vector2(319, 250)
@@ -17,5 +17,4 @@ scale = Vector2(0.113688, 0.113909)
 texture = ExtResource("2_udbvf")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
-position = Vector2(1, 0)
 shape = SubResource("RectangleShape2D_yfwy7")
