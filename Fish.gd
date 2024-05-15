@@ -8,10 +8,10 @@ func _ready():
 		fish_resource.on_collision() #this is just for testing. remove later.
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
-func _process(delta):
+func _process(_delta):
 	pass
 
-func _on_area_2d_body_entered(body):
+func _on_area_2d_body_entered(_body):
 	if fish_resource:
 		fish_resource.on_collision()
 	#make death tween here
@@ -24,6 +24,6 @@ func _on_shot_fired():
 	#tween.tween_property($Sprite2D, "modulate", Color.RED, 1)
 	tween.play()
 	
-func _toggle_visibility(show:bool):
-	self.visible = show
+func _toggle_visibility(show_flag:bool):
+	self.visible = show_flag
 	

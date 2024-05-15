@@ -32,6 +32,6 @@ func _physics_process(delta):
 	if Input.is_action_just_pressed("ui_accept"):
 		SignalBus.shoot_bubble.emit(rotation)
 		
-func toggle_visibility(show:bool):
-	print("player ", show)
-	self.visible = show
+func toggle_visibility(show_flag:bool):
+	print("player ", show_flag)
+	self.visible = show_flag

@@ -60,6 +60,6 @@ func toggle_starting_state():
 		linear_velocity.y = 0
 		SignalBus.shot_completed.emit()
 		
-func toggle_visibility(show:bool):
-	print("bubble ", show)
-	self.visible = show
+func toggle_visibility(show_flag:bool):
+	print("bubble ", show_flag)
+	self.visible = show_flag

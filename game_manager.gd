@@ -8,20 +8,19 @@ func _ready():
 	game_state = GameState.IDLE
 	SignalBus.start_game.connect(game_started)
 	SignalBus.game_state.emit(game_state)
-	SignalBus.toggle_characters_visibility.emit(false)
+	SignalBus.nearest_enemy_position.connect(game_over)
 	
 func game_started(start_game:bool):
 	if start_game:
 		game_state = GameState.RUNNING
-		SignalBus.toggle_menu_visibility.emit(false)
-		SignalBus.toggle_characters_visibility.emit(true)
-		print("Game State: ", game_state)
 	else:
 		game_state = GameState.IDLE
-		SignalBus.toggle_menu_visibility.emit(true)
-		SignalBus.toggle_characters_visibility.emit(false)
-		print("Game State: ", game_state)
 	SignalBus.game_state.emit(game_state)
-	
+
+func game_over(fish_position:float):
+	var player_y_position = get_parent().get_node("Player").global_position.y
+	if fish_position >= player_y_position:
+		print("GAMEOVER!")
+
 func _process(_delta):
 	pass

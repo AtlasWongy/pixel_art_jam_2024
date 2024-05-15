@@ -1,4 +1,4 @@
-[gd_scene load_steps=15 format=3 uid="uid://dbhm00x2xidw0"]
+[gd_scene load_steps=17 format=3 uid="uid://dbhm00x2xidw0"]
 
 [ext_resource type="PackedScene" uid="uid://fq6y7f4h3bkp" path="res://characters/players/player.tscn" id="1_ixtv7"]
 [ext_resource type="Texture2D" uid="uid://bdwk7dgr4r3dv" path="res://environment/far.png" id="2_g6h7d"]
@@ -7,12 +7,14 @@
 [ext_resource type="Texture2D" uid="uid://ccqlyw4kdkg8i" path="res://environment/foreground-2.png" id="5_ubxi6"]
 [ext_resource type="PackedScene" uid="uid://da0sjbuvd10co" path="res://characters/projectile/bubble.tscn" id="6_dwj8i"]
 [ext_resource type="PackedScene" uid="uid://cryul1deljc4m" path="res://wall.tscn" id="7_ofmqr"]
-[ext_resource type="PackedScene" uid="uid://ccqd1dd1bk1xg" path="res://Fish.tscn" id="8_h1155"]
-[ext_resource type="PackedScene" uid="uid://cj1sij6b3r13x" path="res://FishFactory.tscn" id="9_48mwk"]
+[ext_resource type="PackedScene" path="res://Fish.tscn" id="8_h1155"]
+[ext_resource type="PackedScene" path="res://FishFactory.tscn" id="9_48mwk"]
 [ext_resource type="FontFile" uid="uid://cw5jyvphsyts7" path="res://ui/fonts/VCR_OSD_MONO_1.001.ttf" id="10_cl0sf"]
+[ext_resource type="Script" path="res://in_game_menu.gd" id="10_yqe78"]
 [ext_resource type="Script" path="res://ui/score/HighScore.gd" id="11_tjt43"]
-[ext_resource type="Script" path="res://menu.gd" id="12_godw7"]
-[ext_resource type="Script" path="res://gamemanager.gd" id="13_n48mw"]
+[ext_resource type="Script" path="res://main_menu.gd" id="12_godw7"]
+[ext_resource type="Script" path="res://game_manager.gd" id="13_2gdb5"]
+[ext_resource type="Script" path="res://ui_manager.gd" id="14_g32wv"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_0upnv"]
 bg_color = Color(0.301961, 0.662745, 0.690196, 1)
@@ -68,28 +70,31 @@ position = Vector2(258, 77)
 
 [node name="CanvasUI" type="CanvasLayer" parent="."]
 
-[node name="GridContainer" type="GridContainer" parent="CanvasUI"]
+[node name="InGameMenu" type="Node2D" parent="CanvasUI"]
+script = ExtResource("10_yqe78")
+
+[node name="GridContainer" type="GridContainer" parent="CanvasUI/InGameMenu"]
 offset_left = 495.0
 offset_top = 6.0
-offset_right = 617.0
+offset_right = 632.0
 offset_bottom = 24.0
 columns = 2
 
-[node name="HighScoreLabel" type="Label" parent="CanvasUI/GridContainer"]
+[node name="HighScoreLabel" type="Label" parent="CanvasUI/InGameMenu/GridContainer"]
 layout_mode = 2
 theme_override_fonts/font = ExtResource("10_cl0sf")
 text = "High Score:"
 
-[node name="HighScore" type="Label" parent="CanvasUI/GridContainer"]
+[node name="HighScore" type="Label" parent="CanvasUI/InGameMenu/GridContainer"]
 layout_mode = 2
 theme_override_fonts/font = ExtResource("10_cl0sf")
 text = "123"
 script = ExtResource("11_tjt43")
 
-[node name="Menu" type="Node2D" parent="CanvasUI"]
+[node name="MainMenu" type="Node2D" parent="CanvasUI"]
 script = ExtResource("12_godw7")
 
-[node name="GameName" type="RichTextLabel" parent="CanvasUI/Menu"]
+[node name="GameName" type="RichTextLabel" parent="CanvasUI/MainMenu"]
 offset_left = 227.0
 offset_top = 115.0
 offset_right = 428.0
@@ -97,7 +102,7 @@ offset_bottom = 157.0
 theme_override_font_sizes/normal_font_size = 30
 text = "ARCHER FISH"
 
-[node name="PlayButton" type="Button" parent="CanvasUI/Menu"]
+[node name="PlayButton" type="Button" parent="CanvasUI/MainMenu"]
 offset_left = 260.0
 offset_top = 166.0
 offset_right = 384.0
@@ -105,7 +110,10 @@ offset_bottom = 194.0
 theme_override_styles/normal = SubResource("StyleBoxFlat_0upnv")
 text = "Play"
 
-[node name="GameManager" type="Node" parent="."]
-script = ExtResource("13_n48mw")
+[node name="UIManager" type="Node" parent="."]
+script = ExtResource("14_g32wv")
 
-[connection signal="pressed" from="CanvasUI/Menu/PlayButton" to="CanvasUI/Menu" method="click_play_button"]
+[node name="GameManager" type="Node" parent="."]
+script = ExtResource("13_2gdb5")
+
+[connection signal="pressed" from="CanvasUI/MainMenu/PlayButton" to="CanvasUI/MainMenu" method="click_play_button"]

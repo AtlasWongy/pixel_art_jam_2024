@@ -16,11 +16,10 @@ func click_play_button():
 		SignalBus.start_game.emit(true)
 	elif game_state == 1:
 		SignalBus.start_game.emit(false)
-
 	
-func toggle_visibility(show:bool):
+func toggle_visibility(show_flag:bool):
 	# Hide the node if it has a visibility property
 	if self is CanvasItem:
-		self.visible = show
+		self.visible = show_flag
 
 
