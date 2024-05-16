@@ -12,6 +12,9 @@
 [ext_resource type="FontFile" uid="uid://cw5jyvphsyts7" path="res://ui/fonts/VCR_OSD_MONO_1.001.ttf" id="10_cl0sf"]
 [ext_resource type="Texture2D" uid="uid://bpbqk7m67yqno" path="res://ui/assets/UI-Top-Bar.png" id="10_gf4ov"]
 [ext_resource type="Script" path="res://ui/score/HighScore.gd" id="11_tjt43"]
+[ext_resource type="PackedScene" path="res://FishFactory.tscn" id="9_48mwk"]
+[ext_resource type="Resource" uid="uid://ht1xvif80qny" path="res://Resources/Glassfish.tres" id="10_ra8mj"]
+[ext_resource type="PackedScene" uid="uid://dduupoqe47qkt" path="res://ui/UI.tscn" id="11_hjcpv"]
 [ext_resource type="Texture2D" uid="uid://g1tghd0yua" path="res://icon.svg" id="12_qttld"]
 
 [node name="Main" type="Node2D"]
@@ -62,7 +65,9 @@ position = Vector2(323, 77)
 
 [node name="Fish2" parent="." instance=ExtResource("8_h1155")]
 position = Vector2(258, 77)
+fish_resource = ExtResource("10_ra8mj")
 
+<<<<<<< HEAD
 [node name="CanvasUI" type="CanvasLayer" parent="."]
 
 [node name="TextureRect" type="TextureRect" parent="CanvasUI"]
@@ -87,6 +92,9 @@ layout_mode = 2
 theme_override_fonts/font = ExtResource("10_cl0sf")
 text = "123"
 script = ExtResource("11_tjt43")
+=======
+[node name="CanvasUI" parent="." instance=ExtResource("11_hjcpv")]
+>>>>>>> aed44e71c8e38e818a4589912b1ad1153c782172
 
 [node name="TempNode" type="Sprite2D" parent="."]
 visible = false

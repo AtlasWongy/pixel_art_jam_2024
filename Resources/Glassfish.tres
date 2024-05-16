@@ -1,0 +1,8 @@
+[gd_resource type="Resource" script_class="Glassfish" load_steps=3 format=3 uid="uid://ht1xvif80qny"]
+
+[ext_resource type="Script" path="res://Resources/Glassfish.gd" id="1_81sjs"]
+[ext_resource type="Texture2D" uid="uid://cmw5js4sqynhe" path="res://characters/fishes/pearl_01b.png" id="1_ko2l5"]
+
+[resource]
+script = ExtResource("1_81sjs")
+fish_sprite = ExtResource("1_ko2l5")

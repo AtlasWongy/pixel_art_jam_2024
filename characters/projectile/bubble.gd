@@ -13,7 +13,7 @@ var bubble_speed = initial_bubble_speed
 var set_to_starting_state = true
 
 func _ready():
-	#start_bubble()
+	toggle_visibility(UiManager.characters_visibility)
 	SignalBus.changed_player_rotation.connect(update_postition)
 	SignalBus.shoot_bubble.connect(start_bubble_movement)
 	SignalBus.toggle_characters_visibility.connect(toggle_visibility)
@@ -48,11 +48,7 @@ func start_bubble_movement(player_rotation:float):
 func update_postition(player_rotation:float, player_position:Vector2):
 	if set_to_starting_state:
 		global_position = player_position + Vector2(0, -distance_from_player).rotated(player_rotation)
-		#player_rotation = rotation_changed
-		#global_position = get_parent().get_node("Player").global_position + Vector2(0, -distance_from_player).rotated(player_rotation)
-		#global_position = get_parent().get_node("Player").global_position + Vector2.RIGHT.rotated(player_rotation*(PI / 180.0))
-		#global_position = get_parent().get_node("Player").global_position + Vector2(cos(player_rotation), sin(player_rotation)).normalized() * distance_from_player
-
+		
 func toggle_starting_state():
 	if position.y > get_viewport_rect().size.y:
 		set_to_starting_state = true
