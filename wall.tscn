@@ -18,6 +18,7 @@ collision_layer = 9
 physics_material_override = ExtResource("1_pp4cx")
 
 [node name="TopBoundary" type="CollisionShape2D" parent="."]
+position = Vector2(0, 28)
 shape = SubResource("SegmentShape2D_5qljy")
 
 [node name="LeftBoundary" type="CollisionShape2D" parent="."]
