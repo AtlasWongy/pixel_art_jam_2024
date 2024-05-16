@@ -1,12 +1,10 @@
-[gd_scene load_steps=5 format=3 uid="uid://fq6y7f4h3bkp"]
+[gd_scene load_steps=4 format=3 uid="uid://fq6y7f4h3bkp"]
 
 [ext_resource type="Script" path="res://characters/players/player.gd" id="1_el44m"]
 [ext_resource type="Texture2D" uid="uid://g1tghd0yua" path="res://icon.svg" id="1_wos3d"]
 [ext_resource type="Texture2D" uid="uid://d3yjc0i4n55rq" path="res://characters/players/aim_indicator.png" id="2_k5crk"]
-[ext_resource type="Script" path="res://characters/players/RayCastHolder.gd" id="4_vfnbg"]
 
 [node name="Player" type="CharacterBody2D"]
-rotation = -0.523599
 scale = Vector2(0.25, 0.25)
 script = ExtResource("1_el44m")
 
@@ -21,10 +19,9 @@ scale = Vector2(2, 2)
 position = Vector2(0, -74)
 texture = ExtResource("2_k5crk")
 
-[node name="RayCastHolder" type="Node2D" parent="." node_paths=PackedStringArray("current_raycast")]
-script = ExtResource("4_vfnbg")
-current_raycast = NodePath("RayCast2D")
+[node name="RayCastHolder" type="Node2D" parent="."]
 
 [node name="RayCast2D" type="RayCast2D" parent="RayCastHolder"]
-target_position = Vector2(0, -2000)
+scale = Vector2(10, 10)
+target_position = Vector2(0, -100)
 collision_mask = 8

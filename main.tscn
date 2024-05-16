@@ -1,4 +1,4 @@
-[gd_scene load_steps=13 format=3 uid="uid://dbhm00x2xidw0"]
+[gd_scene load_steps=14 format=3 uid="uid://dbhm00x2xidw0"]
 
 [ext_resource type="PackedScene" uid="uid://fq6y7f4h3bkp" path="res://characters/players/player.tscn" id="1_ixtv7"]
 [ext_resource type="Texture2D" uid="uid://bdwk7dgr4r3dv" path="res://environment/far.png" id="2_g6h7d"]
@@ -8,6 +8,10 @@
 [ext_resource type="PackedScene" uid="uid://da0sjbuvd10co" path="res://characters/projectile/bubble.tscn" id="6_dwj8i"]
 [ext_resource type="PackedScene" uid="uid://cryul1deljc4m" path="res://wall.tscn" id="7_ofmqr"]
 [ext_resource type="PackedScene" uid="uid://ccqd1dd1bk1xg" path="res://Fish.tscn" id="8_h1155"]
+[ext_resource type="PackedScene" uid="uid://cj1sij6b3r13x" path="res://FishFactory.tscn" id="9_48mwk"]
+[ext_resource type="FontFile" uid="uid://cw5jyvphsyts7" path="res://ui/fonts/VCR_OSD_MONO_1.001.ttf" id="10_cl0sf"]
+[ext_resource type="Texture2D" uid="uid://bpbqk7m67yqno" path="res://ui/assets/UI-Top-Bar.png" id="10_gf4ov"]
+[ext_resource type="Script" path="res://ui/score/HighScore.gd" id="11_tjt43"]
 [ext_resource type="PackedScene" path="res://FishFactory.tscn" id="9_48mwk"]
 [ext_resource type="Resource" uid="uid://ht1xvif80qny" path="res://Resources/Glassfish.tres" id="10_ra8mj"]
 [ext_resource type="PackedScene" uid="uid://dduupoqe47qkt" path="res://ui/UI.tscn" id="11_hjcpv"]
@@ -25,8 +29,8 @@ position = Vector2(319, 343)
 [node name="ParallaxLayer" type="ParallaxLayer" parent="ParallaxLayer"]
 
 [node name="Sprite2D" type="Sprite2D" parent="ParallaxLayer/ParallaxLayer"]
-position = Vector2(319.75, 179.548)
-scale = Vector2(2.502, 1.88)
+position = Vector2(319.75, 194.014)
+scale = Vector2(2.502, 1.72931)
 texture = ExtResource("2_g6h7d")
 
 [node name="ParallaxLayer2" type="ParallaxLayer" parent="ParallaxLayer"]
@@ -53,7 +57,6 @@ texture = ExtResource("5_ubxi6")
 [node name="Walls" type="Node" parent="."]
 
 [node name="StaticBody2D" parent="Walls" instance=ExtResource("7_ofmqr")]
-collision_layer = 9
 
 [node name="Fish" parent="." instance=ExtResource("8_h1155")]
 position = Vector2(323, 77)
@@ -64,10 +67,37 @@ position = Vector2(323, 77)
 position = Vector2(258, 77)
 fish_resource = ExtResource("10_ra8mj")
 
-[node name="CanvasUI" parent="." instance=ExtResource("11_hjcpv")]
+<<<<<<< HEAD
+[node name="CanvasUI" type="CanvasLayer" parent="."]
 
-[node name="Sprite2D" type="Sprite2D" parent="."]
+[node name="TextureRect" type="TextureRect" parent="CanvasUI"]
+offset_right = 641.0
+offset_bottom = 28.0
+texture = ExtResource("10_gf4ov")
+
+[node name="GridContainer" type="GridContainer" parent="CanvasUI"]
+offset_left = 464.0
+offset_top = 4.0
+offset_right = 601.0
+offset_bottom = 22.0
+columns = 2
+
+[node name="HighScoreLabel" type="Label" parent="CanvasUI/GridContainer"]
+layout_mode = 2
+theme_override_fonts/font = ExtResource("10_cl0sf")
+text = "High Score:"
+
+[node name="HighScore" type="Label" parent="CanvasUI/GridContainer"]
+layout_mode = 2
+theme_override_fonts/font = ExtResource("10_cl0sf")
+text = "123"
+script = ExtResource("11_tjt43")
+=======
+[node name="CanvasUI" parent="." instance=ExtResource("11_hjcpv")]
+>>>>>>> aed44e71c8e38e818a4589912b1ad1153c782172
+
+[node name="TempNode" type="Sprite2D" parent="."]
 visible = false
-position = Vector2(120.969, 343)
-scale = Vector2(0.24, 0.24)
+position = Vector2(364, -56)
+scale = Vector2(4.99426, 0.227969)
 texture = ExtResource("12_qttld")

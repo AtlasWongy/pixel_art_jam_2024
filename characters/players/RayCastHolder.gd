@@ -16,23 +16,24 @@ func _process(delta):
 	pass
 	
 func create_raycast():
+	
 	var spawn_point = current_raycast.get_collision_point()
-	
-	print("Collision Point: ", spawn_point)
-	
+	print("The spawn position is: ", spawn_point)
 	var normal = current_raycast.get_collision_normal()
-	
 	var incoming_direction = spawn_point - current_origin_point
-	#
-	print("The incoming direction is: ", incoming_direction)
-	#
 	var outgoing_direction = incoming_direction.bounce(normal)
-	#
-	print("The outgoing direction is: ", outgoing_direction)
-	#
+	print("The outgoing position is: ", outgoing_direction)
+	
 	var raycast = RayCast2D.new()
+	add_child(raycast)
+	
+	raycast.global_position = spawn_point
 	raycast.enabled = true
-	raycast.exclude_parent = true
-	raycast.target_position = Vector2(120.9688, 2000)
-	call_deferred("add_child", raycast)
-	#print("Created")
+	raycast.target_position = Vector2(outgoing_direction.x, outgoing_direction.y)
+	
+	raycast.scale.x = 20
+	raycast.scale.y = 20
+	
+	current_raycast = raycast
+	current_origin_point = raycast.global_position
+	
