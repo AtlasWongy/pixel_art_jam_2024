@@ -63,3 +63,7 @@ func toggle_starting_state():
 func toggle_visibility(show_flag:bool):
 	print("bubble ", show_flag)
 	self.visible = show_flag
+
+func destroy_bubble():
+	pass
+	#this should destroy the bubble and set it back to the starting spot

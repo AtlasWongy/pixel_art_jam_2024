@@ -1,8 +1,8 @@
 [gd_scene load_steps=5 format=3 uid="uid://ccqd1dd1bk1xg"]
 
 [ext_resource type="Script" path="res://Fish.gd" id="1_6afg3"]
-[ext_resource type="Resource" uid="uid://cd72nx7ulf8gq" path="res://resources/Rockfish.tres" id="2_ps5ra"]
-[ext_resource type="Texture2D" uid="uid://g1tghd0yua" path="res://icon.svg" id="3_rijin"]
+[ext_resource type="Resource" uid="uid://cd72nx7ulf8gq" path="res://Resources/Rockfish.tres" id="2_ps5ra"]
+[ext_resource type="Texture2D" uid="uid://budiqxaegar4b" path="res://characters/fishes/pearl_01a.png" id="3_hjva0"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_xi1xh"]
 size = Vector2(32, 32)
@@ -17,6 +17,6 @@ fish_resource = ExtResource("2_ps5ra")
 shape = SubResource("RectangleShape2D_xi1xh")
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
-texture = ExtResource("3_rijin")
+texture = ExtResource("3_hjva0")
 
 [connection signal="body_entered" from="Area2D" to="." method="_on_area_2d_body_entered"]

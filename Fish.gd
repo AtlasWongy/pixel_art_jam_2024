@@ -1,4 +1,5 @@
 extends Node2D
+class_name Fish
 
 @export var fish_resource:FishResource
 
@@ -10,7 +11,10 @@ func _ready():
 func _on_area_2d_body_entered(body):
 	
 	if fish_resource:
-		fish_resource.on_collision(body) #i'm just going to assume that the only bodies moving around are the bubble - DG
+		if fish_resource.has_method("on_collision_with_body_param"):
+			fish_resource.on_collision_with_body_param(body,self)
+		else:
+			fish_resource.on_collision(body) #i'm just going to assume that the only bodies moving around are the bubble - DG
 	#make death tween here
 	queue_free()
 	SignalBus.fish_destroyed.emit(10)

@@ -1,4 +1,4 @@
-[gd_scene load_steps=14 format=3 uid="uid://dbhm00x2xidw0"]
+[gd_scene load_steps=15 format=3 uid="uid://dbhm00x2xidw0"]
 
 [ext_resource type="PackedScene" uid="uid://fq6y7f4h3bkp" path="res://characters/players/player.tscn" id="1_ixtv7"]
 [ext_resource type="Texture2D" uid="uid://bdwk7dgr4r3dv" path="res://environment/far.png" id="2_g6h7d"]
@@ -11,6 +11,7 @@
 [ext_resource type="PackedScene" uid="uid://cj1sij6b3r13x" path="res://FishFactory.tscn" id="9_48mwk"]
 [ext_resource type="FontFile" uid="uid://cw5jyvphsyts7" path="res://ui/fonts/VCR_OSD_MONO_1.001.ttf" id="10_cl0sf"]
 [ext_resource type="Resource" uid="uid://ht1xvif80qny" path="res://Resources/Glassfish.tres" id="10_ra8mj"]
+[ext_resource type="Resource" uid="uid://d1ods8qtrxfy4" path="res://Resources/Swordfish.tres" id="11_gyr2n"]
 [ext_resource type="Script" path="res://ui/score/HighScore.gd" id="11_tjt43"]
 [ext_resource type="Texture2D" uid="uid://g1tghd0yua" path="res://icon.svg" id="12_qttld"]
 
@@ -64,6 +65,10 @@ position = Vector2(323, 77)
 [node name="Fish2" parent="." instance=ExtResource("8_h1155")]
 position = Vector2(258, 77)
 fish_resource = ExtResource("10_ra8mj")
+
+[node name="Fish3" parent="." instance=ExtResource("8_h1155")]
+position = Vector2(406, 77)
+fish_resource = ExtResource("11_gyr2n")
 
 [node name="CanvasUI" type="CanvasLayer" parent="."]
 

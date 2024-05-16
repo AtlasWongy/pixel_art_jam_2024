@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://budiqxaegar4b"
-path="res://.godot/imported/pearl_01a.png-e3ed672e9c423cfc7d4070656697ce17.ctex"
+uid="uid://opjdh0pvtfya"
+path="res://.godot/imported/fish_01d.png-796896dedd4f3905b0117fd07cb67f46.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://characters/fishes/pearl_01a.png"
-dest_files=["res://.godot/imported/pearl_01a.png-e3ed672e9c423cfc7d4070656697ce17.ctex"]
+source_file="res://characters/fishes/fish_01d.png"
+dest_files=["res://.godot/imported/fish_01d.png-796896dedd4f3905b0117fd07cb67f46.ctex"]
 
 [params]
 
