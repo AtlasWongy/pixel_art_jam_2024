@@ -1,6 +1,6 @@
 [gd_scene load_steps=2 format=3 uid="uid://cj1sij6b3r13x"]
 
-[ext_resource type="Script" path="res://FishFactory.gd" id="1_snykq"]
+[ext_resource type="Script" path="res://characters/fishes/FishFactory.gd" id="1_snykq"]
 
 [node name="Node" type="Node"]
 script = ExtResource("1_snykq")

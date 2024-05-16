@@ -6,11 +6,11 @@
 [ext_resource type="Texture2D" uid="uid://yw620f85ene7" path="res://environment/foreground-1.png" id="4_0a48p"]
 [ext_resource type="Texture2D" uid="uid://ccqlyw4kdkg8i" path="res://environment/foreground-2.png" id="5_ubxi6"]
 [ext_resource type="PackedScene" uid="uid://da0sjbuvd10co" path="res://characters/projectile/bubble.tscn" id="6_dwj8i"]
-[ext_resource type="PackedScene" uid="uid://cryul1deljc4m" path="res://wall.tscn" id="7_ofmqr"]
-[ext_resource type="PackedScene" uid="uid://ccqd1dd1bk1xg" path="res://Fish.tscn" id="8_h1155"]
-[ext_resource type="PackedScene" path="res://FishFactory.tscn" id="9_48mwk"]
-[ext_resource type="Resource" uid="uid://ht1xvif80qny" path="res://Resources/Glassfish.tres" id="10_ra8mj"]
-[ext_resource type="PackedScene" uid="uid://dduupoqe47qkt" path="res://ui/UI.tscn" id="11_hjcpv"]
+[ext_resource type="PackedScene" uid="uid://cryul1deljc4m" path="res://environment/wall.tscn" id="7_ofmqr"]
+[ext_resource type="PackedScene" uid="uid://cj1sij6b3r13x" path="res://characters/fishes/FishFactory.tscn" id="9_48mwk"]
+[ext_resource type="PackedScene" uid="uid://c5aahturt07ko" path="res://ui/UI.tscn" id="11_hjcpv"]
+[ext_resource type="PackedScene" uid="uid://ccqd1dd1bk1xg" path="res://characters/fishes/Fish.tscn" id="11_im0we"]
+[ext_resource type="Resource" uid="uid://e3601301axv2" path="res://characters/fishes/glassfish/GlassFish.tres" id="12_if8an"]
 [ext_resource type="Texture2D" uid="uid://g1tghd0yua" path="res://icon.svg" id="12_qttld"]
 
 [node name="Main" type="Node2D"]
@@ -25,8 +25,8 @@ position = Vector2(319, 343)
 [node name="ParallaxLayer" type="ParallaxLayer" parent="ParallaxLayer"]
 
 [node name="Sprite2D" type="Sprite2D" parent="ParallaxLayer/ParallaxLayer"]
-position = Vector2(319.75, 179.548)
-scale = Vector2(2.502, 1.88)
+position = Vector2(319.75, 200.257)
+scale = Vector2(2.502, 1.80476)
 texture = ExtResource("2_g6h7d")
 
 [node name="ParallaxLayer2" type="ParallaxLayer" parent="ParallaxLayer"]
@@ -55,14 +55,7 @@ texture = ExtResource("5_ubxi6")
 [node name="StaticBody2D" parent="Walls" instance=ExtResource("7_ofmqr")]
 collision_layer = 9
 
-[node name="Fish" parent="." instance=ExtResource("8_h1155")]
-position = Vector2(323, 77)
-
 [node name="Node" parent="." instance=ExtResource("9_48mwk")]
-
-[node name="Fish2" parent="." instance=ExtResource("8_h1155")]
-position = Vector2(258, 77)
-fish_resource = ExtResource("10_ra8mj")
 
 [node name="CanvasUI" parent="." instance=ExtResource("11_hjcpv")]
 
@@ -71,3 +64,8 @@ visible = false
 position = Vector2(120.969, 343)
 scale = Vector2(0.24, 0.24)
 texture = ExtResource("12_qttld")
+
+[node name="Fish" parent="." instance=ExtResource("11_im0we")]
+position = Vector2(102, 82)
+scale = Vector2(0.5, 0.5)
+fish_resource = ExtResource("12_if8an")

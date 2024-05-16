@@ -1,9 +1,10 @@
-[gd_scene load_steps=6 format=3 uid="uid://dduupoqe47qkt"]
+[gd_scene load_steps=7 format=3 uid="uid://c5aahturt07ko"]
 
+[ext_resource type="Script" path="res://ui/in_game_menu.gd" id="1_i2sie"]
 [ext_resource type="FontFile" uid="uid://cw5jyvphsyts7" path="res://ui/fonts/VCR_OSD_MONO_1.001.ttf" id="1_poabi"]
-[ext_resource type="Script" path="res://in_game_menu.gd" id="1_w07gt"]
 [ext_resource type="Script" path="res://ui/score/HighScore.gd" id="2_5eepf"]
-[ext_resource type="Script" path="res://main_menu.gd" id="3_tfqta"]
+[ext_resource type="Texture2D" uid="uid://jfvtro1gcgt5" path="res://ui/assets/UI-Top-Bar.png" id="2_cqyx7"]
+[ext_resource type="Script" path="res://ui/main_menu.gd" id="3_tfqta"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_0upnv"]
 bg_color = Color(0.301961, 0.662745, 0.690196, 1)
@@ -11,13 +12,19 @@ bg_color = Color(0.301961, 0.662745, 0.690196, 1)
 [node name="CanvasUI" type="CanvasLayer"]
 
 [node name="InGameMenu" type="Node2D" parent="."]
-script = ExtResource("1_w07gt")
+script = ExtResource("1_i2sie")
+
+[node name="TextureRect" type="TextureRect" parent="InGameMenu"]
+offset_top = 1.0
+offset_right = 641.0
+offset_bottom = 28.0
+texture = ExtResource("2_cqyx7")
 
 [node name="GridContainer" type="GridContainer" parent="InGameMenu"]
-offset_left = 495.0
-offset_top = 6.0
-offset_right = 632.0
-offset_bottom = 24.0
+offset_left = 470.0
+offset_top = 4.0
+offset_right = 607.0
+offset_bottom = 22.0
 columns = 2
 
 [node name="HighScoreLabel" type="Label" parent="InGameMenu/GridContainer"]
