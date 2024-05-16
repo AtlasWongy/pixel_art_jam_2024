@@ -4,19 +4,16 @@ extends Node2D
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
-	if fish_resource:
-		fish_resource.on_collision() #this is just for testing. remove later.
+	if fish_resource.fish_sprite:
+		$Sprite2D.texture = fish_resource.fish_sprite
 
-# Called every frame. 'delta' is the elapsed time since the previous frame.
-func _process(_delta):
-	pass
-
-func _on_area_2d_body_entered(_body):
+func _on_area_2d_body_entered(body):
+	
 	if fish_resource:
-		fish_resource.on_collision()
+		fish_resource.on_collision(body) #i'm just going to assume that the only bodies moving around are the bubble - DG
 	#make death tween here
 	queue_free()
-	SignalBus.fish_destroyed.emit()
+	SignalBus.fish_destroyed.emit(10)
 
 func _on_shot_fired():
 	var tween = get_tree().create_tween()

@@ -10,8 +10,8 @@ func _ready():
 func _process(_delta):
 	pass
 
-func update_text_score():
-	score += 10
+func update_text_score(new_score: int):
+	score += new_score
 	text = str(score)
 	print("Destroyed")
 	

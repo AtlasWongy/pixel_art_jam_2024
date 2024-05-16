@@ -1,0 +1,53 @@
+[gd_scene load_steps=6 format=3 uid="uid://dduupoqe47qkt"]
+
+[ext_resource type="FontFile" uid="uid://cw5jyvphsyts7" path="res://ui/fonts/VCR_OSD_MONO_1.001.ttf" id="1_poabi"]
+[ext_resource type="Script" path="res://in_game_menu.gd" id="1_w07gt"]
+[ext_resource type="Script" path="res://ui/score/HighScore.gd" id="2_5eepf"]
+[ext_resource type="Script" path="res://main_menu.gd" id="3_tfqta"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_0upnv"]
+bg_color = Color(0.301961, 0.662745, 0.690196, 1)
+
+[node name="CanvasUI" type="CanvasLayer"]
+
+[node name="InGameMenu" type="Node2D" parent="."]
+script = ExtResource("1_w07gt")
+
+[node name="GridContainer" type="GridContainer" parent="InGameMenu"]
+offset_left = 495.0
+offset_top = 6.0
+offset_right = 632.0
+offset_bottom = 24.0
+columns = 2
+
+[node name="HighScoreLabel" type="Label" parent="InGameMenu/GridContainer"]
+layout_mode = 2
+theme_override_fonts/font = ExtResource("1_poabi")
+text = "High Score:"
+
+[node name="HighScore" type="Label" parent="InGameMenu/GridContainer"]
+layout_mode = 2
+theme_override_fonts/font = ExtResource("1_poabi")
+text = "123"
+script = ExtResource("2_5eepf")
+
+[node name="MainMenu" type="Node2D" parent="."]
+script = ExtResource("3_tfqta")
+
+[node name="GameName" type="RichTextLabel" parent="MainMenu"]
+offset_left = 227.0
+offset_top = 115.0
+offset_right = 428.0
+offset_bottom = 157.0
+theme_override_font_sizes/normal_font_size = 30
+text = "ARCHER FISH"
+
+[node name="PlayButton" type="Button" parent="MainMenu"]
+offset_left = 260.0
+offset_top = 166.0
+offset_right = 384.0
+offset_bottom = 194.0
+theme_override_styles/normal = SubResource("StyleBoxFlat_0upnv")
+text = "Play"
+
+[connection signal="pressed" from="MainMenu/PlayButton" to="MainMenu" method="click_play_button"]
