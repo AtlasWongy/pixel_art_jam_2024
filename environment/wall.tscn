@@ -1,4 +1,4 @@
-[gd_scene load_steps=5 format=3 uid="uid://cryul1deljc4m"]
+[gd_scene load_steps=5 format=3 uid="uid://b6j850wwgkepg"]
 
 [ext_resource type="PhysicsMaterial" uid="uid://dm12o6rs7flnd" path="res://characters/projectile/bubble_physics_material.tres" id="1_pp4cx"]
 
@@ -17,6 +17,7 @@ b = Vector2(641, -1)
 physics_material_override = ExtResource("1_pp4cx")
 
 [node name="TopBoundary" type="CollisionShape2D" parent="."]
+position = Vector2(-2, 23)
 shape = SubResource("SegmentShape2D_5qljy")
 
 [node name="LeftBoundary" type="CollisionShape2D" parent="."]
