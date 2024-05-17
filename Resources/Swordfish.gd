@@ -1,6 +1,9 @@
 extends FishResource
 class_name Swordfish
 
+func fish_init(fish:Fish):
+	print(fish.position)
+
 func on_collision_with_body_param(body:Bubble,fish:Fish):
 	print(body.position)
 	#size of the bubble is 18x18 px

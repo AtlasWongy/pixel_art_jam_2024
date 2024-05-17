@@ -7,6 +7,9 @@ class_name Fish
 func _ready():
 	if fish_resource.fish_sprite:
 		$Sprite2D.texture = fish_resource.fish_sprite
+	
+	if fish_resource.has_method("fish_init"):
+		fish_resource.fish_init(self)
 
 func _on_area_2d_body_entered(body):
 	
