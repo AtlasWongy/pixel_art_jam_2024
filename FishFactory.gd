@@ -1,5 +1,9 @@
 extends Node
 
+var shots_fired:int = 0
+var default_location: Vector2 = Vector2(40,40)
+
+var fish = preload("res://Fish.tscn")
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
@@ -8,10 +12,12 @@ func _ready():
 	SignalBus.toggle_characters_visibility.connect(toggle_visibility)
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
-func _process(_delta):
-	pass
+func _spawn_fish():
+	var new_fish = fish.instantiate()
+	
 
 func _move_fish():
+	shots_fired += 1
 	get_tree().call_group("Fish","_on_shot_fired")
 	var _scene_tree = SceneTree.new()
 	print("Fish surviving: ", get_tree().has_group("Fish"))
