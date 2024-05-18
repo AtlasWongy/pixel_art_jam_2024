@@ -1,0 +1,9 @@
+[gd_resource type="Resource" script_class="Swordfish" load_steps=3 format=3 uid="uid://d1ods8qtrxfy4"]
+
+[ext_resource type="Script" path="res://characters/fishes/swordfish/Swordfish.gd" id="1_4td60"]
+[ext_resource type="Texture2D" uid="uid://cr4j3js6rw434" path="res://characters/fishes/fish_01e.png" id="1_gfe2k"]
+
+[resource]
+script = ExtResource("1_4td60")
+fish_sprite = ExtResource("1_gfe2k")
+fish_value = 0

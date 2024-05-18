@@ -1,16 +1,8 @@
-<<<<<<<< HEAD:Fish.tscn
-[gd_scene load_steps=9 format=3 uid="uid://cjaomw66dtfto"]
-
-[ext_resource type="Script" path="res://Fish.gd" id="1_6afg3"]
-[ext_resource type="Resource" path="res://Resources/Rockfish.tres" id="2_ps5ra"]
-[ext_resource type="Shader" path="res://Fish.gdshader" id="3_257cj"]
-[ext_resource type="Texture2D" uid="uid://budiqxaegar4b" path="res://characters/fishes/pearl_01a.png" id="3_hjva0"]
-========
-[gd_scene load_steps=4 format=3 uid="uid://ccqd1dd1bk1xg"]
+[gd_scene load_steps=8 format=3 uid="uid://hnj1fyl0cmix"]
 
 [ext_resource type="Script" path="res://characters/fishes/Fish.gd" id="1_6afg3"]
-[ext_resource type="Texture2D" uid="uid://g1tghd0yua" path="res://icon.svg" id="3_rijin"]
->>>>>>>> main:characters/fishes/Fish.tscn
+[ext_resource type="Shader" path="res://characters/fishes/Fish.gdshader" id="3_257cj"]
+[ext_resource type="Texture2D" uid="uid://budiqxaegar4b" path="res://characters/fishes/pearl_01a.png" id="3_hjva0"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_xi1xh"]
 size = Vector2(32, 32)

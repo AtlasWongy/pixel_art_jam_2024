@@ -11,7 +11,9 @@ func _ready():
 	if fish_resource.has_method("fish_init"):
 		fish_resource.fish_init(self)
 	
-	$Sprite2D.material.set_shader_parameter("dissolve_value",1)
+
+	var death_tween = create_tween()
+	death_tween.tween_method(set_shader_value,0.0,1.0,0.15)
 
 func _on_area_2d_body_entered(body):
 

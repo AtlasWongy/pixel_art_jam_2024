@@ -1,9 +1,9 @@
 [gd_resource type="Resource" script_class="Glassfish" load_steps=3 format=3 uid="uid://e3601301axv2"]
 
 [ext_resource type="Script" path="res://characters/fishes/glassfish/Glassfish.gd" id="1_gkvqh"]
-[ext_resource type="Texture2D" uid="uid://dhyetdp0tsdfa" path="res://characters/fishes/pearl_01a.png" id="1_inify"]
+[ext_resource type="Texture2D" uid="uid://b5pjgynwp0yss" path="res://characters/fishes/fish_01b.png" id="1_ut5h1"]
 
 [resource]
 script = ExtResource("1_gkvqh")
-fish_sprite = ExtResource("1_inify")
+fish_sprite = ExtResource("1_ut5h1")
 fish_value = 0
