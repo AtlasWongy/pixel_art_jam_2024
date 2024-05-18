@@ -61,6 +61,7 @@ offset_right = 438.0
 offset_bottom = 261.0
 
 [node name="GameState" type="RichTextLabel" parent="InGameMenu/Panel"]
+layout_mode = 0
 offset_left = 13.0
 offset_top = 6.0
 offset_right = 234.0
@@ -69,6 +70,7 @@ theme_override_font_sizes/normal_font_size = 30
 text = "GAME PAUSED"
 
 [node name="FishInfoButton" type="Button" parent="InGameMenu/Panel"]
+process_mode = 3
 layout_mode = 0
 offset_left = 56.0
 offset_top = 58.0
@@ -77,6 +79,8 @@ offset_bottom = 85.0
 text = "Fish Info"
 
 [node name="ExitButton" type="Button" parent="InGameMenu/Panel"]
+process_mode = 3
+layout_mode = 0
 offset_left = 55.0
 offset_top = 108.0
 offset_right = 178.0

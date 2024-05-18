@@ -1,16 +1,15 @@
 [gd_scene load_steps=4 format=3 uid="uid://fq6y7f4h3bkp"]
 
 [ext_resource type="Script" path="res://characters/players/player.gd" id="1_el44m"]
-[ext_resource type="Texture2D" uid="uid://g1tghd0yua" path="res://icon.svg" id="1_wos3d"]
 [ext_resource type="Texture2D" uid="uid://d3yjc0i4n55rq" path="res://characters/players/aim_indicator.png" id="2_k5crk"]
+[ext_resource type="Texture2D" uid="uid://48c01abwap7u" path="res://characters/players/Fish.png" id="2_yjg4u"]
 
 [node name="Player" type="CharacterBody2D"]
 rotation = -0.523599
-scale = Vector2(0.25, 0.25)
 script = ExtResource("1_el44m")
 
 [node name="PlayerSprite" type="Sprite2D" parent="."]
-texture = ExtResource("1_wos3d")
+texture = ExtResource("2_yjg4u")
 
 [node name="AimIndicator" type="Node2D" parent="."]
 visible = false
