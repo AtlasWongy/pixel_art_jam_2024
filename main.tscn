@@ -1,4 +1,4 @@
-[gd_scene load_steps=11 format=3 uid="uid://dbhm00x2xidw0"]
+[gd_scene load_steps=12 format=3 uid="uid://dbhm00x2xidw0"]
 
 [ext_resource type="PackedScene" uid="uid://fq6y7f4h3bkp" path="res://characters/players/player.tscn" id="1_ixtv7"]
 [ext_resource type="Texture2D" uid="uid://bdwk7dgr4r3dv" path="res://environment/far.png" id="2_g6h7d"]
@@ -9,6 +9,7 @@
 [ext_resource type="PackedScene" path="res://environment/wall.tscn" id="7_ofmqr"]
 [ext_resource type="PackedScene" path="res://characters/fishes/FishFactory.tscn" id="9_48mwk"]
 [ext_resource type="PackedScene" uid="uid://dduupoqe47qkt" path="res://ui/UI.tscn" id="11_hjcpv"]
+[ext_resource type="Script" path="res://SFXController.gd" id="11_pkg2f"]
 [ext_resource type="Texture2D" uid="uid://g1tghd0yua" path="res://icon.svg" id="12_qttld"]
 
 [node name="Main" type="Node2D"]
@@ -53,7 +54,7 @@ texture = ExtResource("5_ubxi6")
 [node name="StaticBody2D" parent="Walls" instance=ExtResource("7_ofmqr")]
 collision_layer = 9
 
-[node name="Node" parent="." instance=ExtResource("9_48mwk")]
+[node name="FishFactory" parent="." instance=ExtResource("9_48mwk")]
 
 [node name="CanvasUI" parent="." instance=ExtResource("11_hjcpv")]
 
@@ -62,3 +63,8 @@ visible = false
 position = Vector2(120.969, 343)
 scale = Vector2(0.24, 0.24)
 texture = ExtResource("12_qttld")
+
+[node name="MusicPlayer" type="AudioStreamPlayer" parent="."]
+
+[node name="SFXController" type="Node" parent="."]
+script = ExtResource("11_pkg2f")

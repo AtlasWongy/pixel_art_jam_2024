@@ -3,6 +3,8 @@ class_name Fish
 
 @export var fish_resource:FishResource
 
+var collided:bool = false
+
 # Called when the node enters the scene tree for the first time.
 func _ready():
 	if fish_resource.fish_sprite:
@@ -16,7 +18,11 @@ func _ready():
 	death_tween.tween_method(set_shader_value,0.0,1.0,0.15)
 
 func _on_area_2d_body_entered(body):
-
+	if collided:
+		return
+	else:
+		collided = true
+	SignalBus.fish_collided.emit()
 	if fish_resource:
 		if fish_resource.has_method("on_collision_with_body_param"):
 			fish_resource.on_collision_with_body_param(body,self)

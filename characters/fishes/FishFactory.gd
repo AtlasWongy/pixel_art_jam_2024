@@ -68,16 +68,16 @@ func _move_fish():
 		#player cleared all fish? time to spawn a lot more
 		rows_to_spawn += 1
 		_spawn_all_fish()
-		rows_to_spawn -= 1
 
 func _spawn_all_fish():
 	for i in rows_to_spawn:
-				print(i)
-				print(rows_to_spawn)
-				await get_tree().create_timer(0.5).timeout
-				_spawn_fish()
-				if i+1 != rows_to_spawn:
-					get_tree().call_group("Fish","_on_shot_fired")
+		SignalBus.fish_spawned.emit()
+		print(i)
+		print(rows_to_spawn)
+		await get_tree().create_timer(0.5).timeout
+		_spawn_fish()
+		if i+1 != rows_to_spawn:
+			get_tree().call_group("Fish","_on_shot_fired")
 	
 	rows_to_spawn = 1
 
