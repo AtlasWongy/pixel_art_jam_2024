@@ -1,4 +1,4 @@
-[gd_scene load_steps=5 format=3 uid="uid://b6j850wwgkepg"]
+[gd_scene load_steps=5 format=3 uid="uid://dlx6kikeyripe"]
 
 [ext_resource type="PhysicsMaterial" uid="uid://dm12o6rs7flnd" path="res://characters/projectile/bubble_physics_material.tres" id="1_pp4cx"]
 

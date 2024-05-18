@@ -4,7 +4,7 @@ class_name FishResource
 @export var fish_sprite: Texture2D #this should be the fish's sprite path
 @export var fish_value: int = 0
 @export var has_shield: bool = false
-@export var has_shield_before: bool = false
+@export var is_coral: bool = false
 
 func fish_init(body):
 	pass

@@ -1,4 +1,4 @@
-[gd_scene load_steps=18 format=3 uid="uid://dbhm00x2xidw0"]
+[gd_scene load_steps=17 format=3 uid="uid://dbhm00x2xidw0"]
 
 [ext_resource type="PackedScene" uid="uid://fq6y7f4h3bkp" path="res://characters/players/player.tscn" id="1_ixtv7"]
 [ext_resource type="Texture2D" uid="uid://bdwk7dgr4r3dv" path="res://environment/far.png" id="2_g6h7d"]
@@ -6,22 +6,20 @@
 [ext_resource type="Texture2D" uid="uid://yw620f85ene7" path="res://environment/foreground-1.png" id="4_0a48p"]
 [ext_resource type="Texture2D" uid="uid://ccqlyw4kdkg8i" path="res://environment/foreground-2.png" id="5_ubxi6"]
 [ext_resource type="PackedScene" uid="uid://da0sjbuvd10co" path="res://characters/projectile/bubble.tscn" id="6_dwj8i"]
-[ext_resource type="PackedScene" path="res://environment/wall.tscn" id="7_ofmqr"]
+[ext_resource type="PackedScene" uid="uid://dlx6kikeyripe" path="res://environment/wall.tscn" id="7_ofmqr"]
 [ext_resource type="PackedScene" path="res://characters/fishes/FishFactory.tscn" id="9_48mwk"]
 [ext_resource type="PackedScene" uid="uid://c5aahturt07ko" path="res://ui/UI.tscn" id="11_hjcpv"]
 [ext_resource type="PackedScene" uid="uid://dcic7idnoigbl" path="res://characters/fishes/Fish.tscn" id="11_im0we"]
 [ext_resource type="Script" path="res://characters/fishes/coral/Coral.gd" id="12_gqpwt"]
-[ext_resource type="Texture2D" uid="uid://d3yjc0i4n55rq" path="res://characters/players/aim_indicator.png" id="12_i874d"]
 [ext_resource type="Texture2D" uid="uid://g1tghd0yua" path="res://icon.svg" id="12_qttld"]
 [ext_resource type="Script" path="res://characters/fishes/rockfish/Rockfish.gd" id="14_5a3yu"]
-[ext_resource type="Texture2D" uid="uid://cmw5js4sqynhe" path="res://characters/fishes/pearl_01b.png" id="14_wxrmn"]
+[ext_resource type="Texture2D" path="res://characters/fishes/pearl_01b.png" id="14_wxrmn"]
 
 [sub_resource type="Resource" id="Resource_1k6tr"]
 script = ExtResource("12_gqpwt")
-fish_sprite = ExtResource("12_i874d")
 fish_value = 0
 has_shield = false
-has_shield_before = false
+is_coral = true
 
 [sub_resource type="Resource" id="Resource_reau5"]
 script = ExtResource("14_5a3yu")
@@ -84,7 +82,6 @@ texture = ExtResource("12_qttld")
 
 [node name="Fish" parent="." instance=ExtResource("11_im0we")]
 position = Vector2(102, 82)
-scale = Vector2(0.5, 0.5)
 fish_resource = SubResource("Resource_1k6tr")
 
 [node name="Fish2" parent="." instance=ExtResource("11_im0we")]
