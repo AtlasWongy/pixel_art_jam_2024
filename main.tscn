@@ -6,9 +6,9 @@
 [ext_resource type="Texture2D" uid="uid://yw620f85ene7" path="res://environment/foreground-1.png" id="4_0a48p"]
 [ext_resource type="Texture2D" uid="uid://ccqlyw4kdkg8i" path="res://environment/foreground-2.png" id="5_ubxi6"]
 [ext_resource type="PackedScene" uid="uid://da0sjbuvd10co" path="res://characters/projectile/bubble.tscn" id="6_dwj8i"]
-[ext_resource type="PackedScene" path="res://environment/wall.tscn" id="7_ofmqr"]
+[ext_resource type="PackedScene" uid="uid://dlx6kikeyripe" path="res://environment/wall.tscn" id="7_ofmqr"]
 [ext_resource type="PackedScene" path="res://characters/fishes/FishFactory.tscn" id="9_48mwk"]
-[ext_resource type="PackedScene" uid="uid://dduupoqe47qkt" path="res://ui/UI.tscn" id="11_hjcpv"]
+[ext_resource type="PackedScene" uid="uid://c5aahturt07ko" path="res://ui/UI.tscn" id="11_hjcpv"]
 [ext_resource type="Script" path="res://SFXController.gd" id="11_pkg2f"]
 [ext_resource type="Texture2D" uid="uid://g1tghd0yua" path="res://icon.svg" id="12_qttld"]
 
