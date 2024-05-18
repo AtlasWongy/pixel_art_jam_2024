@@ -26,9 +26,6 @@ func _on_area_2d_body_entered(body):
 		SignalBus.fish_destroyed.emit(10)
 
 func _on_shot_fired():
-	if fish_resource.is_coral:
-		return
-	
 	var tween = get_tree().create_tween()
 	tween.tween_property(self,"position",position+Vector2(0,32),0.5).set_trans(Tween.TRANS_SINE)
 	#tween.tween_property($Sprite2D, "modulate", Color.RED, 1)

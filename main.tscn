@@ -1,4 +1,4 @@
-[gd_scene load_steps=17 format=3 uid="uid://dbhm00x2xidw0"]
+[gd_scene load_steps=11 format=3 uid="uid://dbhm00x2xidw0"]
 
 [ext_resource type="PackedScene" uid="uid://fq6y7f4h3bkp" path="res://characters/players/player.tscn" id="1_ixtv7"]
 [ext_resource type="Texture2D" uid="uid://bdwk7dgr4r3dv" path="res://environment/far.png" id="2_g6h7d"]
@@ -9,24 +9,7 @@
 [ext_resource type="PackedScene" uid="uid://dlx6kikeyripe" path="res://environment/wall.tscn" id="7_ofmqr"]
 [ext_resource type="PackedScene" path="res://characters/fishes/FishFactory.tscn" id="9_48mwk"]
 [ext_resource type="PackedScene" uid="uid://c5aahturt07ko" path="res://ui/UI.tscn" id="11_hjcpv"]
-[ext_resource type="PackedScene" uid="uid://dcic7idnoigbl" path="res://characters/fishes/Fish.tscn" id="11_im0we"]
-[ext_resource type="Script" path="res://characters/fishes/coral/Coral.gd" id="12_gqpwt"]
 [ext_resource type="Texture2D" uid="uid://g1tghd0yua" path="res://icon.svg" id="12_qttld"]
-[ext_resource type="Script" path="res://characters/fishes/rockfish/Rockfish.gd" id="14_5a3yu"]
-[ext_resource type="Texture2D" path="res://characters/fishes/pearl_01b.png" id="14_wxrmn"]
-
-[sub_resource type="Resource" id="Resource_1k6tr"]
-script = ExtResource("12_gqpwt")
-fish_value = 0
-has_shield = false
-is_coral = true
-
-[sub_resource type="Resource" id="Resource_reau5"]
-script = ExtResource("14_5a3yu")
-fish_sprite = ExtResource("14_wxrmn")
-fish_value = 0
-has_shield = false
-has_shield_before = false
 
 [node name="Main" type="Node2D"]
 
@@ -79,12 +62,3 @@ visible = false
 position = Vector2(120.969, 343)
 scale = Vector2(0.24, 0.24)
 texture = ExtResource("12_qttld")
-
-[node name="Fish" parent="." instance=ExtResource("11_im0we")]
-position = Vector2(102, 82)
-fish_resource = SubResource("Resource_1k6tr")
-
-[node name="Fish2" parent="." instance=ExtResource("11_im0we")]
-position = Vector2(402, 82)
-scale = Vector2(0.5, 0.5)
-fish_resource = SubResource("Resource_reau5")

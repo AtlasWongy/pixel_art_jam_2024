@@ -6,16 +6,27 @@ var fish_body: Node2D
 
 func fish_init(body):
 	fish_body = body
-	var raycast = RayCast2D.new()
-	fish_body.add_child(raycast)
-	raycast.enabled = true
-	raycast.exclude_parent = true
-	raycast.collide_with_areas = true
-	raycast.set_collision_mask_value(4, true)
-	raycast.set_collision_mask_value(1, false)
-	raycast.position = Vector2(0,0)
-	raycast.target_position = Vector2(600, 0)
-	ray_cast_arrays.append(raycast)
+	for i in range(4):
+		match(i):
+			0:
+				ray_cast_arrays.append(generate_raycasts(Vector2(64, 0)))
+			1:
+				ray_cast_arrays.append(generate_raycasts(Vector2(0, 64)))
+			2:
+				ray_cast_arrays.append(generate_raycasts(Vector2(-64, 0)))
+			3:
+				ray_cast_arrays.append(generate_raycasts(Vector2(0, -64)))
+				
+		#var raycast = RayCast2D.new()
+		#fish_body.add_child(raycast)
+		#raycast.enabled = true
+		#raycast.exclude_parent = true
+		#raycast.collide_with_areas = true
+		#raycast.set_collision_mask_value(4, true)
+		#raycast.set_collision_mask_value(1, false)
+		#raycast.position = Vector2(0,0)
+		#raycast.target_position = Vector2(600, 0)
+		#ray_cast_arrays.append(raycast)
 	
 func fish_physics():
 	provide_shield()
@@ -26,3 +37,15 @@ func provide_shield():
 			var collision = raycast.get_collider().get_parent()
 			if collision.has_method("add_shield"):
 				collision.add_shield()
+
+func generate_raycasts(target_dir: Vector2) -> RayCast2D:
+	var raycast = RayCast2D.new()
+	fish_body.add_child(raycast)
+	raycast.enabled = true
+	raycast.exclude_parent = true
+	raycast.collide_with_areas = true
+	raycast.set_collision_mask_value(4, true)
+	raycast.set_collision_mask_value(1, false)
+	raycast.position = Vector2(0, 0)
+	raycast.target_position = target_dir
+	return raycast
