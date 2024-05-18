@@ -1,14 +1,20 @@
 extends Node2D
 
-@export var fish_resource:FishResource
+@export var fish_resource: FishResource
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
 	if fish_resource.fish_sprite:
 		$Sprite2D.texture = fish_resource.fish_sprite
+	if fish_resource.has_method("fish_init"):
+		fish_resource.fish_init(self)
+	
+func _physics_process(delta):
+	if fish_resource.has_method("fish_physics"):
+		fish_resource.fish_physics()
+		pass
 
 func _on_area_2d_body_entered(body):
-	
 	if fish_resource:
 		fish_resource.on_collision(body) #i'm just going to assume that the only bodies moving around are the bubble - DG
 	#make death tween here
@@ -23,4 +29,11 @@ func _on_shot_fired():
 	
 func _toggle_visibility(show_flag:bool):
 	self.visible = show_flag
+
+func add_shield():
+	if !fish_resource.has_shield and !fish_resource.has_shield_before:
+		fish_resource.has_shield = true
+		fish_resource.has_shield_before = true
+		
+	print("Does the fish has shield: ", fish_resource.has_shield)
 	
