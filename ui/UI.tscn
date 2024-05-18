@@ -1,4 +1,4 @@
-[gd_scene load_steps=8 format=3 uid="uid://c5aahturt07ko"]
+[gd_scene load_steps=9 format=3 uid="uid://c5aahturt07ko"]
 
 [ext_resource type="Script" path="res://ui/in_game_menu.gd" id="1_i2sie"]
 [ext_resource type="FontFile" uid="uid://cw5jyvphsyts7" path="res://ui/fonts/VCR_OSD_MONO_1.001.ttf" id="1_poabi"]
@@ -7,6 +7,9 @@
 [ext_resource type="Script" path="res://ui/main_menu.gd" id="3_tfqta"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_0upnv"]
+bg_color = Color(0.301961, 0.662745, 0.690196, 1)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_q864k"]
 bg_color = Color(0.301961, 0.662745, 0.690196, 1)
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_muxio"]
@@ -98,11 +101,19 @@ offset_bottom = 196.0
 theme_override_styles/normal = SubResource("StyleBoxFlat_0upnv")
 text = "Play"
 
+[node name="FishInfoButton" type="Button" parent="MainMenu"]
+offset_left = 260.0
+offset_top = 217.0
+offset_right = 383.0
+offset_bottom = 248.0
+theme_override_styles/normal = SubResource("StyleBoxFlat_q864k")
+text = "Fish Info"
+
 [node name="ExitButton" type="Button" parent="MainMenu"]
 offset_left = 261.0
-offset_top = 216.0
+offset_top = 266.0
 offset_right = 384.0
-offset_bottom = 247.0
+offset_bottom = 297.0
 theme_override_styles/normal = SubResource("StyleBoxFlat_muxio")
 text = "Exit Game"
 

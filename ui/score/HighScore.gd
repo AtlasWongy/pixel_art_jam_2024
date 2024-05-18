@@ -16,4 +16,5 @@ func update_text_score(new_score: int):
 	print("Destroyed")
 	
 func reset_text_score(base_score:int):
-	text = str(base_score)
+	score = base_score
+	text = str(score)
