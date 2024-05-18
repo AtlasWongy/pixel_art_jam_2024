@@ -1,4 +1,4 @@
-[gd_scene load_steps=14 format=3 uid="uid://dbhm00x2xidw0"]
+[gd_scene load_steps=15 format=3 uid="uid://dbhm00x2xidw0"]
 
 [ext_resource type="PackedScene" uid="uid://fq6y7f4h3bkp" path="res://characters/players/player.tscn" id="1_ixtv7"]
 [ext_resource type="Texture2D" uid="uid://bdwk7dgr4r3dv" path="res://environment/far.png" id="2_g6h7d"]
@@ -13,6 +13,8 @@
 [ext_resource type="Resource" uid="uid://d1ods8qtrxfy4" path="res://Resources/Swordfish.tres" id="11_gyr2n"]
 [ext_resource type="PackedScene" uid="uid://dduupoqe47qkt" path="res://ui/UI.tscn" id="11_hjcpv"]
 [ext_resource type="Texture2D" uid="uid://g1tghd0yua" path="res://icon.svg" id="12_qttld"]
+
+[sub_resource type="AudioStream" id="AudioStream_moqd5"]
 
 [node name="Main" type="Node2D"]
 
@@ -76,3 +78,6 @@ visible = false
 position = Vector2(120.969, 343)
 scale = Vector2(0.24, 0.24)
 texture = ExtResource("12_qttld")
+
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
+stream = SubResource("AudioStream_moqd5")

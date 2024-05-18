@@ -1,11 +1,26 @@
-[gd_scene load_steps=5 format=3 uid="uid://ccqd1dd1bk1xg"]
+[gd_scene load_steps=9 format=3 uid="uid://ccqd1dd1bk1xg"]
 
 [ext_resource type="Script" path="res://Fish.gd" id="1_6afg3"]
 [ext_resource type="Resource" uid="uid://cd72nx7ulf8gq" path="res://Resources/Rockfish.tres" id="2_ps5ra"]
+[ext_resource type="Shader" path="res://Fish.gdshader" id="3_257cj"]
 [ext_resource type="Texture2D" uid="uid://budiqxaegar4b" path="res://characters/fishes/pearl_01a.png" id="3_hjva0"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_xi1xh"]
 size = Vector2(32, 32)
+
+[sub_resource type="FastNoiseLite" id="FastNoiseLite_f8x82"]
+
+[sub_resource type="NoiseTexture2D" id="NoiseTexture2D_0saua"]
+invert = true
+noise = SubResource("FastNoiseLite_f8x82")
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_yhtiy"]
+resource_local_to_scene = true
+shader = ExtResource("3_257cj")
+shader_parameter/dissolve_value = 0.0
+shader_parameter/burn_size = 0.25
+shader_parameter/burn_color = null
+shader_parameter/dissolve_texture = SubResource("NoiseTexture2D_0saua")
 
 [node name="Fish" type="Node2D" groups=["Fish"]]
 script = ExtResource("1_6afg3")
@@ -17,6 +32,7 @@ fish_resource = ExtResource("2_ps5ra")
 shape = SubResource("RectangleShape2D_xi1xh")
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
+material = SubResource("ShaderMaterial_yhtiy")
 texture = ExtResource("3_hjva0")
 
 [connection signal="body_entered" from="Area2D" to="." method="_on_area_2d_body_entered"]
