@@ -6,12 +6,11 @@
 [ext_resource type="Texture2D" uid="uid://yw620f85ene7" path="res://environment/foreground-1.png" id="4_0a48p"]
 [ext_resource type="Texture2D" uid="uid://ccqlyw4kdkg8i" path="res://environment/foreground-2.png" id="5_ubxi6"]
 [ext_resource type="PackedScene" uid="uid://da0sjbuvd10co" path="res://characters/projectile/bubble.tscn" id="6_dwj8i"]
-[ext_resource type="PackedScene" uid="uid://cryul1deljc4m" path="res://wall.tscn" id="7_ofmqr"]
-[ext_resource type="PackedScene" uid="uid://ccqd1dd1bk1xg" path="res://Fish.tscn" id="8_h1155"]
-[ext_resource type="PackedScene" uid="uid://cj1sij6b3r13x" path="res://FishFactory.tscn" id="9_48mwk"]
-[ext_resource type="Resource" uid="uid://ht1xvif80qny" path="res://Resources/Glassfish.tres" id="10_ra8mj"]
-[ext_resource type="Resource" uid="uid://d1ods8qtrxfy4" path="res://Resources/Swordfish.tres" id="11_gyr2n"]
-[ext_resource type="PackedScene" uid="uid://dduupoqe47qkt" path="res://ui/UI.tscn" id="11_hjcpv"]
+[ext_resource type="PackedScene" uid="uid://b6j850wwgkepg" path="res://environment/wall.tscn" id="7_ofmqr"]
+[ext_resource type="PackedScene" path="res://characters/fishes/FishFactory.tscn" id="9_48mwk"]
+[ext_resource type="PackedScene" uid="uid://c5aahturt07ko" path="res://ui/UI.tscn" id="11_hjcpv"]
+[ext_resource type="PackedScene" path="res://characters/fishes/Fish.tscn" id="11_im0we"]
+[ext_resource type="Resource" uid="uid://e3601301axv2" path="res://characters/fishes/glassfish/GlassFish.tres" id="12_if8an"]
 [ext_resource type="Texture2D" uid="uid://g1tghd0yua" path="res://icon.svg" id="12_qttld"]
 
 [sub_resource type="AudioStream" id="AudioStream_moqd5"]
@@ -28,8 +27,8 @@ position = Vector2(319, 343)
 [node name="ParallaxLayer" type="ParallaxLayer" parent="ParallaxLayer"]
 
 [node name="Sprite2D" type="Sprite2D" parent="ParallaxLayer/ParallaxLayer"]
-position = Vector2(319.75, 179.548)
-scale = Vector2(2.502, 1.88)
+position = Vector2(319.75, 186.757)
+scale = Vector2(2.502, 1.94539)
 texture = ExtResource("2_g6h7d")
 
 [node name="ParallaxLayer2" type="ParallaxLayer" parent="ParallaxLayer"]
@@ -57,9 +56,6 @@ texture = ExtResource("5_ubxi6")
 
 [node name="StaticBody2D" parent="Walls" instance=ExtResource("7_ofmqr")]
 collision_layer = 9
-
-[node name="Fish" parent="." instance=ExtResource("8_h1155")]
-position = Vector2(323, 77)
 
 [node name="Node" parent="." instance=ExtResource("9_48mwk")]
 
