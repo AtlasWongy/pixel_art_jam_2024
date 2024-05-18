@@ -9,7 +9,7 @@ var movable = false
 func _ready():
 	toggle_visibility(UiManager.characters_visibility)
 	SignalBus.toggle_characters_visibility.connect(toggle_visibility)
-
+	
 func get_rotation_input(delta):
 	if movable:
 		rotation_direction = Input.get_axis("left_arrow", "right_arrow")
@@ -38,4 +38,10 @@ func _physics_process(delta):
 func toggle_visibility(show_flag:bool):
 	print("player ", show_flag)
 	self.visible = show_flag
-	movable = show_flag
+	if GameManager.game_state != 3:
+		allow_player_movement(show_flag)
+	else:
+		allow_player_movement(!UiManager.pause_menu_visibility)
+	
+func allow_player_movement(move_flag:bool):
+	movable = move_flag

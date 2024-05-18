@@ -1,4 +1,4 @@
-[gd_scene load_steps=7 format=3 uid="uid://c5aahturt07ko"]
+[gd_scene load_steps=8 format=3 uid="uid://c5aahturt07ko"]
 
 [ext_resource type="Script" path="res://ui/in_game_menu.gd" id="1_i2sie"]
 [ext_resource type="FontFile" uid="uid://cw5jyvphsyts7" path="res://ui/fonts/VCR_OSD_MONO_1.001.ttf" id="1_poabi"]
@@ -7,6 +7,9 @@
 [ext_resource type="Script" path="res://ui/main_menu.gd" id="3_tfqta"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_0upnv"]
+bg_color = Color(0.301961, 0.662745, 0.690196, 1)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_muxio"]
 bg_color = Color(0.301961, 0.662745, 0.690196, 1)
 
 [node name="CanvasUI" type="CanvasLayer"]
@@ -38,23 +41,72 @@ theme_override_fonts/font = ExtResource("1_poabi")
 text = "123"
 script = ExtResource("2_5eepf")
 
+[node name="PauseButton" type="CheckButton" parent="InGameMenu"]
+offset_left = 8.0
+offset_top = -3.0
+offset_right = 103.0
+offset_bottom = 28.0
+focus_mode = 0
+text = "Pause:"
+
+[node name="Panel" type="Panel" parent="InGameMenu"]
+self_modulate = Color(1, 1, 1, 0)
+offset_left = 205.0
+offset_top = 109.0
+offset_right = 438.0
+offset_bottom = 261.0
+
+[node name="GameState" type="RichTextLabel" parent="InGameMenu/Panel"]
+offset_left = 13.0
+offset_top = 6.0
+offset_right = 234.0
+offset_bottom = 48.0
+theme_override_font_sizes/normal_font_size = 30
+text = "GAME PAUSED"
+
+[node name="FishInfoButton" type="Button" parent="InGameMenu/Panel"]
+layout_mode = 0
+offset_left = 56.0
+offset_top = 58.0
+offset_right = 179.0
+offset_bottom = 85.0
+text = "Fish Info"
+
+[node name="ExitButton" type="Button" parent="InGameMenu/Panel"]
+offset_left = 55.0
+offset_top = 108.0
+offset_right = 178.0
+offset_bottom = 139.0
+text = "Exit Game"
+
 [node name="MainMenu" type="Node2D" parent="."]
 script = ExtResource("3_tfqta")
 
 [node name="GameName" type="RichTextLabel" parent="MainMenu"]
-offset_left = 227.0
+offset_left = 231.0
 offset_top = 115.0
-offset_right = 428.0
+offset_right = 432.0
 offset_bottom = 157.0
 theme_override_font_sizes/normal_font_size = 30
 text = "ARCHER FISH"
 
 [node name="PlayButton" type="Button" parent="MainMenu"]
 offset_left = 260.0
-offset_top = 166.0
+offset_top = 168.0
 offset_right = 384.0
-offset_bottom = 194.0
+offset_bottom = 196.0
 theme_override_styles/normal = SubResource("StyleBoxFlat_0upnv")
 text = "Play"
 
+[node name="ExitButton" type="Button" parent="MainMenu"]
+offset_left = 261.0
+offset_top = 216.0
+offset_right = 384.0
+offset_bottom = 247.0
+theme_override_styles/normal = SubResource("StyleBoxFlat_muxio")
+text = "Exit Game"
+
+[connection signal="toggled" from="InGameMenu/PauseButton" to="InGameMenu" method="pause_game"]
+[connection signal="pressed" from="InGameMenu/Panel/ExitButton" to="InGameMenu" method="exit_game"]
 [connection signal="pressed" from="MainMenu/PlayButton" to="MainMenu" method="click_play_button"]
+[connection signal="pressed" from="MainMenu/ExitButton" to="MainMenu" method="exit_game"]

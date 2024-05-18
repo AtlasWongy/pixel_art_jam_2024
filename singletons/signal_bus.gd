@@ -15,7 +15,8 @@ signal game_state(indicator:int)
 signal toggle_menu_visibility(show:bool)
 signal toggle_characters_visibility(show:bool)
 signal toggle_in_game_menu_visibility(show:bool)
-
+signal game_paused(paused_flag:bool)
+signal toggle_pause_menu_visibility(show:bool)
 signal enemy_won(game_over_flag:bool)
 
 # Called when the node enters the scene tree for the first time.

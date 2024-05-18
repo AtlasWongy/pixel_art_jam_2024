@@ -34,4 +34,6 @@ func toggle_visibility(show_flag:bool):
 			title.text = "GAME OVER!"
 			playButton.text = "Restart"
 
+func exit_game():
+	get_tree().quit()
 
