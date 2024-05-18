@@ -26,6 +26,7 @@ func pause_game(paused_flag:bool):
 func toggle_pause_menu_visibility(show_flag:bool):
 	var pause_menu_panel = $Panel
 	pause_menu_panel.visible = show_flag
+	get_tree().paused = show_flag
 	
 func exit_game():
 	get_tree().quit()

@@ -45,6 +45,7 @@ text = "123"
 script = ExtResource("2_5eepf")
 
 [node name="PauseButton" type="CheckButton" parent="InGameMenu"]
+process_mode = 3
 offset_left = 8.0
 offset_top = -3.0
 offset_right = 103.0
