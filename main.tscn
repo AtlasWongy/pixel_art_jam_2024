@@ -59,14 +59,6 @@ collision_layer = 9
 
 [node name="Node" parent="." instance=ExtResource("9_48mwk")]
 
-[node name="Fish2" parent="." instance=ExtResource("8_h1155")]
-position = Vector2(258, 77)
-fish_resource = ExtResource("10_ra8mj")
-
-[node name="Fish3" parent="." instance=ExtResource("8_h1155")]
-position = Vector2(406, 77)
-fish_resource = ExtResource("11_gyr2n")
-
 [node name="CanvasUI" parent="." instance=ExtResource("11_hjcpv")]
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
@@ -75,5 +67,7 @@ position = Vector2(120.969, 343)
 scale = Vector2(0.24, 0.24)
 texture = ExtResource("12_qttld")
 
-[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
-stream = SubResource("AudioStream_moqd5")
+[node name="Fish" parent="." instance=ExtResource("11_im0we")]
+position = Vector2(102, 82)
+scale = Vector2(0.5, 0.5)
+fish_resource = ExtResource("12_if8an")
