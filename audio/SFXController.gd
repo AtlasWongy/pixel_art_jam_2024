@@ -22,12 +22,9 @@ func _ready():
 	$MusicPlayer.finished.connect(loop_music)
 
 func loop_music():
-	$MusicPlayer.stop()
-	print("wow")
 	$MusicPlayer.play(23.13)
 
 func fish_sfx_play():
-	print("wow")
 	num_destroyed += 1
 	var new_sfx_node = sfx_node.instantiate()
 	new_sfx_node.pitch_scale += num_destroyed * 0.1
