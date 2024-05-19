@@ -15,12 +15,11 @@ func toggle_visibility(show_flag:bool):
 		currentScore.reset_text_score(GameManager.game_score)
 
 func pause_game(paused_flag:bool):
-	var pause_menu_panel = $PausePanel
 	if paused_flag:
 		print("Paused game!")
 	else:
 		print("Resumed game!")
-	#pause_menu_panel.visible = paused_flag
+
 	SignalBus.game_paused.emit(paused_flag)
 
 func toggle_pause_menu_visibility(show_flag:bool):

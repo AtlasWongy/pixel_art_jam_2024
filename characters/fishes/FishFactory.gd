@@ -14,6 +14,7 @@ var spawn_array = [1,2,3,4,5,6,7,8,9]
 var available_fish_id = [2, 4, 5] # to be updated
 var _spawn_array = []
 
+@export var gameover_boundary_offset = 20
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
@@ -80,7 +81,7 @@ func _move_fish():
 func _spawn_all_fish():
 	for i in rows_to_spawn:
 		SignalBus.fish_spawned.emit()
-		print(i)
+		#print(i)
 		print(rows_to_spawn)
 		await get_tree().create_timer(0.5).timeout
 		_spawn_fish()
@@ -97,12 +98,12 @@ func get_fish_nearest_to_bottom() -> bool:
 	var reached_end = false
 	var player_y_position = get_parent().get_node("Player").global_position.y 
 	
-	for fish in get_tree().get_nodes_in_group("Fish"):
-		if fish.global_position.y >= player_y_position:
+	for game_fish in get_tree().get_nodes_in_group("Fish"):
+		if game_fish.global_position.y >= player_y_position - gameover_boundary_offset:
 			reached_end = true
 			
 	return reached_end
 	
 func clear_remaining_fish():
-	for fish in get_tree().get_nodes_in_group("Fish"):
-		fish.queue_free()
+	for remaining_fish in get_tree().get_nodes_in_group("Fish"):
+		remaining_fish.queue_free()
