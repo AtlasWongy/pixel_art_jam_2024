@@ -25,8 +25,8 @@ func toggle_visibility(show_flag:bool):
 	
 	# Show text as Restart or Play
 	if show_flag:
-		var title = $GameName
-		var playButton = $PlayButton
+		var title = $MainPanel/GameName
+		var playButton = $MainPanel/PlayButton
 		if game_state == 1:
 			title.text = "ARCHER FISH"
 			playButton.text = "Play"
