@@ -4,7 +4,9 @@ var fishes = []
 
 func _ready():
 	load_json_file("res://characters/fishes/FishData.json")
-	
+
+# ----------------------------------------------------------
+# Fish data file
 func load_json_file(file_path: String):
 	var file = FileAccess.open(file_path, FileAccess.READ)
 	if file:
@@ -20,18 +22,26 @@ func load_json_file(file_path: String):
 		else:
 			print("JSON Parse Error: ", json.get_error_message(), " at line ", json.get_error_line())
 
-func get_fish_description(fish_name: String) -> String:
+func get_fish_description_by_name(fish_name: String) -> String:
 	for fish in fishes:
 		if fish["name"] == fish_name:
 			return fish["description"]
 	return "Fish not found."
 
-func get_fish_score(fish_name: String) -> String:
+func get_fish_score_by_name(fish_name: String) -> String:
 	for fish in fishes:
 		if fish["name"] == fish_name:
 			return fish["score"]
 	return "Fish not found."
-
+	
+func get_fish_score_by_id(fish_id: int) -> String:
+	for fish in fishes:
+		if fish["id"] == str(fish_id):
+			return fish["score"]
+	return "Fish not found."
+	
+# --------------------------------------------------------
+# Highscore save file
 func get_highscore() -> int:
 	var score_file = FileAccess.open("user://highscoresave.data", FileAccess.READ)
 	if score_file!=null:
