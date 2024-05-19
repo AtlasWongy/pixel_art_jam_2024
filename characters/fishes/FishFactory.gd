@@ -24,7 +24,7 @@ func _ready():
 	ResourceUID.add_id(1,"res://characters/fishes/glassfish/GlassFish.tres")
 	ResourceUID.add_id(2,"res://characters/fishes/rockfish/Rockfish.tres")
 	ResourceUID.add_id(3,"res://characters/fishes/swordfish/Swordfish.tres")
-
+	ResourceUID.add_id(4,"res://characters/fishes/coral/Coral.tres")
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _spawn_fish():
@@ -35,7 +35,7 @@ func _spawn_fish():
 	for i in fish_to_spawn:
 		var new_fish = fish.instantiate()
 		new_fish.position = default_location + Vector2(64,0) * (_spawn_array.pop_front()-1)
-		new_fish.fish_resource = load(ResourceUID.get_id_path(randi_range(1,3)))
+		new_fish.fish_resource = load(ResourceUID.get_id_path(randi_range(1,4)))
 		add_child(new_fish)
 
 func _on_game_start(value:bool):
