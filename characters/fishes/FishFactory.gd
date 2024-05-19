@@ -11,7 +11,7 @@ var rows_to_spawn: int = 1
 var shots_since_last_increase: int = 0
 #assuming there are 9 "spawning points"
 var spawn_array = [1,2,3,4,5,6,7,8,9]
-var available_fish_id = [2, 4, 5] # to be updated
+var available_fish_id = [0, 1 ,2, 4, 5] # to be updated
 var _spawn_array = []
 
 
