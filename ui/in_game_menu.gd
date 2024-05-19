@@ -29,6 +29,6 @@ func toggle_pause_menu_visibility(show_flag:bool):
 	get_tree().paused = show_flag
 	
 func exit_game():
-	GameManager.save_game()
+	FileManager.save_game()
 	get_tree().quit()
 
