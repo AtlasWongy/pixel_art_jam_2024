@@ -23,8 +23,10 @@ func _ready():
 	SignalBus.start_game.connect(_on_game_start)
 	
 	ResourceUID.add_id(2,"res://characters/fishes/rockfish/Rockfish.tres")
-	ResourceUID.add_id(4,"res://characters/fishes/glassfish/GlassFish.tres")
-	ResourceUID.add_id(5,"res://characters/fishes/swordfish/Swordfish.tres")
+	ResourceUID.add_id(3,"res://characters/fishes/swordfish/Swordfish.tres")
+	ResourceUID.add_id(4,"res://characters/fishes/coral/Coral.tres")
+	ResourceUID.add_id(5,"res://characters/fishes/glassfish/GlassFish.tres")
+	ResourceUID.add_id(6,"res://characters/fishes/swordfish/Swordfish.tres")
 
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
