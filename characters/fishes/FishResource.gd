@@ -3,6 +3,7 @@ class_name FishResource
 
 @export var fish_sprite: Texture2D #this should be the fish's sprite path
 @export var fish_value: int = 0
+@export var has_shield: bool = false
 
 func on_collision(_body):
 	pass

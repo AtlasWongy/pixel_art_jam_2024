@@ -1,0 +1,10 @@
+[gd_resource type="Resource" script_class="Coral" load_steps=3 format=3 uid="uid://uerveguvaq5t"]
+
+[ext_resource type="Texture2D" uid="uid://cumjcbhiy8fbj" path="res://characters/fishes/coral/Coral.png" id="1_ajfa0"]
+[ext_resource type="Script" path="res://characters/fishes/coral/Coral.gd" id="1_tvfxa"]
+
+[resource]
+script = ExtResource("1_tvfxa")
+fish_sprite = ExtResource("1_ajfa0")
+fish_value = 0
+has_shield = false
