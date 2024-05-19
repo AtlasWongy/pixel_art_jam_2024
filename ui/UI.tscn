@@ -1,19 +1,17 @@
-[gd_scene load_steps=9 format=3 uid="uid://c5aahturt07ko"]
+[gd_scene load_steps=12 format=3 uid="uid://c5aahturt07ko"]
 
 [ext_resource type="Script" path="res://ui/in_game_menu.gd" id="1_i2sie"]
 [ext_resource type="FontFile" uid="uid://cw5jyvphsyts7" path="res://ui/fonts/VCR_OSD_MONO_1.001.ttf" id="1_poabi"]
 [ext_resource type="Script" path="res://ui/score/HighScore.gd" id="2_5eepf"]
 [ext_resource type="Texture2D" uid="uid://jfvtro1gcgt5" path="res://ui/assets/UI-Top-Bar.png" id="2_cqyx7"]
 [ext_resource type="Script" path="res://ui/main_menu.gd" id="3_tfqta"]
+[ext_resource type="Script" path="res://ui/score/CurrentScore.gd" id="4_e1tdq"]
+[ext_resource type="Theme" uid="uid://wfjisdqujaas" path="res://ui/assets/menu_theme.tres" id="5_hkyph"]
+[ext_resource type="Theme" uid="uid://b052for76jc2k" path="res://ui/fishInfo/fish_button_theme.tres" id="6_wrwfe"]
+[ext_resource type="Script" path="res://ui/fishInfo/FishInfoControl.gd" id="7_7rayy"]
+[ext_resource type="Texture2D" uid="uid://1jhvfmvk6kox" path="res://ui/assets/CloseButton.svg" id="8_k7gnb"]
 
-[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_0upnv"]
-bg_color = Color(0.301961, 0.662745, 0.690196, 1)
-
-[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_q864k"]
-bg_color = Color(0.301961, 0.662745, 0.690196, 1)
-
-[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_muxio"]
-bg_color = Color(0.301961, 0.662745, 0.690196, 1)
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_myumy"]
 
 [node name="CanvasUI" type="CanvasLayer"]
 
@@ -26,23 +24,23 @@ offset_right = 641.0
 offset_bottom = 28.0
 texture = ExtResource("2_cqyx7")
 
-[node name="GridContainer" type="GridContainer" parent="InGameMenu"]
-offset_left = 470.0
+[node name="CurrentScoreContainer" type="GridContainer" parent="InGameMenu"]
+offset_left = 232.0
 offset_top = 4.0
-offset_right = 607.0
+offset_right = 397.0
 offset_bottom = 22.0
 columns = 2
 
-[node name="HighScoreLabel" type="Label" parent="InGameMenu/GridContainer"]
+[node name="CurrentScoreLabel" type="Label" parent="InGameMenu/CurrentScoreContainer"]
 layout_mode = 2
 theme_override_fonts/font = ExtResource("1_poabi")
-text = "High Score:"
+text = "Current Score:"
 
-[node name="HighScore" type="Label" parent="InGameMenu/GridContainer"]
+[node name="CurrentScore" type="Label" parent="InGameMenu/CurrentScoreContainer"]
 layout_mode = 2
 theme_override_fonts/font = ExtResource("1_poabi")
 text = "123"
-script = ExtResource("2_5eepf")
+script = ExtResource("4_e1tdq")
 
 [node name="PauseButton" type="CheckButton" parent="InGameMenu"]
 process_mode = 3
@@ -53,76 +51,190 @@ offset_bottom = 28.0
 focus_mode = 0
 text = "Pause:"
 
-[node name="Panel" type="Panel" parent="InGameMenu"]
-self_modulate = Color(1, 1, 1, 0)
-offset_left = 205.0
-offset_top = 109.0
-offset_right = 438.0
-offset_bottom = 261.0
+[node name="PausePanel" type="Panel" parent="InGameMenu"]
+process_mode = 3
+offset_left = 210.0
+offset_top = 92.0
+offset_right = 428.0
+offset_bottom = 244.0
+theme = ExtResource("5_hkyph")
 
-[node name="GameState" type="RichTextLabel" parent="InGameMenu/Panel"]
+[node name="GameState" type="RichTextLabel" parent="InGameMenu/PausePanel"]
 layout_mode = 0
-offset_left = 13.0
+offset_left = 4.0
 offset_top = 6.0
-offset_right = 234.0
+offset_right = 225.0
 offset_bottom = 48.0
 theme_override_font_sizes/normal_font_size = 30
 text = "GAME PAUSED"
 
-[node name="FishInfoButton" type="Button" parent="InGameMenu/Panel"]
-process_mode = 3
+[node name="FishInfoButton" type="Button" parent="InGameMenu/PausePanel"]
 layout_mode = 0
-offset_left = 56.0
+offset_left = 45.0
 offset_top = 58.0
-offset_right = 179.0
-offset_bottom = 85.0
+offset_right = 170.0
+offset_bottom = 89.0
 text = "Fish Info"
 
-[node name="ExitButton" type="Button" parent="InGameMenu/Panel"]
-process_mode = 3
+[node name="ExitButton" type="Button" parent="InGameMenu/PausePanel"]
 layout_mode = 0
-offset_left = 55.0
+offset_left = 44.0
 offset_top = 108.0
-offset_right = 178.0
+offset_right = 170.0
 offset_bottom = 139.0
 text = "Exit Game"
+
+[node name="HighScoreContainer" type="GridContainer" parent="."]
+offset_left = 470.0
+offset_top = 4.0
+offset_right = 607.0
+offset_bottom = 22.0
+columns = 2
+
+[node name="HighScoreLabel" type="Label" parent="HighScoreContainer"]
+layout_mode = 2
+theme_override_fonts/font = ExtResource("1_poabi")
+text = "High Score:"
+
+[node name="HighScore" type="Label" parent="HighScoreContainer"]
+layout_mode = 2
+theme_override_fonts/font = ExtResource("1_poabi")
+text = "123"
+script = ExtResource("2_5eepf")
 
 [node name="MainMenu" type="Node2D" parent="."]
 script = ExtResource("3_tfqta")
 
-[node name="GameName" type="RichTextLabel" parent="MainMenu"]
-offset_left = 231.0
-offset_top = 115.0
-offset_right = 432.0
-offset_bottom = 157.0
+[node name="MainPanel" type="Panel" parent="MainMenu"]
+offset_left = 209.0
+offset_top = 88.0
+offset_right = 428.0
+offset_bottom = 304.0
+theme = ExtResource("5_hkyph")
+
+[node name="GameName" type="RichTextLabel" parent="MainMenu/MainPanel"]
+layout_mode = 0
+offset_left = 17.0
+offset_top = 10.0
+offset_right = 218.0
+offset_bottom = 52.0
 theme_override_font_sizes/normal_font_size = 30
 text = "ARCHER FISH"
 
-[node name="PlayButton" type="Button" parent="MainMenu"]
-offset_left = 260.0
-offset_top = 168.0
-offset_right = 384.0
-offset_bottom = 196.0
-theme_override_styles/normal = SubResource("StyleBoxFlat_0upnv")
+[node name="PlayButton" type="Button" parent="MainMenu/MainPanel"]
+layout_mode = 0
+offset_left = 47.0
+offset_top = 63.0
+offset_right = 170.0
+offset_bottom = 94.0
 text = "Play"
 
-[node name="FishInfoButton" type="Button" parent="MainMenu"]
-offset_left = 260.0
-offset_top = 217.0
-offset_right = 383.0
-offset_bottom = 248.0
-theme_override_styles/normal = SubResource("StyleBoxFlat_q864k")
+[node name="FishInfoButton" type="Button" parent="MainMenu/MainPanel"]
+layout_mode = 0
+offset_left = 47.0
+offset_top = 112.0
+offset_right = 170.0
+offset_bottom = 143.0
 text = "Fish Info"
 
-[node name="ExitButton" type="Button" parent="MainMenu"]
-offset_left = 261.0
-offset_top = 266.0
-offset_right = 384.0
-offset_bottom = 297.0
-theme_override_styles/normal = SubResource("StyleBoxFlat_muxio")
+[node name="ExitButton" type="Button" parent="MainMenu/MainPanel"]
+layout_mode = 0
+offset_left = 47.0
+offset_top = 161.0
+offset_right = 170.0
+offset_bottom = 192.0
 text = "Exit Game"
 
+[node name="FishListControl" type="Control" parent="."]
+process_mode = 3
+layout_mode = 3
+anchors_preset = 0
+offset_left = 208.0
+offset_top = 61.0
+offset_right = 443.0
+offset_bottom = 318.0
+theme = ExtResource("6_wrwfe")
+script = ExtResource("7_7rayy")
+
+[node name="FishContainer" type="Panel" parent="FishListControl"]
+layout_mode = 0
+offset_right = 235.0
+offset_bottom = 257.0
+
+[node name="Label" type="Label" parent="FishListControl/FishContainer"]
+layout_mode = 0
+offset_left = 3.0
+offset_top = 3.0
+offset_right = 103.0
+offset_bottom = 26.0
+text = "List of Fishes"
+
+[node name="CloseButton" type="Button" parent="FishListControl/FishContainer"]
+layout_mode = 0
+offset_left = 210.0
+offset_top = 4.0
+offset_right = 229.0
+offset_bottom = 23.0
+theme_override_styles/normal = SubResource("StyleBoxFlat_myumy")
+icon = ExtResource("8_k7gnb")
+flat = true
+expand_icon = true
+
+[node name="ScrollContainer" type="ScrollContainer" parent="FishListControl/FishContainer"]
+layout_mode = 2
+offset_top = 29.0
+offset_right = 234.0
+offset_bottom = 256.0
+
+[node name="FishButtons" type="VBoxContainer" parent="FishListControl/FishContainer/ScrollContainer"]
+clip_contents = true
+layout_mode = 2
+size_flags_horizontal = 3
+
+[node name="FishInfoButton" type="Button" parent="FishListControl/FishContainer/ScrollContainer/FishButtons"]
+layout_mode = 2
+text = "Fish Example"
+alignment = 0
+
+[node name="FishInfoContainer" type="Panel" parent="FishListControl"]
+layout_mode = 0
+offset_right = 235.0
+offset_bottom = 257.0
+
+[node name="NameLabel" type="Label" parent="FishListControl/FishInfoContainer"]
+layout_mode = 0
+offset_left = 3.0
+offset_top = 3.0
+offset_right = 195.0
+offset_bottom = 26.0
+text = "Example Fish"
+
+[node name="DescriptionLabel" type="Label" parent="FishListControl/FishInfoContainer"]
+layout_mode = 0
+offset_left = 7.0
+offset_top = 41.0
+offset_right = 227.0
+offset_bottom = 222.0
+text = "Just a default text"
+autowrap_mode = 3
+clip_text = true
+
+[node name="CloseButton" type="Button" parent="FishListControl/FishInfoContainer"]
+layout_mode = 0
+offset_left = 210.0
+offset_top = 4.0
+offset_right = 229.0
+offset_bottom = 23.0
+theme_override_styles/normal = SubResource("StyleBoxFlat_myumy")
+icon = ExtResource("8_k7gnb")
+flat = true
+expand_icon = true
+
 [connection signal="toggled" from="InGameMenu/PauseButton" to="InGameMenu" method="pause_game"]
-[connection signal="pressed" from="InGameMenu/Panel/ExitButton" to="InGameMenu" method="exit_game"]
-[connection signal="pressed" from="MainMenu/PlayButton" to="MainMenu" method="click_play_button"]
-[connection signal="pressed" from="MainMenu/ExitButton" to="MainMenu" method="exit_game"]
+[connection signal="pressed" from="InGameMenu/PausePanel/FishInfoButton" to="FishListControl" method="toggle_fish_list_visibility"]
+[connection signal="pressed" from="InGameMenu/PausePanel/ExitButton" to="InGameMenu" method="exit_game"]
+[connection signal="pressed" from="MainMenu/MainPanel/PlayButton" to="MainMenu" method="click_play_button"]
+[connection signal="pressed" from="MainMenu/MainPanel/FishInfoButton" to="FishListControl" method="toggle_fish_list_visibility"]
+[connection signal="pressed" from="MainMenu/MainPanel/ExitButton" to="MainMenu" method="exit_game"]
+[connection signal="pressed" from="FishListControl/FishContainer/CloseButton" to="FishListControl" method="toggle_fish_list_visibility"]
+[connection signal="pressed" from="FishListControl/FishInfoContainer/CloseButton" to="FishListControl" method="view_fish_info" binds= ["fish_name", "fish_description"]]
