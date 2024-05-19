@@ -21,28 +21,28 @@ func fish_sfx_play():
 	print("wow")
 	num_destroyed += 1
 	var new_sfx_node = sfx_node.instantiate()
-	new_sfx_node.play_sound(fish_destroy_sfx)
 	new_sfx_node.pitch_scale += num_destroyed * 0.1
 	new_sfx_node.volume_db -= 3
 	add_child(new_sfx_node)
+	new_sfx_node.play_sound(fish_destroy_sfx)
 
 func reset_fish_sfx():
 	num_destroyed = 0
 
 func shoot_bubble_sfx_play(value:float):
 	var new_sfx_node = sfx_node.instantiate()
-	new_sfx_node.play_sound(shoot_bubble_sfx)
 	add_child(new_sfx_node)
+	new_sfx_node.play_sound(shoot_bubble_sfx)
 
 func bubble_collide_wall_sfx_play():
 	var new_sfx_node = sfx_node.instantiate()
-	new_sfx_node.play_sound(wall_bounce_sfx)
 	new_sfx_node.volume_db -= 12
 	add_child(new_sfx_node)
+	new_sfx_node.play_sound(wall_bounce_sfx)
 
 func fish_spawn_sfx_play():
 	var new_sfx_node = sfx_node.instantiate()
-	new_sfx_node.play_sound(fish_spawn_sfx)
 	new_sfx_node.volume_db -= 1
 	add_child(new_sfx_node)
+	new_sfx_node.play_sound(fish_spawn_sfx)
 

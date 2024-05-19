@@ -21,6 +21,7 @@ func _ready():
 	SignalBus.toggle_characters_visibility.connect(toggle_visibility)
 	SignalBus.start_game.connect(_on_game_start)
 	
+	ResourceUID.add_id(0,"res://characters/fishes/tuna/tuna.tres")
 	ResourceUID.add_id(1,"res://characters/fishes/glassfish/GlassFish.tres")
 	ResourceUID.add_id(2,"res://characters/fishes/rockfish/Rockfish.tres")
 	ResourceUID.add_id(3,"res://characters/fishes/swordfish/Swordfish.tres")
@@ -35,7 +36,7 @@ func _spawn_fish():
 	for i in fish_to_spawn:
 		var new_fish = fish.instantiate()
 		new_fish.position = default_location + Vector2(64,0) * (_spawn_array.pop_front()-1)
-		new_fish.fish_resource = load(ResourceUID.get_id_path(randi_range(1,3)))
+		new_fish.fish_resource = load(ResourceUID.get_id_path(randi_range(0,3)))
 		add_child(new_fish)
 
 func _on_game_start(value:bool):
