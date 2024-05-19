@@ -17,6 +17,7 @@ func _ready():
 	SignalBus.changed_player_rotation.connect(update_postition)
 	SignalBus.shoot_bubble.connect(start_bubble_movement)
 	SignalBus.toggle_characters_visibility.connect(toggle_visibility)
+	SignalBus.shot_completed.connect(destroy_bubble)
 		
 func _physics_process(delta):
 	toggle_starting_state()
@@ -51,7 +52,7 @@ func update_postition(player_rotation:float, player_position:Vector2):
 		
 func toggle_starting_state():
 	if position.y > get_viewport_rect().size.y:
-		set_to_starting_state = true
+		#set_to_starting_state = true
 		linear_velocity.x = 0
 		linear_velocity.y = 0
 		SignalBus.shot_completed.emit()
@@ -61,5 +62,4 @@ func toggle_visibility(show_flag:bool):
 	self.visible = show_flag
 
 func destroy_bubble():
-	pass
-	#this should destroy the bubble and set it back to the starting spot
+	set_to_starting_state = true

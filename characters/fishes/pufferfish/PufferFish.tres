@@ -1,0 +1,11 @@
+[gd_resource type="Resource" script_class="Pufferfish" load_steps=3 format=3 uid="uid://c7knihq17hjnc"]
+
+[ext_resource type="Texture2D" uid="uid://dmfki1tfvlwy3" path="res://characters/fishes/fish_01c.png" id="1_gnq7f"]
+[ext_resource type="Script" path="res://characters/fishes/pufferfish/PufferFish.gd" id="2_ae3ts"]
+
+[resource]
+script = ExtResource("2_ae3ts")
+puff_radius = 100.0
+puff_duration = 1.0
+fish_sprite = ExtResource("1_gnq7f")
+fish_value = 0

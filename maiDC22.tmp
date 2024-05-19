@@ -1,0 +1,70 @@
+[gd_scene load_steps=12 format=3 uid="uid://dbhm00x2xidw0"]
+
+[ext_resource type="PackedScene" uid="uid://fq6y7f4h3bkp" path="res://characters/players/player.tscn" id="1_ixtv7"]
+[ext_resource type="Texture2D" uid="uid://bdwk7dgr4r3dv" path="res://environment/far.png" id="2_g6h7d"]
+[ext_resource type="Texture2D" uid="uid://da34nrhp1wuob" path="res://environment/sand.png" id="3_emhfw"]
+[ext_resource type="Texture2D" uid="uid://yw620f85ene7" path="res://environment/foreground-1.png" id="4_0a48p"]
+[ext_resource type="Texture2D" uid="uid://ccqlyw4kdkg8i" path="res://environment/foreground-2.png" id="5_ubxi6"]
+[ext_resource type="PackedScene" uid="uid://da0sjbuvd10co" path="res://characters/projectile/bubble.tscn" id="6_dwj8i"]
+[ext_resource type="PackedScene" uid="uid://dlx6kikeyripe" path="res://environment/wall.tscn" id="7_ofmqr"]
+[ext_resource type="PackedScene" uid="uid://cj1sij6b3r13x" path="res://characters/fishes/FishFactory.tscn" id="9_48mwk"]
+[ext_resource type="PackedScene" uid="uid://c5aahturt07ko" path="res://ui/UI.tscn" id="11_hjcpv"]
+[ext_resource type="Script" path="res://SFXController.gd" id="11_pkg2f"]
+[ext_resource type="Texture2D" uid="uid://g1tghd0yua" path="res://icon.svg" id="12_qttld"]
+
+[node name="Main" type="Node2D"]
+
+[node name="Player" parent="." instance=ExtResource("1_ixtv7")]
+position = Vector2(319, 343)
+
+[node name="Bubble" parent="." instance=ExtResource("6_dwj8i")]
+
+[node name="ParallaxLayer" type="ParallaxBackground" parent="."]
+
+[node name="ParallaxLayer" type="ParallaxLayer" parent="ParallaxLayer"]
+
+[node name="Sprite2D" type="Sprite2D" parent="ParallaxLayer/ParallaxLayer"]
+position = Vector2(319.75, 186.757)
+scale = Vector2(2.502, 1.94539)
+texture = ExtResource("2_g6h7d")
+
+[node name="ParallaxLayer2" type="ParallaxLayer" parent="ParallaxLayer"]
+
+[node name="Sprite2D" type="Sprite2D" parent="ParallaxLayer/ParallaxLayer2"]
+position = Vector2(319.75, 179.548)
+scale = Vector2(2.502, 1.88)
+texture = ExtResource("3_emhfw")
+
+[node name="ParallaxLayer3" type="ParallaxLayer" parent="ParallaxLayer"]
+
+[node name="Sprite2D" type="Sprite2D" parent="ParallaxLayer/ParallaxLayer3"]
+position = Vector2(319.75, 179.548)
+scale = Vector2(2.502, 1.88)
+texture = ExtResource("4_0a48p")
+
+[node name="ParallaxLayer4" type="ParallaxLayer" parent="ParallaxLayer"]
+
+[node name="Sprite2D" type="Sprite2D" parent="ParallaxLayer/ParallaxLayer4"]
+position = Vector2(319.75, 179.548)
+scale = Vector2(2.50195, 1.87971)
+texture = ExtResource("5_ubxi6")
+
+[node name="Walls" type="Node" parent="."]
+
+[node name="StaticBody2D" parent="Walls" instance=ExtResource("7_ofmqr")]
+collision_layer = 9
+
+[node name="FishFactory" parent="." instance=ExtResource("9_48mwk")]
+
+[node name="CanvasUI" parent="." instance=ExtResource("11_hjcpv")]
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+visible = false
+position = Vector2(120.969, 343)
+scale = Vector2(0.24, 0.24)
+texture = ExtResource("12_qttld")
+
+[node name="MusicPlayer" type="AudioStreamPlayer" parent="."]
+
+[node name="SFXController" type="Node" parent="."]
+script = ExtResource("11_pkg2f")

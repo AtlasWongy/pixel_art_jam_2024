@@ -22,16 +22,28 @@ func _on_area_2d_body_entered(body):
 		return
 	else:
 		collided = true
+	
+	#if body is StaticBody2D:
+		#print(body.get_shape_owners())
+		#print("here")
+		#var death_tween = create_tween()
+		#death_tween.tween_method(set_shader_value,1.0,0.0,0.25)
+		#death_tween.tween_callback(_on_fish_destroyed_tween_complete)
+
 	SignalBus.fish_collided.emit()
 	if fish_resource:
 		if fish_resource.has_method("on_collision_with_body_param"):
 			fish_resource.on_collision_with_body_param(body,self)
+			var death_tween = create_tween()
+			death_tween.tween_method(set_shader_value,1.0,0.0,0.25)
+			death_tween.tween_callback(_on_fish_destroyed_tween_complete)
+		elif fish_resource.has_method("on_collision_with_all_param"):
+			fish_resource.on_collision_with_all_param(body,self,fish_resource)
 		else:
 			fish_resource.on_collision(body) #i'm just going to assume that the only bodies moving around are the bubble - DG
-	#make death tween here
-	var death_tween = create_tween()
-	death_tween.tween_method(set_shader_value,1.0,0.0,0.25)
-	death_tween.tween_callback(_on_fish_destroyed_tween_complete)
+			var death_tween = create_tween()
+			death_tween.tween_method(set_shader_value,1.0,0.0,0.25)
+			death_tween.tween_callback(_on_fish_destroyed_tween_complete)
 
 
 func set_shader_value(value:float):
@@ -49,3 +61,8 @@ func _on_shot_fired():
 func _toggle_visibility(show_flag:bool):
 	self.visible = show_flag
 	
+#func collide_with_other_fish(body):
+	#if body is Fish:
+		#if fish_resource:
+			#if fish_resource.has_method("clear_surrounding_fish"):
+				#fish_resource.clear_surrounding_fish(body)
