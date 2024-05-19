@@ -2,7 +2,7 @@
 
 [ext_resource type="Script" path="res://characters/players/player.gd" id="1_el44m"]
 [ext_resource type="Texture2D" uid="uid://d3yjc0i4n55rq" path="res://characters/players/aim_indicator.png" id="2_k5crk"]
-[ext_resource type="Texture2D" uid="uid://48c01abwap7u" path="res://characters/players/Fish.png" id="2_yjg4u"]
+[ext_resource type="Texture2D" uid="uid://bksi261g67lvs" path="res://characters/players/Fish.png" id="2_yjg4u"]
 
 [node name="Player" type="CharacterBody2D"]
 rotation = -0.523599

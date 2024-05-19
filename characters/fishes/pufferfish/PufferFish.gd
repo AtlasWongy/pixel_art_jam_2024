@@ -7,10 +7,12 @@ func fish_init(fish:Fish):
 func on_collision_with_all_param(body,fish:Fish,fish_resource:FishResource):
 	if body is Bubble and fish is Fish:
 		SignalBus.shot_completed.emit()
-		await play_animation(fish)
+		if !fish.fish_resource.has_shield:
+			await play_animation(fish)
+			death_tween_function(fish,fish_resource)
 	#if body is Fish:
 		#clear_surrounding_fish(body)
-	death_tween_function(fish,fish_resource)
+	
 
 func play_animation(fish:Fish):
 	var tween = fish.create_tween()
@@ -32,7 +34,11 @@ func play_animation(fish:Fish):
 		#print(obj.position.x <= fish.position.x+100)
 		#print(obj.position.x >= fish.position.x-100)
 		if (obj.position.y <= fish.position.y+100 && obj.position.y >= fish.position.y-100 && obj.position.x <= fish.position.x+100 && obj.position.x >= fish.position.x-100):
-			objects_to_free.append(obj)
+			print("Object has shield", obj.fish_resource.has_shield)
+			if obj.fish_resource.has_shield:
+				obj.fish_resource.has_shield = false
+			elif !obj.fish_resource.has_shield:
+				objects_to_free.append(obj)
 
 	# Queue the _free method for each object in objects_to_free
 	for obj_to_free in objects_to_free:

@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://khd48bl5yhjx"
-path="res://.godot/imported/Coral.png-af251c8eaf0c0c06f357ef322e796544.ctex"
+uid="uid://d24fvj15w64db"
+path="res://.godot/imported/PufferFish.png-6def3a11f9ceb0847b3a139f819dc457.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://characters/fishes/coral/Coral.png"
-dest_files=["res://.godot/imported/Coral.png-af251c8eaf0c0c06f357ef322e796544.ctex"]
+source_file="res://characters/fishes/pufferfish/PufferFish.png"
+dest_files=["res://.godot/imported/PufferFish.png-6def3a11f9ceb0847b3a139f819dc457.ctex"]
 
 [params]
 

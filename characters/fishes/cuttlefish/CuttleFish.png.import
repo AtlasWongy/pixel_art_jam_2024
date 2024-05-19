@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://khd48bl5yhjx"
-path="res://.godot/imported/Coral.png-af251c8eaf0c0c06f357ef322e796544.ctex"
+uid="uid://dtivmvq044dug"
+path="res://.godot/imported/CuttleFish.png-5c6e86a3340911f4a8fab9b2113e6844.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://characters/fishes/coral/Coral.png"
-dest_files=["res://.godot/imported/Coral.png-af251c8eaf0c0c06f357ef322e796544.ctex"]
+source_file="res://characters/fishes/cuttlefish/CuttleFish.png"
+dest_files=["res://.godot/imported/CuttleFish.png-5c6e86a3340911f4a8fab9b2113e6844.ctex"]
 
 [params]
 

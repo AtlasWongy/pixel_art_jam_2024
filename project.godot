@@ -18,9 +18,9 @@ config/icon="res://icon.svg"
 [autoload]
 
 SignalBus="*res://singletons/signal_bus.gd"
-FileManager="*res://singletons/file_manager.gd"
 GameManager="*res://singletons/game_manager.gd"
 UiManager="*res://singletons/ui_manager.gd"
+FileManager="*res://singletons/file_manager.gd"
 
 [display]
 
