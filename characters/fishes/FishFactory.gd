@@ -11,7 +11,7 @@ var rows_to_spawn: int = 1
 var shots_since_last_increase: int = 0
 #assuming there are 9 "spawning points"
 var spawn_array = [1,2,3,4,5,6,7,8,9]
-var available_fish_id = [2, 3, 4, 5, 7] # to be updated
+var available_fish_id = [0, 1 ,2, 3, 4, 6] # to be updated
 var _spawn_array = []
 
 @export var gameover_boundary_offset = 20
@@ -23,11 +23,12 @@ func _ready():
 	SignalBus.toggle_characters_visibility.connect(toggle_visibility)
 	SignalBus.start_game.connect(_on_game_start)
 	
-	ResourceUID.add_id(2,"res://characters/fishes/rockfish/Rockfish.tres")
-	ResourceUID.add_id(3,"res://characters/fishes/pufferfish/PufferFish.tres")
-	ResourceUID.add_id(4,"res://characters/fishes/glassfish/GlassFish.tres")
-	ResourceUID.add_id(5,"res://characters/fishes/swordfish/Swordfish.tres")
-	ResourceUID.add_id(7,"res://characters/fishes/coral/Coral.tres")
+	ResourceUID.add_id(0,"res://characters/fishes/tuna/tuna.tres")
+	ResourceUID.add_id(3,"res://characters/fishes/glassfish/GlassFish.tres")
+	ResourceUID.add_id(1,"res://characters/fishes/rockfish/Rockfish.tres")
+	ResourceUID.add_id(2,"res://characters/fishes/pufferfish/PufferFish.tres")
+	ResourceUID.add_id(4,"res://characters/fishes/swordfish/Swordfish.tres")
+	ResourceUID.add_id(6,"res://characters/fishes/coral/Coral.tres")
 
 
 

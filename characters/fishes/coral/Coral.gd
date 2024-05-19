@@ -23,6 +23,7 @@ func fish_physics():
 
 func on_collision(body):
 	for raycast in ray_cast_arrays:
+		#raycast.queue_free()
 		call_deferred("queue_free", raycast)
 
 func provide_shield():

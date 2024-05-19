@@ -13,6 +13,7 @@ func _ready():
 	if fish_resource.has_method("fish_init"):
 		fish_resource.fish_init(self)
 	
+	$Sprite2D.material.set_shader_parameter("highlight",false) #set this to true when you want to turn on the shield
 	var death_tween = create_tween()
 	death_tween.tween_method(set_shader_value,0.0,1.0,0.15)
 	

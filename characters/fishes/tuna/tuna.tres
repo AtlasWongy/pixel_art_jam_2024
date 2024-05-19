@@ -1,0 +1,9 @@
+[gd_resource type="Resource" script_class="FishResource" load_steps=3 format=3 uid="uid://cevmmyctsscom"]
+
+[ext_resource type="Script" path="res://characters/fishes/FishResource.gd" id="1_l7073"]
+[ext_resource type="Texture2D" uid="uid://c60wackufrgco" path="res://characters/fishes/tuna/tuna.png" id="1_lssdi"]
+
+[resource]
+script = ExtResource("1_l7073")
+fish_sprite = ExtResource("1_lssdi")
+fish_value = 10
