@@ -28,7 +28,7 @@ func game_over(game_over_flag:bool):
 	if game_over_flag:
 		game_state = GameState.ENDED
 		
-		save_game()
+		FileManager.save_game()
 		
 		game_score = 0
 		print("GAMEOVER with Game State: ", game_state)
@@ -42,12 +42,8 @@ func game_paused(game_over_flag:float):
 	SignalBus.game_state.emit(game_state)
 
 func get_highscore():
-	var score_file = FileAccess.open("user://highscoresave.data", FileAccess.READ)
-	if score_file!=null:
-		high_score = score_file.get_32()
-	else:
-		high_score = 0
-		save_game()
+	high_score = FileManager.get_highscore()
+	FileManager.save_game()
 	print("HighScore: ", high_score)
 	SignalBus.update_highscore.emit(high_score)
 	
@@ -58,11 +54,8 @@ func get_current_score(current_score:int):
 func update_high_score():
 	if game_score > high_score:
 		high_score = game_score
+		FileManager.save_game()
 	SignalBus.update_highscore.emit(high_score)
-	
-func save_game():
-	var save_file = FileAccess.open("user://highscoresave.data", FileAccess.WRITE)
-	save_file.store_32(high_score)
 
 func _process(_delta):
 	pass

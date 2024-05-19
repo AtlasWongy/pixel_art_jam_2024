@@ -6,56 +6,8 @@ var fish_info_show_flag = false
 func _ready():
 	self.visible = fish_list_show_flag
 	
-	var fishes_info = [
-		{
-			"id": "1",
-			"name": "Tuna",
-			"description": "The average fish. No abilities.",
-			"score": "0"
-		},
-		{
-			"id": "2",
-			"name": "Rockfish",
-			"description": "The solid one. Acts as a collider.",
-			"score": "10"
-		},	
-		{
-			"id": "3",
-			"name": "Pufferfish",
-			"description": "The spiky one. Explodes upon contact.",
-			"score": "10"
-		},
-		{
-			"id": "4",
-			"name": "Glassfish",
-			"description": "The random one. Deflects bubble at random angle.",
-			"score": "10"
-		},
-		{
-			"id": "5",
-			"name": "Swordfish",
-			"description": "The pointy one. Destroys ball when hit from front.",
-			"score": "10"
-		},
-		{
-			"id": "6",
-			"name": "Cuttlefish",
-			"description": "The hidden one. Camouflage surrounding fishes when hit for 2 shots.",
-			"score": "10"
-		},
-		{
-			"id": "7",
-			"name": "Coral",
-			"description": "The protective one. Provides a shield for surrounding fishes for 2 shots.",
-			"score": "10"
-		},
-		{
-			"id": "8",
-			"name": "ZebraFish",
-			"description": "The unusual one. Move 2 steps forward if no adjacent fishes were hit",
-			"score": "10"
-		}
-	]
+	var fishes_info = FileManager.fishes
+	
 	populate_fish_button(fishes_info)
 	
 func populate_fish_button(fishes_info):
