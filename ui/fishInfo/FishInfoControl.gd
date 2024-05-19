@@ -72,7 +72,7 @@ func populate_fish_button(fishes_info):
 			continue
 		
 		var button := Button.new()
-		button.set_text_alignment(0)
+		button.set_text_alignment(HORIZONTAL_ALIGNMENT_LEFT)
 		button.set_text(button_text)
 		
 		fishInfoContainer.add_child(button)

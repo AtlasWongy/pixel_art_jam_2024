@@ -42,7 +42,7 @@ func game_paused(game_over_flag:float):
 	SignalBus.game_state.emit(game_state)
 
 func get_highscore():
-	var score_file = FileAccess.open("res://ui/score/highscoresave.data", FileAccess.READ)
+	var score_file = FileAccess.open("user://highscoresave.data", FileAccess.READ)
 	if score_file!=null:
 		high_score = score_file.get_32()
 	else:
@@ -61,7 +61,7 @@ func update_high_score():
 	SignalBus.update_highscore.emit(high_score)
 	
 func save_game():
-	var save_file = FileAccess.open("res://ui/score/highscoresave.data", FileAccess.WRITE)
+	var save_file = FileAccess.open("user://highscoresave.data", FileAccess.WRITE)
 	save_file.store_32(high_score)
 
 func _process(_delta):
