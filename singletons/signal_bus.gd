@@ -5,10 +5,9 @@ signal fish_collided() #for sfx
 signal changed_player_rotation(player_rotation:float, player_position:Vector2)
 signal shoot_bubble(player_rotation:float)
 signal bubble_collide_wall()
-signal update_score
 signal fish_destroyed(score: int)
-signal game_over
 signal fish_spawned
+signal update_highscore(score: int)
 
 signal start_game(game_started:bool)
 signal game_state(indicator:int)

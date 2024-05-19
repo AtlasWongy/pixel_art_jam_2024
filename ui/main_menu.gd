@@ -35,5 +35,6 @@ func toggle_visibility(show_flag:bool):
 			playButton.text = "Restart"
 
 func exit_game():
+	GameManager.save_game()
 	get_tree().quit()
 

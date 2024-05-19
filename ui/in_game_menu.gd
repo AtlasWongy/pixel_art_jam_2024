@@ -10,9 +10,9 @@ func toggle_visibility(show_flag:bool):
 	if self is CanvasItem:
 		self.visible = show_flag
 		
-	var highScore = $GridContainer/HighScore
+	var currentScore = $CurrentScoreContainer/CurrentScore
 	if !show_flag:
-		highScore.reset_text_score(GameManager.game_score)
+		currentScore.reset_text_score(GameManager.game_score)
 
 func pause_game(paused_flag:bool):
 	var pause_menu_panel = $PausePanel
@@ -29,5 +29,6 @@ func toggle_pause_menu_visibility(show_flag:bool):
 	get_tree().paused = show_flag
 	
 func exit_game():
+	GameManager.save_game()
 	get_tree().quit()
 
