@@ -25,8 +25,10 @@ func _ready():
 	ResourceUID.add_id(0,"res://characters/fishes/tuna/tuna.tres")
 	ResourceUID.add_id(1,"res://characters/fishes/glassfish/GlassFish.tres")
 	ResourceUID.add_id(2,"res://characters/fishes/rockfish/Rockfish.tres")
-	ResourceUID.add_id(4,"res://characters/fishes/glassfish/GlassFish.tres")
-	ResourceUID.add_id(5,"res://characters/fishes/swordfish/Swordfish.tres")
+	ResourceUID.add_id(3,"res://characters/fishes/swordfish/Swordfish.tres")
+	ResourceUID.add_id(4,"res://characters/fishes/coral/Coral.tres")
+	ResourceUID.add_id(5,"res://characters/fishes/glassfish/GlassFish.tres")
+	ResourceUID.add_id(6,"res://characters/fishes/swordfish/Swordfish.tres")
 
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.

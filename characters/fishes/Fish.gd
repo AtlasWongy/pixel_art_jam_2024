@@ -1,7 +1,7 @@
 extends Node2D
 class_name Fish
 
-@export var fish_resource:FishResource
+@export var fish_resource: FishResource
 
 var collided:bool = false
 
@@ -16,6 +16,10 @@ func _ready():
 	$Sprite2D.material.set_shader_parameter("highlight",false) #set this to true when you want to turn on the shield
 	var death_tween = create_tween()
 	death_tween.tween_method(set_shader_value,0.0,1.0,0.15)
+	
+func _physics_process(delta):
+	if fish_resource.has_method("fish_physics"):
+		fish_resource.fish_physics()
 
 func _on_area_2d_body_entered(body):
 	if collided:
@@ -29,9 +33,14 @@ func _on_area_2d_body_entered(body):
 		else:
 			fish_resource.on_collision(body) #i'm just going to assume that the only bodies moving around are the bubble - DG
 	#make death tween here
-	var death_tween = create_tween()
-	death_tween.tween_method(set_shader_value,1.0,0.0,0.25)
-	death_tween.tween_callback(_on_fish_destroyed_tween_complete)
+	if fish_resource.has_shield:
+		fish_resource.has_shield = false
+		collided = false
+		return
+	else:
+		var death_tween = create_tween()
+		death_tween.tween_method(set_shader_value,1.0,0.0,0.25)
+		death_tween.tween_callback(_on_fish_destroyed_tween_complete)
 
 
 func set_shader_value(value:float):
@@ -48,4 +57,9 @@ func _on_shot_fired():
 	
 func _toggle_visibility(show_flag:bool):
 	self.visible = show_flag
+
+func add_shield():
+	if !fish_resource.has_shield and !is_in_group("coral"):
+		fish_resource.has_shield = true
+		print("Shield turn on!")
 	
