@@ -47,7 +47,7 @@ func set_shader_value(value:float):
 
 func _on_fish_destroyed_tween_complete():
 	queue_free()
-	SignalBus.fish_destroyed.emit(10)
+	SignalBus.fish_destroyed.emit(fish_resource.fish_value)
 
 func _on_shot_fired():
 	var tween = get_tree().create_tween()
