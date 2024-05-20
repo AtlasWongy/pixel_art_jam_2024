@@ -49,6 +49,7 @@ func _on_area_2d_body_entered(body):
 			if fish_resource.has_shield:
 				fish_resource.has_shield = false
 				collided = false
+				$Sprite2D.material.set_shader_parameter("highlight",false) #set this to true when you want to turn on the shield
 				return
 			else:
 				var death_tween = create_tween()
@@ -75,6 +76,7 @@ func add_shield():
 	if !fish_resource.has_shield and !is_in_group("coral"):
 		fish_resource.has_shield = true
 		print("Shield turn on!")
+		$Sprite2D.material.set_shader_parameter("highlight",true) #set this to true when you want to turn on the shield
 	
 #func collide_with_other_fish(body):
 	#if body is Fish:

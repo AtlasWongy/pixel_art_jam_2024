@@ -7,3 +7,4 @@
 script = ExtResource("1_l7073")
 fish_sprite = ExtResource("1_lssdi")
 fish_value = 10
+has_shield = false

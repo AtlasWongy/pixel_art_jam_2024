@@ -1,9 +1,10 @@
 [gd_resource type="Resource" script_class="Rockfish" load_steps=3 format=3 uid="uid://bkvtunx227wdt"]
 
-[ext_resource type="Texture2D" uid="uid://bkrjhc0ngyq54" path="res://characters/fishes/fish_01a.png" id="1_qsva7"]
 [ext_resource type="Script" path="res://characters/fishes/rockfish/Rockfish.gd" id="1_rbr7v"]
+[ext_resource type="Texture2D" uid="uid://do5t5s3w0u8lv" path="res://characters/fishes/rockfish/rockfish.png" id="1_vbyiu"]
 
 [resource]
 script = ExtResource("1_rbr7v")
-fish_sprite = ExtResource("1_qsva7")
+fish_sprite = ExtResource("1_vbyiu")
 fish_value = 0
+has_shield = false
