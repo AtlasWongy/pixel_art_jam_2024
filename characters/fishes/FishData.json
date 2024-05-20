@@ -46,7 +46,7 @@
 			"id": "7",
 			"name": "ZebraFish",
 			"description": "The unusual one. Move 2 steps forward if no adjacent fishes were hit",
-			"score": "10"
+			"score": "40"
 		}
 	]
 }

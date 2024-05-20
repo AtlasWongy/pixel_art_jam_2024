@@ -22,18 +22,10 @@ func _physics_process(_delta):
 		fish_resource.fish_physics()
 
 func _on_area_2d_body_entered(body):
-	print(body, body.get_parent())
 	if collided:
 		return
 	else:
 		collided = true
-	
-	#if body.get_parent() is Fish:
-		#print(body.get_parent())
-		#print("here")
-		#var death_tween = create_tween()
-		#death_tween.tween_method(set_shader_value,1.0,0.0,0.25)
-		#death_tween.tween_callback(_on_fish_destroyed_tween_complete)
 
 	SignalBus.fish_collided.emit()
 	if fish_resource:

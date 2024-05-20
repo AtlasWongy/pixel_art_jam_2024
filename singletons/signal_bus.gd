@@ -1,6 +1,8 @@
 extends Node
 
 signal shot_completed() #emitted when ball hits lower boundary
+signal start_shot()
+signal reset_ball() 
 signal fish_collided() #for sfx
 signal changed_player_rotation(player_rotation:float, player_position:Vector2)
 signal shoot_bubble(player_rotation:float)
