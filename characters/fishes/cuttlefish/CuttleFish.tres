@@ -1,0 +1,10 @@
+[gd_resource type="Resource" script_class="CuttleFish" load_steps=3 format=3 uid="uid://d3gr1woks6r47"]
+
+[ext_resource type="Script" path="res://characters/fishes/cuttlefish/CuttleFish.gd" id="1_5wslf"]
+[ext_resource type="Texture2D" uid="uid://dtivmvq044dug" path="res://characters/fishes/cuttlefish/CuttleFish.png" id="1_ai5nm"]
+
+[resource]
+script = ExtResource("1_5wslf")
+fish_sprite = ExtResource("1_ai5nm")
+fish_value = 0
+has_shield = false
