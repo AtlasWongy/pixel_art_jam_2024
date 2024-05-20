@@ -11,7 +11,18 @@ func on_collision_with_body_param(body,fish:Fish):
 		print(fish.position)
 		#size of the fish is 32x32 px
 		if(abs(body.position.x-fish.position.x) > 20 or (fish.position.y-body.position.y)> 20):
-			print("woah!")
-		else:
 			pass
-			#the bubble should be destroyed here bcos this would be a front collision
+		else:
+			SignalBus.shot_completed.emit()
+			death_tween_function(fish)
+
+func death_tween_function(fish:Fish):
+	var death_tween = fish.create_tween()
+	death_tween.tween_method(func(value):
+			set_shader_value(fish, value),1.0,0.0,0.25)
+	fish.queue_free()
+	SignalBus.fish_destroyed.emit(fish.fish_resource.fish_value)
+
+func set_shader_value(fish:Fish, value:float):
+	var sprite = fish.get_node("Sprite2D")
+	sprite.material.set_shader_parameter("dissolve_value",value)
