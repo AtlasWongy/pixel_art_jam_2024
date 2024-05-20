@@ -40,6 +40,7 @@ func _on_area_2d_body_entered(body):
 		if fish_resource.has_shield:
 			fish_resource.has_shield = false
 			collided = false
+			$Sprite2D.material.set_shader_parameter("highlight",false) #set this to true when you want to turn on the shield
 			return
 		else:
 			if !fish_resource.has_method("play_animation"):
@@ -67,6 +68,7 @@ func add_shield():
 	if !fish_resource.has_shield and !is_in_group("coral"):
 		fish_resource.has_shield = true
 		print("Shield turn on!")
+		$Sprite2D.material.set_shader_parameter("highlight",true) #set this to true when you want to turn on the shield
 
 func collision_from_other_fishes(body):
 	if body.get_parent().fish_resource is Pufferfish && body.get_parent().fish_resource.get_explosion_flag():
