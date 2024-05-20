@@ -2,7 +2,7 @@
 
 [ext_resource type="Script" path="res://characters/fishes/Fish.gd" id="1_6afg3"]
 [ext_resource type="Shader" path="res://characters/fishes/Fish.gdshader" id="3_257cj"]
-[ext_resource type="Texture2D" uid="uid://dhyetdp0tsdfa" path="res://characters/fishes/pearl_01a.png" id="3_hjva0"]
+[ext_resource type="Texture2D" uid="uid://budiqxaegar4b" path="res://characters/fishes/pearl_01a.png" id="3_hjva0"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_xi1xh"]
 size = Vector2(32, 32)
@@ -41,4 +41,5 @@ shape = SubResource("RectangleShape2D_xi1xh")
 material = SubResource("ShaderMaterial_yhtiy")
 texture = ExtResource("3_hjva0")
 
+[connection signal="area_entered" from="Area2D" to="." method="collision_from_other_fishes"]
 [connection signal="body_entered" from="Area2D" to="." method="_on_area_2d_body_entered"]
