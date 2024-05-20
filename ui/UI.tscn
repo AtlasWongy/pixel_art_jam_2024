@@ -6,7 +6,7 @@
 [ext_resource type="Texture2D" uid="uid://jfvtro1gcgt5" path="res://ui/assets/UI-Top-Bar.png" id="2_cqyx7"]
 [ext_resource type="Script" path="res://ui/main_menu.gd" id="3_tfqta"]
 [ext_resource type="Script" path="res://ui/score/CurrentScore.gd" id="4_e1tdq"]
-[ext_resource type="Theme" uid="uid://dkps2qgy8ho7" path="res://ui/assets/menu_theme.tres" id="5_hkyph"]
+[ext_resource type="Theme" uid="uid://wfjisdqujaas" path="res://ui/assets/menu_theme.tres" id="5_hkyph"]
 [ext_resource type="Theme" uid="uid://b052for76jc2k" path="res://ui/fishInfo/fish_button_theme.tres" id="6_wrwfe"]
 [ext_resource type="Script" path="res://ui/fishInfo/FishInfoControl.gd" id="7_7rayy"]
 [ext_resource type="Texture2D" uid="uid://1jhvfmvk6kox" path="res://ui/assets/CloseButton.svg" id="8_k7gnb"]

@@ -10,6 +10,8 @@ func _ready():
 	
 	populate_fish_button(fishes_info)
 	
+	SignalBus.toggle_pause_menu_visibility.connect(toggle_self_visibility)
+	
 func populate_fish_button(fishes_info):
 	for item in fishes_info:
 		var button_text = " %s | %s " % [item.id, item.name]
@@ -36,22 +38,22 @@ func view_fish_info(fish_name:String, fish_description:String):
 	
 func toggle_fish_list_visibility():
 	fish_list_show_flag = !fish_list_show_flag
-	toggle_self_visibility()
+	toggle_self_visibility(true)
 	$FishContainer.visible = fish_list_show_flag
 	$FishInfoContainer.visible = !fish_list_show_flag
 
 func toggle_fish_info_visibility(fish_name:String, fish_description:String):
 	fish_info_show_flag = !fish_info_show_flag
-	toggle_self_visibility()
+	toggle_self_visibility(true)
 	if fish_info_show_flag:
 		$FishInfoContainer/NameLabel.set_text(fish_name)
 		$FishInfoContainer/DescriptionLabel.set_text(fish_description)
 	$FishInfoContainer.visible = fish_info_show_flag
 	
-func toggle_self_visibility():
-	if !fish_info_show_flag && !fish_list_show_flag:
+func toggle_self_visibility(show_pause_menu_flag:bool):
+	if (!fish_info_show_flag && !fish_list_show_flag) || !show_pause_menu_flag:
 		self.visible = false
-	elif fish_info_show_flag || fish_list_show_flag:
+	elif (fish_info_show_flag || fish_list_show_flag) && show_pause_menu_flag:
 		self.visible = true
 	
 func _process(_delta):

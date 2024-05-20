@@ -20,7 +20,7 @@ func _ready():
 	SignalBus.shot_completed.connect(destroy_bubble)
 		
 func _physics_process(delta):
-	toggle_starting_state()
+	check_ball_over_boundary()
 	var collision = move_and_collide(linear_velocity * bubble_speed * delta)
 	if (collision):
 		var collider = collision.get_collider()
@@ -28,12 +28,12 @@ func _physics_process(delta):
 		var shape_owner_id = collider.shape_find_owner(shape_index)
 		var shape_owner = collider.shape_owner_get_owner(shape_owner_id)
 		if shape_owner:
-			print("Collided with: ", shape_owner.name)
+			#print("Collided with: ", shape_owner.name)
 			if shape_owner.name.contains("Boundary"):
 				SignalBus.bubble_collide_wall.emit()
 				linear_velocity = linear_velocity.bounce(collision.get_normal()) * speed_multiplier
-		else:
-			print("Collided with: ", collider.name)
+		#else:
+			#print("Collided with: ", collider.name)
 		
 func start_bubble_movement(player_rotation:float):
 	if set_to_starting_state:
@@ -42,19 +42,17 @@ func start_bubble_movement(player_rotation:float):
 		var direction = Vector2(0, -distance_from_player).rotated(player_rotation)
 		# Set the linear velocity of the ball
 		linear_velocity = direction.normalized() * initial_bubble_speed
-		#randomize()
-		#linear_velocity.x = [-1, 1][randi() % 2] * initial_bubble_speed
-		#linear_velocity.y = [-8, 8][randi() % 2] * initial_bubble_speed
 
 func update_postition(player_rotation:float, player_position:Vector2):
 	if set_to_starting_state:
 		global_position = player_position + Vector2(0, -distance_from_player).rotated(player_rotation)
 		
-func toggle_starting_state():
-	if position.y > get_viewport_rect().size.y:
-		#set_to_starting_state = true
-		linear_velocity.x = 0
-		linear_velocity.y = 0
+func check_ball_over_boundary():
+	if (position.y > get_viewport_rect().size.y
+		or position.y < -(get_viewport_rect().size.y)
+		or position.x > get_viewport_rect().size.x
+		or position.x < -(get_viewport_rect().size.x)):
+		destroy_bubble()
 		SignalBus.shot_completed.emit()
 		
 func toggle_visibility(show_flag:bool):
@@ -63,3 +61,5 @@ func toggle_visibility(show_flag:bool):
 
 func destroy_bubble():
 	set_to_starting_state = true
+	linear_velocity.x = 0
+	linear_velocity.y = 0
