@@ -32,6 +32,7 @@ shader_parameter/dissolve_texture = SubResource("NoiseTexture2D_0saua")
 script = ExtResource("1_6afg3")
 
 [node name="Area2D" type="Area2D" parent="."]
+collision_mask = 9
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
 shape = SubResource("RectangleShape2D_xi1xh")

@@ -1,0 +1,12 @@
+[gd_resource type="Resource" script_class="ZebraFish" load_steps=3 format=3 uid="uid://ds8sxwthera3y"]
+
+[ext_resource type="Texture2D" uid="uid://cxr88rwrvtwxw" path="res://characters/fishes/zebrafish/ZebraFish.png" id="1_gfb2i"]
+[ext_resource type="Script" path="res://characters/fishes/zebrafish/ZebraFish.gd" id="2_g36vh"]
+
+[resource]
+script = ExtResource("2_g36vh")
+fish_sprite = ExtResource("1_gfb2i")
+fish_value = 0
+has_shield = false
+move_foward_flag = false
+no_fish_infront_flag = false

@@ -17,6 +17,9 @@ func _ready():
 	var death_tween = create_tween()
 	death_tween.tween_method(set_shader_value,0.0,1.0,0.15)
 	
+	SignalBus.shot_completed.connect(detect_adjacent_fishes)
+	SignalBus.move_zebra.connect(move_forward_again)
+	
 func _physics_process(_delta):
 	if fish_resource.has_method("fish_physics"):
 		fish_resource.fish_physics()
@@ -73,4 +76,19 @@ func collision_from_other_fishes(body):
 			death_tween.tween_callback(_on_fish_destroyed_tween_complete)
 		else:
 			fish_resource.has_shield = false
+			
+func move_forward_again():
+	if is_instance_valid(self):	
+		if self.fish_resource is ZebraFish:
+			print("zebra adjacent: ", self.fish_resource.move_foward_flag)
+			print("zebra in front: ", self.fish_resource.no_fish_infront_flag)
+			if (self.fish_resource.move_foward_flag && !self.fish_resource.no_fish_infront_flag):
+				print("zebra fish can move!")
+				var tween = self.get_tree().create_tween()
+				tween.tween_property(self,"position",position+Vector2(0,64),0.5).set_trans(Tween.TRANS_SINE)
+				await tween.finished	
+
+func detect_adjacent_fishes():
+	if fish_resource.has_method("detect_adjacent_fishes"):
+		fish_resource.detect_adjacent_fishes(self)
 

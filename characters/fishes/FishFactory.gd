@@ -11,7 +11,7 @@ var rows_to_spawn: int = 1
 var shots_since_last_increase: int = 0
 #assuming there are 9 "spawning points"
 var spawn_array = [1,2,3,4,5,6,7,8,9]
-var available_fish_id = [0, 1 ,2, 3, 4, 5, 6] # to be updated
+#var available_fish_id = [0, 1 ,2, 3, 4, 5, 6, 7]
 var _spawn_array = []
 
 @export var gameover_boundary_offset = 20
@@ -30,8 +30,7 @@ func _ready():
 	ResourceUID.add_id(4,"res://characters/fishes/swordfish/Swordfish.tres")
 	ResourceUID.add_id(5,"res://characters/fishes/cuttlefish/CuttleFish.tres")
 	ResourceUID.add_id(6,"res://characters/fishes/coral/Coral.tres")
-
-
+	ResourceUID.add_id(7,"res://characters/fishes/zebrafish/Zebrafish.tres")
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _spawn_fish():
@@ -43,13 +42,13 @@ func _spawn_fish():
 		var new_fish = fish.instantiate()
 		new_fish.position = default_location + Vector2(64,0) * (_spawn_array.pop_front()-1)
 		
-		# var fish_id = randi_range(1,FileManager.fishes.size())
+		var fish_id = randi_range(0,FileManager.fishes.size()-1)
 		# To be updated
-		var random_index = randi() % available_fish_id.size()
-		var selected_fish_index = available_fish_id[random_index]
+		#var random_index = randi() % available_fish_id.size()
+		#var selected_fish_index = available_fish_id[random_index]
 		
-		new_fish.fish_resource = load(ResourceUID.get_id_path(selected_fish_index))
-		new_fish.fish_resource.fish_value = FileManager.get_fish_score_by_id(selected_fish_index)
+		new_fish.fish_resource = load(ResourceUID.get_id_path(fish_id))
+		new_fish.fish_resource.fish_value = FileManager.get_fish_score_by_id(fish_id)
 		add_child(new_fish)
 
 func _on_game_start(value:bool):
@@ -63,7 +62,7 @@ func _move_fish():
 	shots_since_last_increase += 1
 	get_tree().call_group("Fish","_on_shot_fired")
 	var _scene_tree = SceneTree.new()
-	print("Fish surviving: ", get_tree().has_group("Fish"))
+	#print("Fish surviving: ", get_tree().has_group("Fish"))
 	
 	if get_tree().has_group("Fish"):
 		var game_over_flag = get_fish_nearest_to_bottom()
@@ -94,7 +93,8 @@ func _spawn_all_fish():
 			get_tree().call_group("Fish","_on_shot_fired")
 	
 	rows_to_spawn = 1
-
+	SignalBus.move_zebra.emit()
+	
 func toggle_visibility(show:bool):
 	get_tree().call_group("Fish","_toggle_visibility", show)
 	print("fishes ", show)

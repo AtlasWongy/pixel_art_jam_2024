@@ -34,6 +34,7 @@ func _physics_process(delta):
 		
 	if Input.is_action_just_pressed("ui_accept") && movable:
 		SignalBus.shoot_bubble.emit(rotation)
+		SignalBus.start_shot.emit()
 		
 func toggle_visibility(show_flag:bool):
 	print("player ", show_flag)
