@@ -1,4 +1,4 @@
-[gd_scene load_steps=13 format=3 uid="uid://dbhm00x2xidw0"]
+[gd_scene load_steps=15 format=3 uid="uid://dbhm00x2xidw0"]
 
 [ext_resource type="PackedScene" uid="uid://fq6y7f4h3bkp" path="res://characters/players/player.tscn" id="1_ixtv7"]
 [ext_resource type="Texture2D" uid="uid://bdwk7dgr4r3dv" path="res://environment/far.png" id="2_g6h7d"]
@@ -9,9 +9,11 @@
 [ext_resource type="PackedScene" uid="uid://dlx6kikeyripe" path="res://environment/wall.tscn" id="7_ofmqr"]
 [ext_resource type="PackedScene" path="res://characters/fishes/FishFactory.tscn" id="9_48mwk"]
 [ext_resource type="PackedScene" uid="uid://c5aahturt07ko" path="res://ui/UI.tscn" id="11_hjcpv"]
+[ext_resource type="PackedScene" uid="uid://hnj1fyl0cmix" path="res://characters/fishes/Fish.tscn" id="11_im0we"]
 [ext_resource type="Script" path="res://audio/SFXController.gd" id="11_pkg2f"]
 [ext_resource type="AudioStream" uid="uid://31gs4gx8iel0" path="res://audio/Pixel Fish Dreams.wav" id="12_isvi3"]
-[ext_resource type="Texture2D" uid="uid://g1tghd0yua" path="res://icon.svg" id="12_qttld"]
+[ext_resource type="Resource" uid="uid://uerveguvaq5t" path="res://characters/fishes/coral/Coral.tres" id="13_6l3do"]
+[ext_resource type="Resource" uid="uid://c7knihq17hjnc" path="res://characters/fishes/pufferfish/PufferFish.tres" id="16_rahl0"]
 
 [node name="Main" type="Node2D"]
 
@@ -56,17 +58,20 @@ texture = ExtResource("5_ubxi6")
 collision_layer = 9
 
 [node name="FishFactory" parent="." instance=ExtResource("9_48mwk")]
+script = null
 
 [node name="CanvasUI" parent="." instance=ExtResource("11_hjcpv")]
-
-[node name="Sprite2D" type="Sprite2D" parent="."]
-visible = false
-position = Vector2(120.969, 343)
-scale = Vector2(0.24, 0.24)
-texture = ExtResource("12_qttld")
 
 [node name="SFXController" type="Node" parent="."]
 script = ExtResource("11_pkg2f")
 
 [node name="MusicPlayer" type="AudioStreamPlayer" parent="SFXController"]
 stream = ExtResource("12_isvi3")
+
+[node name="Fish" parent="." instance=ExtResource("11_im0we")]
+position = Vector2(51, 86)
+fish_resource = ExtResource("16_rahl0")
+
+[node name="Fish2" parent="." instance=ExtResource("11_im0we")]
+position = Vector2(95, 87)
+fish_resource = ExtResource("13_6l3do")
