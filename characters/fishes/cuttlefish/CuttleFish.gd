@@ -12,7 +12,7 @@ func fish_init(body):
 			fish._toggle_visibility(false)
 			fish_array.append(fish)
 
-func on_collision(body):
+func on_collision(_body):
 	for fish in fish_array:
 		if is_instance_valid(fish) and fish.has_method("_toggle_visibility"):
 			fish._toggle_visibility(true)
