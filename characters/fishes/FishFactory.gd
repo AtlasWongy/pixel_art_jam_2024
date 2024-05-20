@@ -93,7 +93,8 @@ func _spawn_all_fish():
 			get_tree().call_group("Fish","_on_shot_fired")
 	
 	rows_to_spawn = 1
-
+	SignalBus.move_zebra.emit()
+	
 func toggle_visibility(show:bool):
 	get_tree().call_group("Fish","_toggle_visibility", show)
 	print("fishes ", show)

@@ -9,7 +9,8 @@ signal shoot_bubble(player_rotation:float)
 signal bubble_collide_wall()
 signal fish_destroyed(score: int)
 signal completed_collision_effects
-signal fish_spawned
+signal fish_spawned()
+signal move_zebra()
 signal update_highscore(score: int)
 
 signal start_game(game_started:bool)

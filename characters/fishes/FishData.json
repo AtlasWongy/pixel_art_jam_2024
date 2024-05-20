@@ -11,14 +11,14 @@
 			"id": "1",
 			"name": "Rockfish",
 			"description": "The solid one. \n\nActs as a collider.",
-			"score": "10",
+			"score": "20",
 			"icon_path": "res://characters/fishes/rockfish/rockfish.png"
 		},	
 		{
 			"id": "2",
 			"name": "Pufferfish",
 			"description": "The spiky one. \n\nExplodes upon contact.",
-			"score": "40",
+			"score": "10",
 			"icon_path": "res://characters/fishes/pufferfish/PufferFish.png"
 		},
 		{
@@ -32,29 +32,29 @@
 			"id": "4",
 			"name": "Swordfish",
 			"description": "The pointy one. \n\nDestroys ball when hit from front.",
-			"score": "20",
-			"icon_path": "res://characters/fishes/fish_01e.png"
+			"score": "30",
+			"icon_path": "res://characters/fishes/swordfish/swordfish.png"
 		},
 		{
 			"id": "5",
 			"name": "Cuttlefish",
 			"description": "The hidden one. \n\nCamouflage surrounding fishes when hit for 2 shots.",
-			"score": "10",
+			"score": "40",
 			"icon_path": "res://characters/fishes/cuttlefish/CuttleFish.png"
 		},
 		{
 			"id": "6",
 			"name": "Coral",
 			"description": "The protective one. \n\nProvides a shield for surrounding fishes for 2 shots.",
-			"score": "30",
+			"score": "60",
 			"icon_path": "res://characters/fishes/coral/Coral.png"
 		},
 		{
 			"id": "7",
 			"name": "ZebraFish",
-			"description": "The unusual one. \n\nMove 2 steps forward if no adjacent fishes were hit",
+			"description": "The unusual one. \n\nMove 2 steps forward if no adjacent fishes were hit.",
 			"score": "40",
-			"icon_path": "res://characters/fishes/fish_01d.png"
+			"icon_path": "res://characters/fishes/zebrafish/ZebraFish.png"
 		}
 	]
 }
