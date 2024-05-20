@@ -31,8 +31,8 @@ func populate_fish_button(fishes_info):
 		button.connect("pressed", Callable(self, "view_fish_info").bind(item.name, fish_description))
 
 func view_fish_info(fish_name:String, fish_description:String):
-	toggle_fish_list_visibility()
-	toggle_fish_info_visibility(fish_name, fish_description)
+		toggle_fish_list_visibility()
+		toggle_fish_info_visibility(fish_name, fish_description)
 	
 func toggle_fish_list_visibility():
 	fish_list_show_flag = !fish_list_show_flag

@@ -17,14 +17,14 @@ func get_rotation_input(delta):
 		if rotation_direction < 0:
 			rotation -= 0.025
 			return
-		elif rotation_direction > 0:
-			print("Reached right rotation limit")
+		#elif rotation_direction > 0:
+			#print("Reached right rotation limit")
 	elif rotation <= -max_rotation:
 		if rotation_direction > 0:
 			rotation += 0.025
 			return
-		elif rotation_direction < 0:
-			print("Reached left rotation limit")
+		#elif rotation_direction < 0:
+			#print("Reached left rotation limit")
 	else:
 		rotation += rotation_direction * rotation_speed * delta
 		
