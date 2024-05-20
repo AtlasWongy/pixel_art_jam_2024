@@ -43,16 +43,15 @@ func start_bubble_movement(player_rotation:float):
 		# Set the linear velocity of the ball
 		linear_velocity = direction.normalized() * initial_bubble_speed
 
-
 func update_postition(player_rotation:float, player_position:Vector2):
 	if set_to_starting_state:
 		global_position = player_position + Vector2(0, -distance_from_player).rotated(player_rotation)
 		
 func check_ball_over_boundary():
-	if (position.y > get_viewport_rect().size.y 
-	or position.y < -(get_viewport_rect().size.y) 
-	or position.x > get_viewport_rect().size.x
-	or position.x < -(get_viewport_rect().size.x)):
+	if (position.y > get_viewport_rect().size.y
+		or position.y < -(get_viewport_rect().size.y)
+		or position.x > get_viewport_rect().size.x
+		or position.x < -(get_viewport_rect().size.x)):
 		destroy_bubble()
 		SignalBus.shot_completed.emit()
 		
