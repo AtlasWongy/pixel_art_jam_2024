@@ -15,26 +15,32 @@ func _ready():
 func populate_fish_button(fishes_info):
 	for item in fishes_info:
 		var button_text = " %s | %s " % [item.id, item.name]
-		var fish_description = "%s \n\n Points: %s" % [item.description, item.score]
+		var fish_description = "%s \n\nPoints: %s" % [item.description, item.score]
+		var icon_path = item.icon_path
 		
 		var fishInfoButton = $FishContainer/ScrollContainer/FishButtons/FishInfoButton
-		var fishInfoContainer = $FishContainer/ScrollContainer/FishButtons
+		var fishContainer = $FishContainer/ScrollContainer/FishButtons
 		
-		if item.id == "1":
+		if item.id == "0":
 			fishInfoButton.set_text(button_text)
-			fishInfoButton.connect("pressed", Callable(self, "view_fish_info").bind(item.name, fish_description))
+			fishInfoButton.icon = load(icon_path) as Texture2D
+			fishInfoButton.connect("pressed", Callable(self, "view_fish_info").bind(item.name, fish_description, icon_path))
 			continue
 		
 		var button := Button.new()
 		button.set_text_alignment(HORIZONTAL_ALIGNMENT_LEFT)
 		button.set_text(button_text)
 		
-		fishInfoContainer.add_child(button)
-		button.connect("pressed", Callable(self, "view_fish_info").bind(item.name, fish_description))
+		var icon_texture = load(icon_path) as Texture2D
+		if icon_texture:
+			button.icon = icon_texture
+			
+		fishContainer.add_child(button)
+		button.connect("pressed", Callable(self, "view_fish_info").bind(item.name, fish_description, icon_path))
 
-func view_fish_info(fish_name:String, fish_description:String):
+func view_fish_info(fish_name:String, fish_description:String, icon_path:String):
 		toggle_fish_list_visibility()
-		toggle_fish_info_visibility(fish_name, fish_description)
+		toggle_fish_info_visibility(fish_name, fish_description, icon_path)
 	
 func toggle_fish_list_visibility():
 	fish_list_show_flag = !fish_list_show_flag
@@ -42,11 +48,12 @@ func toggle_fish_list_visibility():
 	$FishContainer.visible = fish_list_show_flag
 	$FishInfoContainer.visible = !fish_list_show_flag
 
-func toggle_fish_info_visibility(fish_name:String, fish_description:String):
+func toggle_fish_info_visibility(fish_name:String, fish_description:String, icon_path:String):
 	fish_info_show_flag = !fish_info_show_flag
 	toggle_self_visibility(true)
 	if fish_info_show_flag:
 		$FishInfoContainer/NameLabel.set_text(fish_name)
+		$FishInfoContainer/FishImage.icon = load(icon_path) as Texture2D
 		$FishInfoContainer/DescriptionLabel.set_text(fish_description)
 	$FishInfoContainer.visible = fish_info_show_flag
 	
