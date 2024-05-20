@@ -237,4 +237,3 @@ expand_icon = true
 [connection signal="pressed" from="MainMenu/MainPanel/FishInfoButton" to="FishListControl" method="toggle_fish_list_visibility"]
 [connection signal="pressed" from="MainMenu/MainPanel/ExitButton" to="MainMenu" method="exit_game"]
 [connection signal="pressed" from="FishListControl/FishContainer/CloseButton" to="FishListControl" method="toggle_fish_list_visibility"]
-[connection signal="pressed" from="FishListControl/FishInfoContainer/CloseButton" to="FishListControl" method="view_fish_info" binds= ["fish_info", "fish_description"]]

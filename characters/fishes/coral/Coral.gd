@@ -8,27 +8,24 @@ var fish_body: Node2D
 func fish_init(body):
 	fish_body = body
 	fish_body.add_to_group("coral")
-	for obj in fish_body.get_tree().get_nodes_in_group("Fish"):
-		if (obj.position.y <= fish_body.position.y+100 && obj.position.y >= fish_body.position.y-100 && obj.position.x <= fish_body.position.x+100 && obj.position.x >= fish_body.position.x-100):
-			obj.fish_resource.has_shield = true
-	#for i in range(4):
-		#match(i):
-			#0:
-				#ray_cast_arrays.append(generate_raycasts(Vector2(64, 0)))
-			#1:
-				#ray_cast_arrays.append(generate_raycasts(Vector2(0, 64)))
-			#2:
-				#ray_cast_arrays.append(generate_raycasts(Vector2(-64, 0)))
-			#3:
-				#ray_cast_arrays.append(generate_raycasts(Vector2(0, -64)))
+	for i in range(4):
+		match(i):
+			0:
+				ray_cast_arrays.append(generate_raycasts(Vector2(64, 0)))
+			1:
+				ray_cast_arrays.append(generate_raycasts(Vector2(0, 64)))
+			2:
+				ray_cast_arrays.append(generate_raycasts(Vector2(-64, 0)))
+			3:
+				ray_cast_arrays.append(generate_raycasts(Vector2(0, -64)))
 	
 func fish_physics():
-	#provide_shield()
-	pass
+	provide_shield()
 
-#func on_collision(body):
-	#for raycast in ray_cast_arrays:
-		#call_deferred("free_raycast", raycast)
+func on_collision(body):
+	for raycast: RayCast2D in ray_cast_arrays:
+		if is_instance_valid(raycast):
+			raycast.call_deferred("queue_free")
 
 func provide_shield():
 	for raycast in ray_cast_arrays:
@@ -50,8 +47,3 @@ func generate_raycasts(target_dir: Vector2) -> RayCast2D:
 	raycast.position = Vector2(0, 0)
 	raycast.target_position = target_dir
 	return raycast
-
-func free_raycast(raycast):
-	if is_instance_valid(raycast):
-		raycast.queue_free()
-
