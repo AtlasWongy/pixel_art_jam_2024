@@ -1,6 +1,5 @@
 extends Node
 
-
 var default_location: Vector2 = Vector2(64,64)
 
 var fish = preload("res://characters/fishes/Fish.tscn")
