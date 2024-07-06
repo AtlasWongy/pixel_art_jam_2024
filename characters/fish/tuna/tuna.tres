@@ -1,0 +1,11 @@
+[gd_resource type="Resource" script_class="FishResource" load_steps=2 format=3 uid="uid://dnfys88850id2"]
+
+[ext_resource type="Script" path="res://characters/fish/fish_resource.gd" id="1_wvnf8"]
+
+[resource]
+resource_local_to_scene = true
+script = ExtResource("1_wvnf8")
+name = "Tuna"
+score = 10
+timer_node_path = NodePath("Timer")
+raycast_node_path = NodePath("RayCast2D")

@@ -1,5 +1,5 @@
 extends Resource
-class_name FishResource
+class_name _FishResource
 
 @export var fish_sprite: Texture2D #this should be the fish's sprite path
 @export var fish_value: int = 0

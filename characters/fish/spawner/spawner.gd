@@ -27,7 +27,7 @@ func spawn_fishes() -> void:
 		if idx != 0:
 			var fish_scene: PackedScene = enemy_dictionary[idx]
 			if fish_scene.can_instantiate():
-				var fish: Fish = fish_scene.instantiate()
+				var fish: Area2D = fish_scene.instantiate()
 				fish.position = spawn_point
 				call_deferred("add_child", fish)
 				total_fish_spawn += 1
@@ -38,5 +38,4 @@ func counting_next_spawn_counter(area: Area2D) -> void:
 		spawn_fishes()
 
 func let_fish_escape(area: Area2D) -> void:
-	if area is Fish:
-		area.queue_free()
+	area.queue_free()

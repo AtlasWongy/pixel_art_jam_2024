@@ -2,7 +2,7 @@
 
 [ext_resource type="PackedScene" uid="uid://bnerd7a8qk0x4" path="res://characters/player/player.tscn" id="1_md1k2"]
 [ext_resource type="Script" path="res://characters/fish/spawner/spawner.gd" id="3_7fxmn"]
-[ext_resource type="PackedScene" uid="uid://cbklmt2gmdrai" path="res://characters/fish/tuna/tuna.tscn" id="3_dts8y"]
+[ext_resource type="PackedScene" uid="uid://dtc2epvqjbcfw" path="res://characters/fish/tuna/tuna.tscn" id="3_dts8y"]
 [ext_resource type="Texture2D" uid="uid://budiqxaegar4b" path="res://characters/fishes/pearl_01a.png" id="3_uj0vt"]
 [ext_resource type="PackedScene" uid="uid://dlx6kikeyripe" path="res://environment/wall.tscn" id="7_ofmqr"]
 
