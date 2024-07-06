@@ -1,0 +1,20 @@
+[gd_scene load_steps=4 format=3 uid="uid://conxsgmtsbdbb"]
+
+[ext_resource type="Script" path="res://characters/player/bubble/bubble.gd" id="1_fl32q"]
+[ext_resource type="Texture2D" uid="uid://cmmyjw8g65jkl" path="res://characters/projectile/ballBlue_10.png" id="1_tuyhn"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_ykype"]
+
+[node name="Bubble" type="RigidBody2D"]
+gravity_scale = 0.0
+linear_damp_mode = 1
+angular_damp_mode = 1
+script = ExtResource("1_fl32q")
+
+[node name="BubbleSprite" type="Sprite2D" parent="."]
+scale = Vector2(0.1, 0.1)
+texture = ExtResource("1_tuyhn")
+
+[node name="BubbleShape" type="CollisionShape2D" parent="."]
+scale = Vector2(0.75, 0.75)
+shape = SubResource("CircleShape2D_ykype")

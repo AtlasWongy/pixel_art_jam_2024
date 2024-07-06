@@ -1,72 +1,90 @@
-[gd_scene load_steps=13 format=3 uid="uid://dbhm00x2xidw0"]
+[gd_scene load_steps=7 format=3 uid="uid://b4rh8vlevjfb7"]
 
-[ext_resource type="PackedScene" uid="uid://fq6y7f4h3bkp" path="res://characters/players/player.tscn" id="1_ixtv7"]
-[ext_resource type="Texture2D" uid="uid://bdwk7dgr4r3dv" path="res://environment/far.png" id="2_g6h7d"]
-[ext_resource type="Texture2D" uid="uid://da34nrhp1wuob" path="res://environment/sand.png" id="3_emhfw"]
-[ext_resource type="Texture2D" uid="uid://yw620f85ene7" path="res://environment/foreground-1.png" id="4_0a48p"]
-[ext_resource type="Texture2D" uid="uid://ccqlyw4kdkg8i" path="res://environment/foreground-2.png" id="5_ubxi6"]
-[ext_resource type="PackedScene" uid="uid://da0sjbuvd10co" path="res://characters/projectile/bubble.tscn" id="6_dwj8i"]
+[ext_resource type="PackedScene" uid="uid://bnerd7a8qk0x4" path="res://characters/player/player.tscn" id="1_md1k2"]
+[ext_resource type="Script" path="res://characters/enemy/spawner/spawner.gd" id="3_7fxmn"]
+[ext_resource type="PackedScene" uid="uid://cbklmt2gmdrai" path="res://characters/enemy/tuna/tuna.tscn" id="3_dts8y"]
+[ext_resource type="Texture2D" uid="uid://budiqxaegar4b" path="res://characters/fishes/pearl_01a.png" id="3_uj0vt"]
 [ext_resource type="PackedScene" uid="uid://dlx6kikeyripe" path="res://environment/wall.tscn" id="7_ofmqr"]
-[ext_resource type="PackedScene" uid="uid://cj1sij6b3r13x" path="res://characters/fishes/FishFactory.tscn" id="9_48mwk"]
-[ext_resource type="PackedScene" uid="uid://c5aahturt07ko" path="res://ui/UI.tscn" id="11_hjcpv"]
-[ext_resource type="Script" path="res://audio/SFXController.gd" id="11_pkg2f"]
-[ext_resource type="AudioStream" uid="uid://31gs4gx8iel0" path="res://audio/Pixel Fish Dreams.wav" id="12_isvi3"]
-[ext_resource type="Texture2D" uid="uid://g1tghd0yua" path="res://icon.svg" id="12_qttld"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_fvd8q"]
+size = Vector2(24.5, 275.5)
 
 [node name="Main" type="Node2D"]
 
-[node name="Player" parent="." instance=ExtResource("1_ixtv7")]
-position = Vector2(319, 343)
+[node name="Boundaries" parent="." instance=ExtResource("7_ofmqr")]
 
-[node name="Bubble" parent="." instance=ExtResource("6_dwj8i")]
+[node name="Player" parent="." instance=ExtResource("1_md1k2")]
+position = Vector2(602, 325)
 
-[node name="ParallaxLayer" type="ParallaxBackground" parent="."]
+[node name="Spawner" type="Node2D" parent="."]
+script = ExtResource("3_7fxmn")
+initial_spawn_points = Array[Vector2]([Vector2(494, 230), Vector2(494, 180), Vector2(494, 130), Vector2(494, 80), Vector2(494, 30), Vector2(494, 280)])
+tuna = ExtResource("3_dts8y")
 
-[node name="ParallaxLayer" type="ParallaxLayer" parent="ParallaxLayer"]
-
-[node name="Sprite2D" type="Sprite2D" parent="ParallaxLayer/ParallaxLayer"]
-position = Vector2(319.75, 186.757)
-scale = Vector2(2.502, 1.94539)
-texture = ExtResource("2_g6h7d")
-
-[node name="ParallaxLayer2" type="ParallaxLayer" parent="ParallaxLayer"]
-
-[node name="Sprite2D" type="Sprite2D" parent="ParallaxLayer/ParallaxLayer2"]
-position = Vector2(319.75, 179.548)
-scale = Vector2(2.502, 1.88)
-texture = ExtResource("3_emhfw")
-
-[node name="ParallaxLayer3" type="ParallaxLayer" parent="ParallaxLayer"]
-
-[node name="Sprite2D" type="Sprite2D" parent="ParallaxLayer/ParallaxLayer3"]
-position = Vector2(319.75, 179.548)
-scale = Vector2(2.502, 1.88)
-texture = ExtResource("4_0a48p")
-
-[node name="ParallaxLayer4" type="ParallaxLayer" parent="ParallaxLayer"]
-
-[node name="Sprite2D" type="Sprite2D" parent="ParallaxLayer/ParallaxLayer4"]
-position = Vector2(319.75, 179.548)
-scale = Vector2(2.50195, 1.87971)
-texture = ExtResource("5_ubxi6")
-
-[node name="Walls" type="Node" parent="."]
-
-[node name="StaticBody2D" parent="Walls" instance=ExtResource("7_ofmqr")]
-collision_layer = 9
-
-[node name="FishFactory" parent="." instance=ExtResource("9_48mwk")]
-
-[node name="CanvasUI" parent="." instance=ExtResource("11_hjcpv")]
-
-[node name="Sprite2D" type="Sprite2D" parent="."]
+[node name="SpawnPointA" type="Node2D" parent="Spawner"]
 visible = false
-position = Vector2(120.969, 343)
-scale = Vector2(0.24, 0.24)
-texture = ExtResource("12_qttld")
+position = Vector2(494, 230)
+scale = Vector2(0.2, 0.2)
 
-[node name="SFXController" type="Node" parent="."]
-script = ExtResource("11_pkg2f")
+[node name="Sprite2D" type="Sprite2D" parent="Spawner/SpawnPointA"]
+visible = false
+texture = ExtResource("3_uj0vt")
 
-[node name="MusicPlayer" type="AudioStreamPlayer" parent="SFXController"]
-stream = ExtResource("12_isvi3")
+[node name="SpawnPointB" type="Node2D" parent="Spawner"]
+visible = false
+position = Vector2(494, 180)
+scale = Vector2(0.2, 0.2)
+
+[node name="Sprite2D" type="Sprite2D" parent="Spawner/SpawnPointB"]
+visible = false
+texture = ExtResource("3_uj0vt")
+
+[node name="SpawnPointC" type="Node2D" parent="Spawner"]
+visible = false
+position = Vector2(494, 130)
+scale = Vector2(0.2, 0.2)
+
+[node name="Sprite2D" type="Sprite2D" parent="Spawner/SpawnPointC"]
+visible = false
+texture = ExtResource("3_uj0vt")
+
+[node name="SpawnPointD" type="Node2D" parent="Spawner"]
+visible = false
+position = Vector2(494, 80)
+scale = Vector2(0.2, 0.2)
+
+[node name="Sprite2D" type="Sprite2D" parent="Spawner/SpawnPointD"]
+visible = false
+texture = ExtResource("3_uj0vt")
+
+[node name="SpawnPointE" type="Node2D" parent="Spawner"]
+visible = false
+position = Vector2(494, 30)
+scale = Vector2(0.2, 0.2)
+
+[node name="Sprite2D" type="Sprite2D" parent="Spawner/SpawnPointE"]
+visible = false
+texture = ExtResource("3_uj0vt")
+
+[node name="SpawnPointF" type="Node2D" parent="Spawner"]
+visible = false
+position = Vector2(494, 280)
+scale = Vector2(0.2, 0.2)
+
+[node name="Sprite2D" type="Sprite2D" parent="Spawner/SpawnPointF"]
+visible = false
+texture = ExtResource("3_uj0vt")
+
+[node name="SpawnArea" type="Area2D" parent="Spawner"]
+position = Vector2(489, 147)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Spawner/SpawnArea"]
+position = Vector2(5.75, 8.25)
+shape = SubResource("RectangleShape2D_fvd8q")
+
+[node name="DestroyArea" type="Area2D" parent="Spawner"]
+position = Vector2(10, 147)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Spawner/DestroyArea"]
+position = Vector2(5.75, 8.25)
+shape = SubResource("RectangleShape2D_fvd8q")

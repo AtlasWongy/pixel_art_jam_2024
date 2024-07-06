@@ -1,29 +1,17 @@
-[gd_scene load_steps=5 format=3 uid="uid://dlx6kikeyripe"]
+[gd_scene load_steps=3 format=3 uid="uid://dlx6kikeyripe"]
 
 [ext_resource type="PhysicsMaterial" uid="uid://dm12o6rs7flnd" path="res://characters/projectile/bubble_physics_material.tres" id="1_pp4cx"]
 
-[sub_resource type="SegmentShape2D" id="SegmentShape2D_5qljy"]
-b = Vector2(641, 0)
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_f0i8g"]
+size = Vector2(639.5, 2)
 
-[sub_resource type="SegmentShape2D" id="SegmentShape2D_siogx"]
-a = Vector2(-2.28972, -0.0234306)
-b = Vector2(-3.03938, 8.09884)
-
-[sub_resource type="SegmentShape2D" id="SegmentShape2D_oj3sw"]
-a = Vector2(640, 346.1)
-b = Vector2(641, -1)
-
-[node name="StaticBody2D" type="StaticBody2D"]
+[node name="Boundaries" type="StaticBody2D"]
 physics_material_override = ExtResource("1_pp4cx")
 
 [node name="TopBoundary" type="CollisionShape2D" parent="."]
-position = Vector2(-2, 23)
-shape = SubResource("SegmentShape2D_5qljy")
+position = Vector2(319, 1)
+shape = SubResource("RectangleShape2D_f0i8g")
 
-[node name="LeftBoundary" type="CollisionShape2D" parent="."]
-scale = Vector2(0.65803, 42.5987)
-shape = SubResource("SegmentShape2D_siogx")
-
-[node name="RightBoundary" type="CollisionShape2D" parent="."]
-scale = Vector2(1, 1.0026)
-shape = SubResource("SegmentShape2D_oj3sw")
+[node name="BottomBoundary" type="CollisionShape2D" parent="."]
+position = Vector2(320, 357)
+shape = SubResource("RectangleShape2D_f0i8g")

@@ -1,0 +1,11 @@
+[gd_scene load_steps=3 format=3 uid="uid://bnerd7a8qk0x4"]
+
+[ext_resource type="Script" path="res://characters/player/player.gd" id="1_j48te"]
+[ext_resource type="Texture2D" uid="uid://bksi261g67lvs" path="res://characters/players/Fish.png" id="1_w0hcc"]
+
+[node name="Player" type="CharacterBody2D"]
+script = ExtResource("1_j48te")
+
+[node name="PlayerSprite" type="Sprite2D" parent="."]
+rotation = -1.5708
+texture = ExtResource("1_w0hcc")
