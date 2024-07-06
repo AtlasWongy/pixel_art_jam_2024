@@ -22,7 +22,7 @@ func _input(event):
 		bubble.player_rotation = rotation
 		bubble.fire_bubble()
 		toggle_control()
-		
+
 func get_rotation_input(delta):
 	if can_control:
 		rotation_direction = Input.get_axis("left_arrow", "right_arrow")

@@ -1,10 +1,12 @@
-extends Enemy
+extends Fish
 class_name Tuna
 
 @export_category("Tuna Attributes")
 @export var move_speed: float
 
 @export var timer: Timer
+
+@onready var raycast: RayCast2D = $FishRayCast
 
 var tween: Tween
 
@@ -14,7 +16,12 @@ func _ready() -> void:
 	
 func move_fish() -> void:
 	tween = create_tween()
+	tween.finished.connect(toggle_raycast)
 	tween.tween_property(self, 'global_position:x', global_position.x - move_speed, 1)
 
 func destroy(body: Node2D) -> void:
 	queue_free()
+
+func toggle_raycast():
+	raycast.enabled = !raycast.enabled
+	raycast.visible = !raycast.visible
