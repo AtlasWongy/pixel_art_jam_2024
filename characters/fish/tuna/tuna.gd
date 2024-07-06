@@ -15,13 +15,16 @@ func _ready() -> void:
 	timer.timeout.connect(move_fish)
 	
 func move_fish() -> void:
-	tween = create_tween()
-	tween.finished.connect(toggle_raycast)
-	tween.tween_property(self, 'global_position:x', global_position.x - move_speed, 1)
+	var have_collision: bool = await check_collision_before_moving()
+	if !have_collision:
+		tween = create_tween()
+		tween.tween_property(self, 'global_position:x', global_position.x - move_speed, 1)
 
 func destroy(body: Node2D) -> void:
 	queue_free()
 
-func toggle_raycast():
-	raycast.enabled = !raycast.enabled
-	raycast.visible = !raycast.visible
+func check_collision_before_moving() -> bool:
+	if raycast.is_colliding():
+		return true
+	else:
+		return false

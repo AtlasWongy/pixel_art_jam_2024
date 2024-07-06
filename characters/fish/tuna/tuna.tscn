@@ -25,5 +25,6 @@ wait_time = 5.0
 autostart = true
 
 [node name="FishRayCast" parent="." index="3"]
-visible = false
-target_position = Vector2(100, 0)
+target_position = Vector2(150, 0)
+collide_with_areas = true
+collide_with_bodies = false
