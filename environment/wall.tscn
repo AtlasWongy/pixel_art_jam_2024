@@ -6,6 +6,8 @@
 size = Vector2(639.5, 2)
 
 [node name="Boundaries" type="StaticBody2D"]
+collision_layer = 5
+collision_mask = 5
 physics_material_override = ExtResource("1_pp4cx")
 
 [node name="TopBoundary" type="CollisionShape2D" parent="."]

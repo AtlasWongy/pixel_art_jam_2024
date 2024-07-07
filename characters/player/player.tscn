@@ -1,11 +1,17 @@
-[gd_scene load_steps=3 format=3 uid="uid://bnerd7a8qk0x4"]
+[gd_scene load_steps=4 format=3 uid="uid://bnerd7a8qk0x4"]
 
 [ext_resource type="Script" path="res://characters/player/player.gd" id="1_j48te"]
 [ext_resource type="Texture2D" uid="uid://bksi261g67lvs" path="res://characters/players/Fish.png" id="1_w0hcc"]
+[ext_resource type="PackedScene" uid="uid://cqv04ju2f2154" path="res://characters/player/trajectory/trajectory.tscn" id="3_b3roq"]
 
-[node name="Player" type="CharacterBody2D"]
+[node name="Player" type="CharacterBody2D" node_paths=PackedStringArray("trajectory_line")]
 script = ExtResource("1_j48te")
+trajectory_line = NodePath("Trajectory")
 
 [node name="PlayerSprite" type="Sprite2D" parent="."]
 rotation = -1.5708
 texture = ExtResource("1_w0hcc")
+
+[node name="Trajectory" parent="." instance=ExtResource("3_b3roq")]
+width = 1.0
+max_points = 300

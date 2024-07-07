@@ -1,6 +1,17 @@
-[gd_scene load_steps=2 format=3 uid="uid://cqv04ju2f2154"]
+[gd_scene load_steps=3 format=3 uid="uid://cqv04ju2f2154"]
 
 [ext_resource type="Script" path="res://characters/player/trajectory/trajectory.gd" id="1_sg8kh"]
 
-[node name="Trajectory" type="Line2D"]
+[sub_resource type="CircleShape2D" id="CircleShape2D_esnv3"]
+
+[node name="Trajectory" type="Line2D" node_paths=PackedStringArray("trajectory_body")]
+default_color = Color(0, 0.756173, 0.485862, 1)
 script = ExtResource("1_sg8kh")
+trajectory_body = NodePath("TracjectoryBody")
+
+[node name="TracjectoryBody" type="CharacterBody2D" parent="."]
+collision_layer = 4
+collision_mask = 4
+
+[node name="TrajectoryShape" type="CollisionShape2D" parent="TracjectoryBody"]
+shape = SubResource("CircleShape2D_esnv3")

@@ -5,12 +5,19 @@ extends CharacterBody2D
 @export var upper_limit_rotation: float = 1.039
 @export var lower_limit_rotation: float = 0.0
 
+@export_category("Trajectory Line")
+@export var trajectory_line: Line2D
+
 var bubble_load: Resource = preload("res://characters/player/bubble/bubble.tscn")
 var rotation_direction: int = 0
 var can_control: bool = true
 
 func _ready():
 	SignalBus.bubble_finished.connect(toggle_control)
+	
+func _process(delta: float):
+	trajectory_line.rotation = -rotation
+	trajectory_line.update_trajectory(global_transform.x, -20.0, delta)
 
 func _physics_process(delta):
 	get_rotation_input(delta)
