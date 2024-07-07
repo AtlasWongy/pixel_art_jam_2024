@@ -8,7 +8,7 @@
 [ext_resource type="Texture2D" uid="uid://ccqlyw4kdkg8i" path="res://environment/foreground-2.png" id="6_4u6xw"]
 [ext_resource type="PackedScene" uid="uid://dlx6kikeyripe" path="res://environment/wall.tscn" id="7_4ldam"]
 [ext_resource type="PackedScene" uid="uid://cj1sij6b3r13x" path="res://characters/fishes/FishFactory.tscn" id="8_hnrir"]
-[ext_resource type="PackedScene" uid="uid://c5aahturt07ko" path="res://ui/UI.tscn" id="9_jc25u"]
+[ext_resource type="PackedScene" uid="uid://c5aahturt07ko" path="res://ui/UI_old.tscn" id="9_jc25u"]
 [ext_resource type="Texture2D" uid="uid://g1tghd0yua" path="res://icon.svg" id="10_c3efs"]
 [ext_resource type="Script" path="res://audio/SFXController.gd" id="11_5w0g0"]
 [ext_resource type="AudioStream" uid="uid://31gs4gx8iel0" path="res://audio/Pixel Fish Dreams.wav" id="12_w1bp8"]

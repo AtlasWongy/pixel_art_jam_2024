@@ -1,21 +1,20 @@
-[gd_scene load_steps=5 format=3 uid="uid://cn4c0x371tdw3"]
+[gd_scene load_steps=5 format=3 uid="uid://dwxafq4wyhu0d"]
 
-[ext_resource type="PackedScene" uid="uid://bfxol0sqdwow1" path="res://characters/fish/fish.tscn" id="1_y1hve"]
-[ext_resource type="Script" path="res://characters/fish/tuna/tuna.gd" id="2_m8jeb"]
-[ext_resource type="Texture2D" uid="uid://c60wackufrgco" path="res://characters/fishes/tuna/tuna.png" id="2_qft7h"]
+[ext_resource type="PackedScene" uid="uid://bfxol0sqdwow1" path="res://characters/fish/fish.tscn" id="1_8j2fq"]
+[ext_resource type="Texture2D" uid="uid://b86dnigy5embh" path="res://characters/fish/jellyfish/JellyFish.png" id="2_156ru"]
+[ext_resource type="Script" path="res://characters/fish/jellyfish/jellyfish.gd" id="2_c4o0s"]
 
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_3q6f7"]
-size = Vector2(30, 14)
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_ep4ro"]
+size = Vector2(21, 27)
 
-[node name="Fish" instance=ExtResource("1_y1hve")]
-scale = Vector2(-1, 1)
-script = ExtResource("2_m8jeb")
+[node name="Fish" instance=ExtResource("1_8j2fq")]
+script = ExtResource("2_c4o0s")
 
 [node name="FishSprite" parent="." index="0"]
-texture = ExtResource("2_qft7h")
+texture = ExtResource("2_156ru")
 
 [node name="FishRayCast" parent="." index="1"]
-target_position = Vector2(150, 0)
+target_position = Vector2(-150, 0)
 collide_with_areas = true
 collide_with_bodies = false
 
@@ -24,7 +23,8 @@ wait_time = 5.0
 autostart = true
 
 [node name="HitBoxShape" parent="HitBox" index="0"]
-shape = SubResource("RectangleShape2D_3q6f7")
+position = Vector2(-0.5, -1.5)
+shape = SubResource("RectangleShape2D_ep4ro")
 
 [node name="MovementComponent" parent="." index="4" node_paths=PackedStringArray("fish", "raycast", "timer")]
 fish = NodePath("..")
@@ -37,4 +37,4 @@ hitbox = NodePath("../HitBox")
 score_component = NodePath("../ScoreComponent")
 
 [node name="ScoreComponent" parent="." index="6"]
-score = 10
+score = 20

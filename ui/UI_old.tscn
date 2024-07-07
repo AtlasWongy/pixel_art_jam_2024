@@ -2,10 +2,10 @@
 
 [ext_resource type="Script" path="res://ui/in_game_menu.gd" id="1_i2sie"]
 [ext_resource type="FontFile" uid="uid://cw5jyvphsyts7" path="res://ui/fonts/VCR_OSD_MONO_1.001.ttf" id="1_poabi"]
-[ext_resource type="Script" path="res://ui/score/HighScore.gd" id="2_5eepf"]
+[ext_resource type="Script" path="res://ui/old_score/HighScore.gd" id="2_5eepf"]
 [ext_resource type="Texture2D" uid="uid://jfvtro1gcgt5" path="res://ui/assets/UI-Top-Bar.png" id="2_cqyx7"]
 [ext_resource type="Script" path="res://ui/main_menu.gd" id="3_tfqta"]
-[ext_resource type="Script" path="res://ui/score/CurrentScore.gd" id="4_e1tdq"]
+[ext_resource type="Script" path="res://ui/old_score/CurrentScore.gd" id="4_e1tdq"]
 [ext_resource type="Theme" uid="uid://wfjisdqujaas" path="res://ui/assets/menu_theme.tres" id="5_hkyph"]
 [ext_resource type="Theme" uid="uid://b052for76jc2k" path="res://ui/fishInfo/fish_button_theme.tres" id="6_wrwfe"]
 [ext_resource type="Script" path="res://ui/fishInfo/FishInfoControl.gd" id="7_7rayy"]

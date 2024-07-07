@@ -1,10 +1,13 @@
-[gd_scene load_steps=7 format=3 uid="uid://b4rh8vlevjfb7"]
+[gd_scene load_steps=10 format=3 uid="uid://b4rh8vlevjfb7"]
 
 [ext_resource type="PackedScene" uid="uid://bnerd7a8qk0x4" path="res://characters/player/player.tscn" id="1_md1k2"]
 [ext_resource type="Script" path="res://characters/fish/spawner/spawner.gd" id="3_7fxmn"]
-[ext_resource type="PackedScene" uid="uid://dtc2epvqjbcfw" path="res://characters/fish/tuna/tuna.tscn" id="3_dts8y"]
+[ext_resource type="PackedScene" uid="uid://cn4c0x371tdw3" path="res://characters/fish/tuna/tuna.tscn" id="3_dts8y"]
 [ext_resource type="Texture2D" uid="uid://budiqxaegar4b" path="res://characters/fishes/pearl_01a.png" id="3_uj0vt"]
+[ext_resource type="PackedScene" uid="uid://dwxafq4wyhu0d" path="res://characters/fish/jellyfish/jellyfish.tscn" id="5_g6xba"]
+[ext_resource type="FontFile" uid="uid://dff0pjvc1608d" path="res://assets/fonts/VCR_OSD_MONO_1.001.ttf" id="7_dx28e"]
 [ext_resource type="PackedScene" uid="uid://dlx6kikeyripe" path="res://environment/wall.tscn" id="7_ofmqr"]
+[ext_resource type="Script" path="res://ui/score/score.gd" id="8_7aehj"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_fvd8q"]
 size = Vector2(24.5, 275.5)
@@ -20,8 +23,10 @@ position = Vector2(602, 325)
 script = ExtResource("3_7fxmn")
 initial_spawn_points = Array[Vector2]([Vector2(494, 230), Vector2(494, 180), Vector2(494, 130), Vector2(494, 80), Vector2(494, 30), Vector2(494, 280)])
 tuna = ExtResource("3_dts8y")
+jellyfish = ExtResource("5_g6xba")
 
 [node name="SpawnPointA" type="Node2D" parent="Spawner"]
+visible = false
 position = Vector2(494, 230)
 scale = Vector2(0.2, 0.2)
 
@@ -30,6 +35,7 @@ visible = false
 texture = ExtResource("3_uj0vt")
 
 [node name="SpawnPointB" type="Node2D" parent="Spawner"]
+visible = false
 position = Vector2(494, 180)
 scale = Vector2(0.2, 0.2)
 
@@ -38,6 +44,7 @@ visible = false
 texture = ExtResource("3_uj0vt")
 
 [node name="SpawnPointC" type="Node2D" parent="Spawner"]
+visible = false
 position = Vector2(494, 130)
 scale = Vector2(0.2, 0.2)
 
@@ -46,6 +53,7 @@ visible = false
 texture = ExtResource("3_uj0vt")
 
 [node name="SpawnPointD" type="Node2D" parent="Spawner"]
+visible = false
 position = Vector2(494, 80)
 scale = Vector2(0.2, 0.2)
 
@@ -54,6 +62,7 @@ visible = false
 texture = ExtResource("3_uj0vt")
 
 [node name="SpawnPointE" type="Node2D" parent="Spawner"]
+visible = false
 position = Vector2(494, 30)
 scale = Vector2(0.2, 0.2)
 
@@ -62,6 +71,7 @@ visible = false
 texture = ExtResource("3_uj0vt")
 
 [node name="SpawnPointF" type="Node2D" parent="Spawner"]
+visible = false
 position = Vector2(494, 280)
 scale = Vector2(0.2, 0.2)
 
@@ -83,3 +93,35 @@ collision_layer = 2
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Spawner/DestroyArea"]
 position = Vector2(5.75, 8.25)
 shape = SubResource("RectangleShape2D_fvd8q")
+
+[node name="CanvasLayer" type="CanvasLayer" parent="."]
+
+[node name="PanelContainer" type="PanelContainer" parent="CanvasLayer"]
+offset_left = 544.0
+offset_top = 19.0
+offset_right = 634.0
+offset_bottom = 293.0
+
+[node name="MarginContainer" type="MarginContainer" parent="CanvasLayer/PanelContainer"]
+layout_mode = 2
+theme_override_constants/margin_left = 5
+theme_override_constants/margin_top = 5
+theme_override_constants/margin_right = 5
+theme_override_constants/margin_bottom = 5
+
+[node name="GridContainer" type="GridContainer" parent="CanvasLayer/PanelContainer/MarginContainer"]
+layout_mode = 2
+columns = 2
+
+[node name="ScoreLabel" type="Label" parent="CanvasLayer/PanelContainer/MarginContainer/GridContainer"]
+layout_mode = 2
+theme_override_fonts/font = ExtResource("7_dx28e")
+theme_override_font_sizes/font_size = 12
+text = "Score:"
+
+[node name="Score" type="Label" parent="CanvasLayer/PanelContainer/MarginContainer/GridContainer"]
+layout_mode = 2
+theme_override_fonts/font = ExtResource("7_dx28e")
+theme_override_font_sizes/font_size = 12
+text = "0"
+script = ExtResource("8_7aehj")

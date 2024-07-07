@@ -1,0 +1,6 @@
+[gd_scene load_steps=2 format=3 uid="uid://dk7i28iqbffvv"]
+
+[ext_resource type="Script" path="res://characters/fish/components/score/score_component.gd" id="1_eqtpr"]
+
+[node name="ScoreComponent" type="Node2D"]
+script = ExtResource("1_eqtpr")

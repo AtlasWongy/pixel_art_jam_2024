@@ -1,0 +1,6 @@
+[gd_scene load_steps=2 format=3 uid="uid://cqv04ju2f2154"]
+
+[ext_resource type="Script" path="res://characters/player/trajectory/trajectory.gd" id="1_sg8kh"]
+
+[node name="Trajectory" type="Line2D"]
+script = ExtResource("1_sg8kh")

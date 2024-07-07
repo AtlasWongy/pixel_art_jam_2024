@@ -1,4 +1,5 @@
 extends RigidBody2D
+class_name Bubble
 
 @export_category("Bubble Speed")
 @export var initial_bubble_speed: float = 20
@@ -19,6 +20,7 @@ func fire_bubble():
 
 func checking_exceed_boundary():
 	if (position.x <= -get_viewport_rect().size.x
+		or position.x > get_viewport_rect().size.x
 		or position.y > get_viewport_rect().size.y
 		or position.y < -get_viewport_rect().size.y):
 		queue_free()
