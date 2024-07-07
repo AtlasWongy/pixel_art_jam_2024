@@ -12,17 +12,17 @@ var bubble_load: Resource = preload("res://characters/player/bubble/bubble.tscn"
 var rotation_direction: int = 0
 var can_control: bool = true
 
-func _ready():
+func _ready() -> void:
 	SignalBus.bubble_finished.connect(toggle_control)
 	
-func _process(delta: float):
+func _process(delta: float) -> void:
 	trajectory_line.rotation = -rotation
 	trajectory_line.update_trajectory(global_transform.x, -20.0, delta)
 
-func _physics_process(delta):
+func _physics_process(delta: float) -> void:
 	get_rotation_input(delta)
 	
-func _input(event):
+func _input(event) -> void:
 	if event.is_action_pressed("ui_accept") and can_control:
 		var bubble: RigidBody2D = bubble_load.instantiate()
 		add_child(bubble)
@@ -30,7 +30,7 @@ func _input(event):
 		bubble.fire_bubble()
 		toggle_control()
 
-func get_rotation_input(delta):
+func get_rotation_input(delta: float) -> void:
 	if can_control:
 		rotation_direction = Input.get_axis("left_arrow", "right_arrow")
 		if rotation < lower_limit_rotation:
@@ -43,5 +43,5 @@ func get_rotation_input(delta):
 			rotation += rotation_direction * rotation_speed * delta
 			return
 
-func toggle_control():
+func toggle_control() -> void:
 	can_control = !can_control
