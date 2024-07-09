@@ -32,7 +32,7 @@ func _input(event) -> void:
 
 func get_rotation_input(delta: float) -> void:
 	if can_control:
-		rotation_direction = Input.get_axis("left_arrow", "right_arrow")
+		rotation_direction = Input.get_axis("ui_down", "ui_up")
 		if rotation < lower_limit_rotation:
 			if rotation_direction > 0:
 				rotation += 0.025
