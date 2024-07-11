@@ -1,4 +1,4 @@
-[gd_scene load_steps=10 format=3 uid="uid://b4rh8vlevjfb7"]
+[gd_scene load_steps=11 format=3 uid="uid://b4rh8vlevjfb7"]
 
 [ext_resource type="PackedScene" uid="uid://bnerd7a8qk0x4" path="res://characters/player/player.tscn" id="1_md1k2"]
 [ext_resource type="Script" path="res://characters/fish/spawner/spawner.gd" id="3_7fxmn"]
@@ -8,6 +8,7 @@
 [ext_resource type="FontFile" uid="uid://dff0pjvc1608d" path="res://assets/fonts/VCR_OSD_MONO_1.001.ttf" id="7_dx28e"]
 [ext_resource type="PackedScene" uid="uid://dlx6kikeyripe" path="res://environment/wall.tscn" id="7_ofmqr"]
 [ext_resource type="Script" path="res://ui/score/score.gd" id="8_7aehj"]
+[ext_resource type="Script" path="res://ui/pause_menu/pause_menu.gd" id="9_8b8nv"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_fvd8q"]
 size = Vector2(24.5, 275.5)
@@ -125,3 +126,10 @@ theme_override_fonts/font = ExtResource("7_dx28e")
 theme_override_font_sizes/font_size = 12
 text = "0"
 script = ExtResource("8_7aehj")
+
+[node name="PauseMenuContainer" type="PanelContainer" parent="CanvasLayer"]
+process_mode = 2
+offset_left = 96.0
+offset_top = -218.0
+offset_right = 420.0
+script = ExtResource("9_8b8nv")
