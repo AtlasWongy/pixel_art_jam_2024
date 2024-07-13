@@ -7,18 +7,24 @@ class_name Bubble
 
 var player_rotation: float
 var direction: Vector2
+var infinite_counter: int
 
-func _physics_process(delta):
+func _physics_process(delta: float) -> void:
 	checking_exceed_boundary()
 	var collision: KinematicCollision2D = move_and_collide(linear_velocity * initial_bubble_speed * delta)
 	if collision:
 		linear_velocity = linear_velocity.bounce(collision.get_normal())
+		if infinite_counter == 3:
+			SignalBus.bubble_finished.emit()
+			queue_free()
+		else:
+			infinite_counter += 1
 
-func fire_bubble():
+func fire_bubble() -> void:
 	direction = Vector2(-1, 0).rotated(player_rotation)
 	linear_velocity = direction.normalized() * initial_bubble_speed
 
-func checking_exceed_boundary():
+func checking_exceed_boundary() -> void:
 	if (position.x <= -get_viewport_rect().size.x
 		or position.x > get_viewport_rect().size.x
 		or position.y > get_viewport_rect().size.y
