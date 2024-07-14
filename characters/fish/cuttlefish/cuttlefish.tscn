@@ -1,0 +1,39 @@
+[gd_scene load_steps=5 format=3 uid="uid://bds7tmu0fsy7b"]
+
+[ext_resource type="PackedScene" uid="uid://bfxol0sqdwow1" path="res://characters/fish/fish.tscn" id="1_qpjr1"]
+[ext_resource type="Texture2D" uid="uid://dtivmvq044dug" path="res://characters/fishes/cuttlefish/CuttleFish.png" id="2_ilqk3"]
+[ext_resource type="Script" path="res://characters/fish/cuttlefish/cuttlefish.gd" id="2_lo13c"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_kx1w1"]
+size = Vector2(26, 28)
+
+[node name="Fish" instance=ExtResource("1_qpjr1")]
+script = ExtResource("2_lo13c")
+
+[node name="FishSprite" parent="." index="0"]
+texture = ExtResource("2_ilqk3")
+
+[node name="FishRayCast" parent="." index="1"]
+target_position = Vector2(-150, 0)
+collide_with_areas = true
+collide_with_bodies = false
+
+[node name="Timer" parent="." index="2"]
+wait_time = 5.0
+autostart = true
+
+[node name="HitBoxShape" parent="HitBox" index="0"]
+shape = SubResource("RectangleShape2D_kx1w1")
+
+[node name="MovementComponent" parent="." index="4" node_paths=PackedStringArray("fish", "raycast", "timer")]
+fish = NodePath("..")
+raycast = NodePath("../FishRayCast")
+timer = NodePath("../Timer")
+
+[node name="DeathComponent" parent="." index="5" node_paths=PackedStringArray("fish", "hitbox", "score_component")]
+fish = NodePath("..")
+hitbox = NodePath("../HitBox")
+score_component = NodePath("../ScoreComponent")
+
+[node name="ScoreComponent" parent="." index="6"]
+score = 40

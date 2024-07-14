@@ -1,10 +1,11 @@
-[gd_scene load_steps=11 format=3 uid="uid://b4rh8vlevjfb7"]
+[gd_scene load_steps=12 format=3 uid="uid://b4rh8vlevjfb7"]
 
 [ext_resource type="PackedScene" uid="uid://bnerd7a8qk0x4" path="res://characters/player/player.tscn" id="1_md1k2"]
 [ext_resource type="Script" path="res://characters/fish/spawner/spawner.gd" id="3_7fxmn"]
 [ext_resource type="PackedScene" uid="uid://cn4c0x371tdw3" path="res://characters/fish/tuna/tuna.tscn" id="3_dts8y"]
 [ext_resource type="Texture2D" uid="uid://budiqxaegar4b" path="res://characters/fishes/pearl_01a.png" id="3_uj0vt"]
 [ext_resource type="PackedScene" uid="uid://dwxafq4wyhu0d" path="res://characters/fish/jellyfish/jellyfish.tscn" id="5_g6xba"]
+[ext_resource type="PackedScene" uid="uid://bds7tmu0fsy7b" path="res://characters/fish/cuttlefish/cuttlefish.tscn" id="6_qel48"]
 [ext_resource type="FontFile" uid="uid://dff0pjvc1608d" path="res://assets/fonts/VCR_OSD_MONO_1.001.ttf" id="7_dx28e"]
 [ext_resource type="PackedScene" uid="uid://dlx6kikeyripe" path="res://environment/wall.tscn" id="7_ofmqr"]
 [ext_resource type="Script" path="res://ui/score/score.gd" id="8_7aehj"]
@@ -25,6 +26,7 @@ script = ExtResource("3_7fxmn")
 initial_spawn_points = Array[Vector2]([Vector2(494, 230), Vector2(494, 180), Vector2(494, 130), Vector2(494, 80), Vector2(494, 30), Vector2(494, 280)])
 tuna = ExtResource("3_dts8y")
 jellyfish = ExtResource("5_g6xba")
+cuttlefish = ExtResource("6_qel48")
 
 [node name="SpawnPointA" type="Node2D" parent="Spawner"]
 visible = false

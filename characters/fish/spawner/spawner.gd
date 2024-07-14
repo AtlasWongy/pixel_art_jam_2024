@@ -6,6 +6,7 @@ extends Node2D
 @export_category("Fishes")
 @export var tuna: PackedScene
 @export var jellyfish: PackedScene
+@export var cuttlefish: PackedScene
 
 @onready var spawn_area: Area2D = $SpawnArea
 @onready var destroy_area: Area2D = $DestroyArea
@@ -22,10 +23,11 @@ func _ready() -> void:
 func init_enemy_dictionary() -> void:
 	enemy_dictionary[1] = tuna
 	enemy_dictionary[2] = jellyfish
+	enemy_dictionary[3] = cuttlefish
 
 func spawn_fishes() -> void:
 	for spawn_point in initial_spawn_points:
-		var idx: int = randi() % 3
+		var idx: int = randi() % 4
 		if idx != 0:
 			var fish_scene: PackedScene = enemy_dictionary[idx]
 			if fish_scene.can_instantiate():

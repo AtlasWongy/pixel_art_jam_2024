@@ -14,6 +14,7 @@ var can_control: bool = true
 
 func _ready() -> void:
 	SignalBus.bubble_finished.connect(toggle_control)
+	SignalBus.on_cuttlefish_death.connect(turn_off_trajectory_line)
 	
 func _process(delta: float) -> void:
 	trajectory_line.rotation = -rotation
@@ -45,3 +46,14 @@ func get_rotation_input(delta: float) -> void:
 
 func toggle_control() -> void:
 	can_control = !can_control
+
+func turn_off_trajectory_line() -> void:
+	if trajectory_line.visible:
+		trajectory_line.visible = false
+		var trajectory_cooldown: Timer = Timer.new()
+		add_child(trajectory_cooldown)
+		trajectory_cooldown.wait_time = 3.0
+		trajectory_cooldown.start()
+		await trajectory_cooldown.timeout
+		trajectory_cooldown.queue_free()
+		trajectory_line.visible = true
