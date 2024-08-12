@@ -1,7 +1,7 @@
 extends Node
 
 enum GameState {IDLE, RUNNING, ENDED, PAUSED}
-
+var current_game_state: GameState
 var game_state
 var game_score = 0
 var high_score
@@ -56,6 +56,3 @@ func update_high_score():
 		high_score = game_score
 		FileManager.save_game()
 	SignalBus.update_highscore.emit(high_score)
-
-func _process(_delta):
-	pass

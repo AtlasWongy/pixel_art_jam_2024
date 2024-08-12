@@ -22,6 +22,11 @@ signal game_paused(paused_flag:bool)
 signal toggle_pause_menu_visibility(show:bool)
 
 signal enemy_won(game_over_flag:bool)
+signal set_points()
+signal set_game_to_start(points: int)
+signal set_game_to_end()
+signal set_player_health(_health: int)
+
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
