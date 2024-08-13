@@ -1,4 +1,4 @@
-[gd_resource type="Resource" script_class="SaveInfo" load_steps=2 format=3]
+[gd_resource type="Resource" script_class="SaveInfo" load_steps=2 format=3 uid="uid://db585s28et0ps"]
 
 [ext_resource type="Script" path="res://singletons/save_info.gd" id="1_r2vsc"]
 

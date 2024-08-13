@@ -1,3 +1,8 @@
-[gd_scene format=3 uid="uid://ct8un6de7xuvh"]
+[gd_scene load_steps=2 format=3 uid="uid://ct8un6de7xuvh"]
+
+[ext_resource type="PackedScene" uid="uid://bsh6qskek32np" path="res://test/ui_test/test_ui.tscn" id="1_niqte"]
 
 [node name="TestMain" type="Node2D"]
+process_mode = 1
+
+[node name="TestUi" parent="." instance=ExtResource("1_niqte")]

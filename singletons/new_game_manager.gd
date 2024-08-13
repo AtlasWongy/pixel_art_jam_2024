@@ -8,7 +8,10 @@ var player: Player
 var current_points: int
 var save_path = "res://save/save_data.tres"
 
+var game_is_paused: bool = false
+
 func _ready():
+	process_mode = Node.PROCESS_MODE_ALWAYS
 	SignalBus.set_points.connect(_on_set_points)
 	SignalBus.set_game_to_end.connect(_on_set_game_end)
 	
@@ -16,6 +19,16 @@ func _ready():
 	var root = get_tree().root
 	current_scene = root.get_child(root.get_child_count() - 1)
 	
+func _input(event):
+	if event.is_action_pressed("pause") and !game_is_paused:
+		print("Pausing game.....")
+		game_is_paused = true
+		get_tree().paused = true
+	elif event.is_action_pressed("pause") and game_is_paused:
+		print("Unpausing game.....")
+		game_is_paused = false
+		get_tree().paused = false
+		
 func _on_set_points():
 	current_points += 1
 	print("The current points is: ", current_points)
@@ -31,7 +44,8 @@ func load_save_data():
 	player = player_scene.instantiate()
 	current_points = res.points
 	player.health = res.health
-	add_child(player)
+	print(get_tree().root.get_children())
+	get_tree().root.get_child(2).add_child(player)
 	
 func _on_set_game_end():
 	save_data()
