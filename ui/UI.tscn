@@ -149,11 +149,17 @@ text = "Exit Game"
 [node name="FishListControl" type="Control" parent="."]
 process_mode = 3
 layout_mode = 3
-anchors_preset = 0
-offset_left = 208.0
-offset_top = 61.0
-offset_right = 443.0
-offset_bottom = 318.0
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -117.5
+offset_top = -128.5
+offset_right = 117.5
+offset_bottom = 128.5
+grow_horizontal = 2
+grow_vertical = 2
 theme = ExtResource("6_wrwfe")
 script = ExtResource("7_7rayy")
 
